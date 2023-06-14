@@ -118,12 +118,14 @@ def getReq(w5,cc,timefr,mult):
                 print('Another failure:', e2, file=sys.stderr)
                 # sys.exit(e2)
 
-def run(date, wordsList, countryCode, wait, outputDirectory):
+def run(date, wordsList, countryCode, wait, outputDirectory, rangeOfDates):
     #Put date in query format
-    dt = [date.strftime('%Y-%m-%d ') + (date+datetime.timedelta(days=1)).strftime('%Y-%m-%d'),
-        (date+datetime.timedelta(days=-1)).strftime('%Y-%m-%d ') + (date+datetime.timedelta(days=1)).strftime('%Y-%m-%d')]
+    #dt = [date.strftime('%Y-%m-%d ') + (date+datetime.timedelta(days=1)).strftime('%Y-%m-%d'),
+    #    (date+datetime.timedelta(days=-1)).strftime('%Y-%m-%d ') + (date+datetime.timedelta(days=1)).strftime('%Y-%m-%d')]
 
-    for i in [0,1]:
+    dt = [date.strftime('%Y-%m-%d ') + (date+datetime.timedelta(days=1)).strftime('%Y-%m-%d')]
+    #for i in [0,1]:
+    for i in [0]:
         #Get data for first five words
         frame = getReq(wordsList[0], countryCode, dt[i], wait)
 
@@ -170,18 +172,29 @@ def run(date, wordsList, countryCode, wait, outputDirectory):
         #Make all values in frame decimals so we know the max (0 < x < 1)
         frame[words] = frame[words].divide(frame[words].max(axis='columns').replace([0],1),axis='index')
 
-        #Write to <output file><date>-to-<date + 1 day>.csv
-        try:
-            filename = "{}_{}_{}_adjusted.csv".format(args.topic, countryCode, dt[i].replace(' ','-to-'))
-            f = open(outputDirectory+filename, 'w+')
-            getattr(frame,'to_csv')(f)
-            f.close()
-            filename = "{}_{}_{}_raw.csv".format(args.topic, countryCode, dt[i].replace(' ','-to-'))
-            bF = open(outputDirectory+filename, 'w+')
-            getattr(backup,'to_csv')(bF)
-            bF.close()
-        except IOError:
-            sys.exit('Invalid output file or no space to write to output file')
+        #print(frame)
+        #print(frame.iloc[1])
+        #exit()
+
+        if not rangeOfDates:
+            #Write to <output file><date>-to-<date + 1 day>.csv
+            try:
+                filename = "{}_{}_{}_adjusted.csv".format(args.topic, countryCode, dt[i].replace(' ','-to-'))
+                f = open(outputDirectory+filename, 'w+')
+                getattr(frame,'to_csv')(f)
+                f.close()
+
+                '''
+                filename = "{}_{}_{}_raw.csv".format(args.topic, countryCode, dt[i].replace(' ','-to-'))
+                bF = open(outputDirectory+filename, 'w+')
+                getattr(backup,'to_csv')(bF)
+                bF.close()
+                '''
+
+            except IOError:
+                sys.exit('Invalid output file or no space to write to output file')
+        else:
+            return frame
 
         #Print so that you know how much data has been collected
         print(dt[i].replace(' ','-to-') + ' data collection successful')
@@ -196,6 +209,10 @@ def main():
     parser.add_argument("--output", required=True, help="output directory")
     parser.add_argument("--date", help="date for the data to run on, format YYYY-MM-DD")
     parser.add_argument("--lynchWord", help="optional lynchWord")
+
+    parser.add_argument("--startDate", help="start date of time range for the data to run on, format YYYY-MM-DD")
+    parser.add_argument("--endDate", help="start date of time range for the data to run on, format YYYY-MM-DD")
+
     global args
     args = parser.parse_args()
 
@@ -203,9 +220,41 @@ def main():
 
     if args.date:
         date = datetime.datetime.strptime(args.date, '%Y-%m-%d').date()
+        if args.startDate and args.endDate:
+            print("Start and end date not used.")
+    elif args.startDate and args.endDate:
+        date = [datetime.datetime.strptime(args.startDate, '%Y-%m-%d').date(),
+                datetime.datetime.strptime(args.endDate, '%Y-%m-%d').date()]
     else:
         date  = datetime.date.today()
-    run(date-datetime.timedelta(days=1), wordsList, args.lang, int(args.wait), args.output)
+    
+    if type(date) == list:
+
+        outputDF = pd.DataFrame()
+
+        diff = date[1] - date[0]
+
+        for i in range(0,(diff.days)):
+            Date = (date[0]+datetime.timedelta(days=i))
+            frame = run(Date, wordsList, args.lang, int(args.wait), args.output, rangeOfDates = True)
+            frame["Date"] = Date
+
+            if len(outputDF) == 0:
+                outputDF = frame
+            else:
+                outputDF = pd.concat([outputDF, frame])
+            
+        try:
+                dateStr = date[0].strftime('%Y-%m-%d ') + date[1].strftime('%Y-%m-%d')
+                filename = "{}_{}_{}_adjusted.csv".format(args.topic, args.lang, dateStr.replace(' ','-to-'))
+                f = open(args.output + filename, 'w+')
+                getattr(outputDF,'to_csv')(f)
+                f.close()
+        except IOError:
+            sys.exit('Invalid output file or no space to write to output file')
+
+    else:
+        run(date-datetime.timedelta(days=1), wordsList, args.lang, int(args.wait), args.output,rangeOfDates=False)
 
 if __name__ == "__main__":
     main()

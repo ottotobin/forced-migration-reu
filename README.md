@@ -1,4 +1,4 @@
-# fm-google-trends (ARABIC)
+# fm-google-trends
 
 gtrAPI_v3.py - this file collects Google Trends data
 
