@@ -84,7 +84,11 @@ def getReq(w5,cc,mult):
         time.sleep(0.2*mult)
         #Return response
         df = pytrends.interest_over_time().reset_index()
-        return df.drop('isPartial', axis = 1)
+        
+        if "isPartial" in df.columns:
+            return df.drop('isPartial', axis = 1)
+        else:
+            return df
 
     try:
         return get()
@@ -116,6 +120,10 @@ def run(wordsList, countryCode, wait, outputDirectory, pivotalWord, topic):
 
         #Get reqs
         data = getReq(fiveW, countryCode, wait)
+
+        if len(data) == 0:
+            data = pd.DataFrame(0, index=np.arange(len(backup)), columns=fiveW)
+            data["date"] = backup["date"]
 
         #Add data to backup frame
         backup = pd.merge(backup, data, how='outer', on='date', suffixes=("",str(backIter)))
