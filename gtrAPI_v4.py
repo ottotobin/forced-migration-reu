@@ -134,9 +134,9 @@ def run(wordsList, countryCode, wait, outputDirectory, pivotalWord, topic):
         #Write to <output file><date>-to-<date + 1 day>.csv
         try:
             filename = "{}_{}_{}_adjusted.csv".format(topic, countryCode, TIME_FRAME.replace(' ','-to-'))
-            frame.to_csv(filename, index = False)
+            frame.to_csv(outputDirectory+filename, index = False)
             filename = "{}_{}_{}_raw.csv".format(topic, countryCode, TIME_FRAME.replace(' ','-to-'))
-            backup.to_csv(filename, index = False)
+            backup.to_csv(outputDirectory+filename, index = False)
         except IOError:
             sys.exit('Invalid output file or no space to write to output file')
 
