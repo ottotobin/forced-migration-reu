@@ -23,7 +23,7 @@ wait: multiplier for wait times. Try increasing this if you keep getting error 4
     less crowded network. If they are regular, Google is just angry at you and all you can do is wait.
 
 USAGE:
-python gtrAPI_v3.py 
+python gtrAPI_Daily.py 
     --topic economics 
     --wordsfile /home/airflow/dags/googleTrends/parameter/words_general /home/airflow/dags/googleTrends/parameter/words_economics 
     --wait 2
@@ -118,6 +118,7 @@ def getReq(w5,cc,timefr,mult):
                 print('Another failure:', e2, file=sys.stderr)
                 # sys.exit(e2)
 
+# runs an API request with the given inputs, and creates a csv file for the data
 def run(date, wordsList, countryCode, wait, outputDirectory):
     #Put date in query format
     dt = [date.strftime('%Y-%m-%d ') + (date+datetime.timedelta(days=1)).strftime('%Y-%m-%d'),

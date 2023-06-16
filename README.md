@@ -1,5 +1,6 @@
 # fm-google-trends
+gtrAPI_Daily.py - API request code that works with a Daily granularity. Only added clarifying comments
 
-gtrAPI_v3.py - this file collects Google Trends data
-
-words_economics - this file contains Ukrainian words related to the economy
+gtrAPI_Range.py - API request code that works over a five year period at a monthly granularity. Main changes from Daily to Range are:
+- fixing 'isParitial' return issues from how getRequest worked
+- added a columed to the data frame populate with Iraq
