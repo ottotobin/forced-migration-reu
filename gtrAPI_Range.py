@@ -156,7 +156,8 @@ def run(wordsList, countryCode, wait, outputDirectory, pivotalWord, topic):
 
         #Add column with country ISO
         frame["ISO"] = countryCode
-        firstCols = ["date", "ISO"]
+        frame["topic"] = topic
+        firstCols = ["date", "ISO", "topic"]
         frame = frame[firstCols+[ elem for elem in frame.columns if elem not in firstCols]]
 
         #Write to <output file><date>-to-<date + 1 day>.csv

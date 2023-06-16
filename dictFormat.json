@@ -1,0 +1,35 @@
+{
+    "topics":{
+        "<topic1>":{
+            "needsAppending":["going to", "fleeing from"],
+            "doesntNeedAppending":["refugee"]
+        },
+        "<topic2>":{
+            "needsAppending":[],
+            "doesntNeedAppending":[]
+        },
+        "<topic3>":{
+            "needsAppending":[],
+            "doesntNeedAppending":[]
+        },
+        "<topic4>":{
+            "needsAppending":[],
+            "doesntNeedAppending":[]
+        }
+    },
+    "countries":{
+        "<iso1>":{
+            "2-char ISO":"UA",
+            "3-char ISO":"UKR",
+            "neighboring country ISO's":["","",""],
+            "country name translation in langauge / thing to be appended":"*Ukraine in Ukranian*"
+        },
+        "<iso2>":{
+            "2-char ISO":"",
+            "3-char ISO":"",
+            "neighboring country ISO's":["","",""],
+            "country name translation in langauge / thing to be appended":""
+        },
+        "...":{}
+    }
+}
