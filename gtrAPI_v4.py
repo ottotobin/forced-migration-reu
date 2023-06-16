@@ -139,6 +139,11 @@ def run(wordsList, countryCode, wait, outputDirectory, pivotalWord, topic):
         #Merge new data and old data
         frame = pd.merge(frame, data.drop(columns=fiveW[0]), how='outer', on='date')
 
+        #Add column with country ISO
+        frame["ISO"] = countryCode
+        firstCols = ["date", "ISO"]
+        frame = frame[firstCols+[ elem for elem in frame.columns if elem not in firstCols]]
+
         #Write to <output file><date>-to-<date + 1 day>.csv
         try:
             filename = "{}_{}_{}_adjusted.csv".format(topic, countryCode, TIME_FRAME.replace(' ','-to-'))
