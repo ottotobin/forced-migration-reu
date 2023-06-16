@@ -1,8 +1,18 @@
 
 """
-Author: Grey, Yiqing,  Helge Marahrens, Nathan Wycoff
+Author: Grey, Yiqing, Helge Marahrens, Nathan Wycoff, Lina Laghzaoui, Grace Magny-Fokam, Toby Otto, Rich Pihlstrom
 
-Last Update: 14 June 2023
+Last Update: 16 June 2023
+    Ran into an issue with the read_csv pandas function not handling arabic script. 
+    As a solution, I just copied the wordslist function from the previous version to 
+    make it more manual and allow for arabic script. Should work with other texts.
+    New code didn't allow for the redirection of output files to a directory so I 
+    just added that in as well. 
+    -Rich
+
+Necessary Packages:
+    You will need to install pytrends in order to use the API in this code:
+        pip3 install pytrends
 
 Important Note:
   Including a pivotalWord in parameters is discouraged, because the dynamically selected pivotalWords that the program uses are almost certainly
@@ -23,11 +33,7 @@ wait: multiplier for wait times. Try increasing this if you keep getting error 4
     less crowded network. If they are regular, Google is just angry at you and all you can do is wait.
 
 USAGE:
-python gtrAPI_v3.py 
-    --topic economics 
-    --wordsfile /home/airflow/dags/googleTrends/parameter/words_general /home/airflow/dags/googleTrends/parameter/words_economics 
-    --wait 2
-    --output /home/airflow/dags/googleTrends/result/
+    python3 gtrAPI_Range.py --topic MeansofTravel --wordsfile words_MeansOfTravel --wait 20 --output results/ --iso IQ
 
 """
 
@@ -42,6 +48,9 @@ import time
 from pytrends.request import TrendReq
 import numpy as np
 
+#Function to read in the list of search terms from the wordsfile
+#Cannot use pandas read_csv function as it does not work
+#with non-ASCII Arabic script
 def get_wordslist(wordsfile):
     words = []
 
@@ -84,7 +93,8 @@ def getReq(w5,cc,mult):
         time.sleep(0.2*mult)
         #Return response
         df = pytrends.interest_over_time().reset_index()
-        
+        #If all 5 words do not have enough data, df will be empty
+        #dataframe, so we need to check if the column exists
         if "isPartial" in df.columns:
             return df.drop('isPartial', axis = 1)
         else:
@@ -105,6 +115,7 @@ def getReq(w5,cc,mult):
             except Exception as e2:
                 print('Another failure:', e2, file=sys.stderr)
 
+#Function to run and output the API for specified country code
 def run(wordsList, countryCode, wait, outputDirectory, pivotalWord, topic):
     #Get data for first five words
     frame = getReq(wordsList[0], countryCode, wait)
@@ -121,6 +132,10 @@ def run(wordsList, countryCode, wait, outputDirectory, pivotalWord, topic):
         #Get reqs
         data = getReq(fiveW, countryCode, wait)
 
+        #If all 5 words do not return data, then the "data" dataframe will
+        #be empty. This prevents the data from being merged below. Given that
+        #all of the words have no data, we can just merge zero-columns for
+        #each word. We create that zero-dataframe here.
         if len(data) == 0:
             data = pd.DataFrame(0, index=np.arange(len(backup)), columns=fiveW)
             data["date"] = backup["date"]
