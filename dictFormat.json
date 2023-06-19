@@ -1,20 +1,24 @@
 {
     "topics":{
         "<topic1>":{
-            "needsAppending":["going to", "fleeing from"],
+            "appendDestination":["going to"],
+            "appendOrigin":["fleeing from"],
             "doesntNeedAppending":["refugee"]
         },
         "<topic2>":{
-            "needsAppending":[],
-            "doesntNeedAppending":[]
+            "appendDestination":[],
+            "appendOrigin":["fleeing from"],
+            "doesntNeedAppending":["refugee"]
         },
         "<topic3>":{
-            "needsAppending":[],
-            "doesntNeedAppending":[]
+            "appendDestination":["going to"],
+            "appendOrigin":["fleeing from"],
+            "doesntNeedAppending":["refugee"]
         },
         "<topic4>":{
-            "needsAppending":[],
-            "doesntNeedAppending":[]
+            "appendDestination":["going to"],
+            "appendOrigin":["fleeing from"],
+            "doesntNeedAppending":["refugee"]
         }
     },
     "countries":{
