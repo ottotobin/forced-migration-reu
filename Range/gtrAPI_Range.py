@@ -251,12 +251,12 @@ def getArgsList(jsonName):
 
                     for originPhrase in jsonObj["topics"][topic]["origin"]:
                         originTranslation = jsonObj["countries"][originISO]["translation"]
-                        keywordList.append((originPhrase + originTranslation)[::-1])
+                        keywordList.append(originPhrase + originTranslation)
 
                     for destinationPhrase in jsonObj["topics"][topic]["destination"]:
                         for neighborISO in jsonObj["countries"][originISO]["neighbor ISO"]:
                             destinationTranslation = jsonObj["countries"][neighborISO]["translation"]
-                            keywordList.append((destinationPhrase + destinationTranslation)[::-1])
+                            keywordList.append(destinationPhrase + destinationTranslation)
 
                     keywordList = get_wordslist(keywordList)
 
