@@ -1,23 +1,23 @@
 Country,Neighboring Countries
-Syria,Israel| Lebanon| Jordan| Iraq| Turkey
-Saudi Arabia,Jordan| United Arab Emirates| Qatar| Kuwait| Iraq| Oman| Yemen
-Morocco,W. Sahara| Algeria
-Yemen,Oman| Saudi Arabia
-Kuwait,Iraq| Saudi Arabia
-Iran,Iraq| Pakistan| Afghanistan| Turkmenistan| Armenia| Turkey| Azerbaijan
-Bahrain,Saudi Arabia| Qatar
-Sudan,Chad| Central African Republic| Eritrea| Egypt| Libya| Ethiopia| South Sudan
-Algeria,W. Sahara| Mali| Mauritania| Niger| Tunisia| Morocco| Libya
-Chad,Sudan| Niger| Cameroon| Central African Republic| Libya
-Djibouti,Eritrea| Ethiopia| Somaliland
-Iraq,Jordan| Kuwait| Islamic Republic of Iran| Syria| Turkey| Saudi Arabia
-Egypt,Sudan| Israel| Libya
-Eritrea,Sudan| Ethiopia| Djibouti
-Israel,Lebanon| Palestine| Jordan| Syria| Egypt
-Jordan,Israel| Palestine| Iraq| Syria| Saudi Arabia
-Lebanon,Israel| Syria
-Libya,Sudan| Chad| Niger| Tunisia| Algeria| Egypt
-Mauritania,W. Sahara| Senegal| Mali| Algeria
-Oman,United Arab Emirates| Yemen| Saudi Arabia
+Syria,Israel|Lebanon|Jordan|Iraq|Turkey
+SaudiArabia,Jordan|United Arab Emirates|Qatar|Kuwait|Iraq|Oman|Yemen
+Morocco,W. Sahara|Algeria
+Yemen,Oman|Saudi Arabia
+Kuwait,Iraq|Saudi Arabia
+Iran,Iraq|Pakistan|Afghanistan|Turkmenistan|Armenia|Turkey|Azerbaijan
+Bahrain,Saudi Arabia|Qatar
+Sudan,Chad|Central African Republic|Eritrea|Egypt|Libya|Ethiopia|South Sudan
+Algeria,W. Sahara|Mali|Mauritania|Niger|Tunisia|Morocco|Libya
+Chad,Sudan|Niger|Cameroon|Central African Republic|Libya
+Djibouti,Eritrea|Ethiopia|Somaliland
+Iraq,Jordan|Kuwait|Islamic Republic of Iran|Syria|Turkey|Saudi Arabia
+Egypt,Sudan|Israel|Libya
+Eritrea,Sudan|Ethiopia|Djibouti
+Israel,Lebanon|Palestine|Jordan|Syria|Egypt
+Jordan,Israel|Palestine|Iraq|Syria|Saudi Arabia
+Lebanon,Israel|Syria
+Libya,Sudan|Chad|Niger|Tunisia|Algeria|Egypt
+Mauritania,W. Sahara|Senegal|Mali|Algeria
+Oman,United Arab Emirates|Yemen|Saudi Arabia
 Qatar,Saudi Arabia
-Somalia,Kenya| Ethiopia| Somaliland
+Somalia,Kenya|Ethiopia|Somaliland

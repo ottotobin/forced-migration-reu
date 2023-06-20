@@ -48,6 +48,7 @@ import time
 from pytrends.request import TrendReq
 import numpy as np
 import json
+import csv
 import os
 
 #Function to read in the list of search terms from the wordsfile
@@ -177,85 +178,81 @@ def run(wordsList, countryCode, wait, outputDirectory, pivotalWord, topic):
 # retrieves all input data and basefile data and creates a dictionary with all
 # info needed to iteratively run code for data on an entire langauge
 def csvToDict():
-    dict = []
+    dict = {}
 
     # opening keyword files
-    generic = open("fm-trends-google/generic_terms", "r")
-    geography = open("fm-trends-google/geography", "r")
-    places = open("fm-trends-google/safe_places", "r")
-    travel = open("fm-trends-google/travel", "r")
+    generic = open("keywords/generic_terms", "r")
+    geography = open("keywords/geography", "r")
+    places = open("keywords/safe_places", "r")
+    travel = open("keywords/travel", "r")
 
-    catergories = [generic, geography, places, travel]
+    categories = [generic, geography, places, travel]
 
     # opening basefiles
-    iso_codes = open("fm-trends-google/basefiles/ISO.csv", "r")
-    neighbors = open("fm-trends-google/basefiles/neighboringCountries.csv", "r")
-    translations = open("fm-trends-google/basefiles/translation.csv")
+    
+    neighbors = open("basefiles/neighboringCountries.csv", "r")
+    translations = open("basefiles/translation.csv")
 
     # helper func that checks if a phrase needs a destination
     # or a origin appended to it
     def checkPlaceType(phrase):
-        appends = open("fm-trends-google/basefiles/appendPhrases.csv", "r")
-        placeType = []
-
-        for line in appends.readlines()[1:]:
-            placeType[line.split(",")[0]] = line.split(",")[1]
-        
-        if phrase in placeType:
-            appends.close()
-            return placeType[phrase]
-        
-        appends.close()
-        return ""
+        with open("basefiles/appendPhrases.csv", "r") as appends:
+            for line in csv.reader(appends):
+                if line[0] == phrase:
+                    return line[1]
+            return "none"
 
     # arranges the 'topics' subdictionary
-    dict["topics"] = []
+    dict["topics"] = {}
 
-    for topic in catergories:
+    for topic in categories:
+        tpc = topic.name[9:]
+        dict["topics"][tpc] = {
+            "destination":[],
+            "origin":[],
+            "none":[]
+        }
         for line in topic.readlines():
-            if checkPlaceType(line) == "destination":
-                dict["topics"][str(topic)]["appendDest"] += [line]
-            elif checkPlaceType(line) == "origin":
-                dict["topics"][str(topic)]["appendOrig"] += [line]
-            else:
-                dict["topics"][str(topic)]["noAppend"] += [line]
+            l=line.strip()
+            if l not in dict["topics"][tpc][checkPlaceType(l)]:
+                dict["topics"][tpc][checkPlaceType(l)] += [l]
         topic.close()
 
     # helper func that returns the 2-char and 3-char ISO codes
     # for a given country name    
     def checkISO(name):
-        iso_codes = open("fm-trends-google/basefiles/ISO.csv", "r")
-        
-        for line in iso_codes.readlines()[1:]:
-            if line.split(",")[0] == name:
-                return line.split(",")[1:]
-        
-        iso_codes.close()
-
+        with open("basefiles/ISO.csv", "r") as iso_codes:
+            for line in csv.reader(iso_codes):
+                if line[0] == name:
+                    return [line[1],line[2]]
+        return []
+            
     # arranges the "countries" subdictionary
-    dict["countries"] = []
+    dict["countries"] = {}
 
     for line in translations.readlines()[1:]:
         name = line.split(",")[0]
+        ISO_3 = checkISO(name)[1]
+        dict["countries"][ISO_3]={}
+        dict["countries"][ISO_3]["name"] = name
+        dict["countries"][ISO_3]["2-char ISO"] = checkISO(name)[0]
 
-        dict["countries"][name]["2-char ISO"] = checkISO(name)[:1]
-        dict["countries"][name]["3-char ISO"] = checkISO(name)[1:]
-
-        for lne in neighbors.readlines()[1:]:
-            if lne.split(",")[0] == name:
-                neighbor_countries = lne.split(",")[1].split("|")
+        neighbor_reader=csv.reader(neighbors)
+        for lne in neighbor_reader:
+            if lne[0] == name:
+                neighbor_countries = lne[1].split("|")
+                dict["countries"][ISO_3]["neighbor ISO"]=[]
                 for neighbor in neighbor_countries:
-                    dict["countries"][name]["neighbor ISO"] += checkISO(neighbor)[1:]
-        neighbors.close()
+                    if len(checkISO(neighbor)) > 0:
+                        dict["countries"][ISO_3]["neighbor ISO"].append(checkISO(neighbor)[1])
+        neighbors.seek(0)
 
         translated_name = line.split(",")[1]
-        dict["countries"][name]["translation"] = translated_name
-        translations.close()
+        dict["countries"][ISO_3]["translation"] = translated_name.strip()
+    translations.close()
+    neighbors.close()
 
     return dict
-                     
-
-
 
 def main():
 
@@ -270,6 +267,9 @@ def main():
     args = parser.parse_args()
 
     wordsList = get_wordslist(args.wordsfile)
+    with open("dict.json", "w+") as o:
+        json.dump(csvToDict(), o, indent=2, ensure_ascii=False)
+    exit()
 
     run(wordsList, args.iso, int(args.wait), args.output, args.pivotalWord, args.topic)
 
