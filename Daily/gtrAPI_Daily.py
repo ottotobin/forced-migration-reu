@@ -30,7 +30,7 @@ python gtrAPI_Daily.py
     --output /home/airflow/dags/googleTrends/result/
 
 """
-
+import os 
 import sys
 import warnings
 import argparse
@@ -190,8 +190,8 @@ def run(date, wordsList, countryCode, wait, outputDirectory):
 def main():
     parser = argparse.ArgumentParser(description="Google Trend Data")
     parser.add_argument("--topic", required=True, help="topic")
-    parser.add_argument("--wordsfile", required=True, nargs="+",
-                        help="wordsFile directory: /googleTrends/parameterFile/words_economics")
+    parser.add_argument("--worddir", required=True, nargs="+",
+                        help="wordsFile directory: fm-google-trends/Daily")
     parser.add_argument("--lang", required=True)
     parser.add_argument("--wait", required=True, help="multiplier for wait times")
     parser.add_argument("--output", required=True, help="output directory")
@@ -200,13 +200,20 @@ def main():
     global args
     args = parser.parse_args()
 
-    wordsList = get_wordslist(args.wordsfile)
+    dir = os.fsencode(str(args.worddir))
 
-    if args.date:
-        date = datetime.datetime.strptime(args.date, '%Y-%m-%d').date()
-    else:
-        date  = datetime.date.today()
-    run(date-datetime.timedelta(days=1), wordsList, args.lang, int(args.wait), args.output)
+    for file in os.listdir(dir):
+        fn = os.fsdecode(file)
+        if fn.endswith(".txt"):    
+            wordsList = get_wordslist(file)
+
+            if args.date:
+                date = datetime.datetime.strptime(args.date, '%Y-%m-%d').date()
+            else:
+                date  = datetime.date.today()
+
+            run(date-datetime.timedelta(days=1), wordsList, args.lang, int(args.wait), args.output)
+    
 
 if __name__ == "__main__":
     main()
