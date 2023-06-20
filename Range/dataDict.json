@@ -355,6 +355,25 @@
       "name": "Comoros",
       "2-char ISO": "KM",
       "translation": "جزر القمر"
+    },
+    "SDN": {
+      "name": "Sudan",
+      "2-char ISO": "SD",
+      "neighbor ISO": [
+        "TCD",
+        "CAF",
+        "ERI",
+        "EGY",
+        "LBY",
+        "ETH",
+        "SSD"
+      ],
+      "translation": "السودان"
+    },
+    "CMR": {
+      "name": "Cameroon",
+      "2-char ISO": "CM",
+      "translation": "الكاميرون"
     }
   }
 }

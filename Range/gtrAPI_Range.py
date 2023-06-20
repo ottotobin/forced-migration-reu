@@ -54,18 +54,7 @@ import os
 #Function to read in the list of search terms from the wordsfile
 #Cannot use pandas read_csv function as it does not work
 #with non-ASCII Arabic script
-def get_wordslist(wordsfile):
-    words = []
-
-    try:
-        for file in wordsfile:
-            infile = open(file, 'r')
-            for line in infile:
-                if line.strip() != '':
-                    words.append(line.strip())
-    except IOError:
-        sys.exit('Invalid wordsFile or no space')
-    infile.close()
+def get_wordslist(words):
 
     #Delete duplicates
     words = sorted(set(words), key=lambda x: words.index(x))
@@ -77,7 +66,7 @@ def get_wordslist(wordsfile):
 
     if len(wordsList[-1]) == 1:
         wordsList = wordsList[:-1]
-
+    
     return wordsList
 
 #Function to request and return the response.
@@ -119,7 +108,7 @@ def getReq(w5,cc,mult):
                 print('Another failure:', e2, file=sys.stderr)
 
 #Function to run and output the API for specified country code
-def run(wordsList, countryCode, wait, outputDirectory, pivotalWord, topic):
+def run(wordsList, countryCode, wait, outputDirectory, topic):
     #Get data for first five words
     frame = getReq(wordsList[0], countryCode, wait)
 
@@ -128,8 +117,6 @@ def run(wordsList, countryCode, wait, outputDirectory, pivotalWord, topic):
     backIter = 0
     for fiveW in wordsList[1:]:
         #Dynamically select pivotalword based on most average value.
-        if pivotalWord is None:
-            fiveW[0] = np.sum(np.square(frame[wordsList[backIter]] - np.mean(np.mean(frame[wordsList[backIter]], axis=0)))).idxmin()
         backIter+=1
 
         #Get reqs
@@ -177,19 +164,14 @@ def run(wordsList, countryCode, wait, outputDirectory, pivotalWord, topic):
 
 # retrieves all input data and basefile data and creates a dictionary with all
 # info needed to iteratively run code for data on an entire langauge
-def csvToDict():
+def csvToJson(directory):
     dict = {}
 
-    # opening keyword files
-    generic = open("keywords/generic_terms", "r")
-    geography = open("keywords/geography", "r")
-    places = open("keywords/safe_places", "r")
-    travel = open("keywords/travel", "r")
-
-    categories = [generic, geography, places, travel]
-
     # opening basefiles
-    
+    categories=[]
+    for filename in os.listdir(directory):
+        categories.append(open(os.path.join(directory, filename), "r"))
+
     neighbors = open("basefiles/neighboringCountries.csv", "r")
     translations = open("basefiles/translation.csv")
 
@@ -254,24 +236,57 @@ def csvToDict():
 
     return dict
 
+def getArgsList(jsonName):
+    retList = []
+
+    with open(jsonName, "r") as f:
+
+        jsonObj = json.load(f)
+
+        for originISO in jsonObj["countries"]:
+            if "neighbor ISO" in jsonObj["countries"][originISO]:
+
+                for topic in jsonObj["topics"]:
+                    keywordList=jsonObj["topics"][topic]["none"]
+
+                    for originPhrase in jsonObj["topics"][topic]["origin"]:
+                        originTranslation = jsonObj["countries"][originISO]["translation"]
+                        keywordList.append((originPhrase + originTranslation)[::-1])
+
+                    for destinationPhrase in jsonObj["topics"][topic]["destination"]:
+                        for neighborISO in jsonObj["countries"][originISO]["neighbor ISO"]:
+                            destinationTranslation = jsonObj["countries"][neighborISO]["translation"]
+                            keywordList.append((destinationPhrase + destinationTranslation)[::-1])
+
+                    keywordList = get_wordslist(keywordList)
+
+                    argsDict = {
+                        "wordList":keywordList,
+                        "ISO":jsonObj["countries"][originISO]["2-char ISO"],
+                        "topic":topic
+                    }
+
+                    retList.append(argsDict)
+    
+    return retList
+                    
 def main():
 
     parser = argparse.ArgumentParser(description="Google Trend Data")
-    parser.add_argument("--topic", required=True, help="topic")
-    parser.add_argument("--wordsfile", required=True, nargs="+",
-                        help="wordsFile directory: /googleTrends/parameterFile/words_economics")
-    parser.add_argument("--iso", required=True)
+    parser.add_argument("--wordsDir", required=True, nargs="+",
+                        help="wordsDir directory: keywords/")
     parser.add_argument("--wait", required=True, help="multiplier for wait times")
     parser.add_argument("--output", required=True, help="output directory")
-    parser.add_argument("--pivotalWord", help="optional pivotalWord")
     args = parser.parse_args()
 
-    wordsList = get_wordslist(args.wordsfile)
-    with open("dict.json", "w+") as o:
-        json.dump(csvToDict(), o, indent=2, ensure_ascii=False)
-    exit()
-
-    run(wordsList, args.iso, int(args.wait), args.output, args.pivotalWord, args.topic)
+    with open("dataDict.json", "w+") as o:
+        json.dump(csvToJson(args.wordsDir[0]), o, indent=2, ensure_ascii=False)
+    
+    argsList = getArgsList("dataDict.json")
+    
+    for argDict in argsList:
+        run(argDict["wordList"], argDict["ISO"], int(args.wait), args.output, argDict["topic"])
 
 if __name__ == "__main__":
+
     main()
