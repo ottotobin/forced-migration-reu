@@ -2,12 +2,9 @@
 """
 Author: Grey, Yiqing, Helge Marahrens, Nathan Wycoff, Lina Laghzaoui, Grace Magny-Fokam, Toby Otto, Rich Pihlstrom
 
-Last Update: 16 June 2023
-    Ran into an issue with the read_csv pandas function not handling arabic script. 
-    As a solution, I just copied the wordslist function from the previous version to 
-    make it more manual and allow for arabic script. Should work with other texts.
-    New code didn't allow for the redirection of output files to a directory so I 
-    just added that in as well. 
+Last Update: 22 June 2023
+    Cleaned up some of the remaining errors. Mostly minor case errors where the first 5 words wouldn't
+    return data or something.
     -Rich
 
 Necessary Packages:
@@ -33,14 +30,13 @@ wait: multiplier for wait times. Try increasing this if you keep getting error 4
     less crowded network. If they are regular, Google is just angry at you and all you can do is wait.
 
 USAGE:
-    python3 gtrAPI_Range.py --topic MeansofTravel --wordsfile words_MeansOfTravel --wait 20 --output results/ --iso IQ
+    python3 gtrAPI_Range.py --wordsDir keywords/ --wait 20 --output results/
 
 """
 
-TIME_FRAME = '2018-01-01 2023-05-31'
+TIME_FRAME = '2018-01-01 2023-05-31' #hard-coded time frame to collect data over
 
 import sys
-import warnings
 import argparse
 import pandas as pd
 import datetime
@@ -111,12 +107,31 @@ def getReq(w5,cc,mult):
 def run(wordsList, countryCode, wait, outputDirectory, topic):
     #Get data for first five words
     frame = getReq(wordsList[0], countryCode, wait)
+    
+    #Sometimes the 5 words present in wordsList[0] would all not have any GTR data about them.
+    #In this case, frame would be empty. This causes errors later. Because the terms don't have
+    #data, we can just manually fill frame with 0-columns for each word. We also need a date
+    #column to merge dfs. This chunk does all of this.
+    if len(frame) == 0:
+        #Create df of just date column based on global var
+        now = datetime.datetime.strptime(TIME_FRAME.split()[1], "%Y-%m-%d")
+        ctr = datetime.datetime.strptime(TIME_FRAME.split()[0], "%Y-%m-%d")
+        date = [ctr.strftime('%Y-%m-%d')]
+        while ctr <= now:
+            ctr += datetime.timedelta(days=32)
+            date.append(datetime.datetime(ctr.year, ctr.month, 1))
+        date=date[:-1]
+        frame = pd.DataFrame(data=date, columns=["date"])
+
+        #Create column for each of initial words and set to 0
+        frame[wordsList[0]] = 0
 
     #Initialize backup, which will keep the data directly from google
     backup = frame
     backIter = 0
-    for fiveW in wordsList[1:]:
+    for i, fiveW in enumerate(wordsList[1:]):
         #Dynamically select pivotalword based on most average value.
+        fiveW[0] = np.sum(np.square(frame[wordsList[backIter]] - np.mean(np.mean(frame[wordsList[backIter]], axis=0)))).idxmin()
         backIter+=1
 
         #Get reqs
@@ -134,8 +149,8 @@ def run(wordsList, countryCode, wait, outputDirectory, topic):
         backup = pd.merge(backup, data, how='outer', on='date', suffixes=("",str(backIter)))
 
         #Divide columns to get ratio between old data and new data
-        if (data[fiveW[0]]==0).any():
-            warnings.warn("Replaced zero in pivotalword with 1.")
+        if 0 in data[fiveW[0]].values:
+            print("        !! Warning: Replaced zero in pivotalword with 1.")
         dv = frame[fiveW[0]].replace([0],1) / data[fiveW[0]].replace([0],1)
 
         #Multiply ratio by new data to make new data proportional to old data
@@ -144,36 +159,50 @@ def run(wordsList, countryCode, wait, outputDirectory, topic):
         #Merge new data and old data
         frame = pd.merge(frame, data.drop(columns=fiveW[0]), how='outer', on='date')
 
-        #Add column with country ISO
-        frame["ISO"] = countryCode
-        frame["topic"] = topic
+        #Add columns for ISO and topic
         firstCols = ["date", "ISO", "topic"]
-        frame = frame[firstCols+[ elem for elem in frame.columns if elem not in firstCols]]
+        if "ISO" and "topic" not in frame:
+            frame["ISO"] = countryCode
+            frame["topic"] = topic
+            frame = frame[firstCols+[ elem for elem in frame.columns if elem not in firstCols]]
+        if "ISO" and "topic" not in backup:
+            backup["ISO"] = countryCode
+            backup["topic"] = topic
+            backup = backup[firstCols+[ elem for elem in backup.columns if elem not in firstCols]]
 
         #Write to <output file><date>-to-<date + 1 day>.csv
         try:
+            #Structuring output such that the output directory will contain
+            #a sub-directory for each of topic of keyword.
+
+            #Make new directory if it does not exist
+            if not os.path.exists(outputDirectory+topic):
+                os.makedirs(outputDirectory+topic)
+
             filename = "{}_{}_{}_adjusted.csv".format(topic, countryCode, TIME_FRAME.replace(' ','-to-'))
-            frame.to_csv(outputDirectory+filename, index = False)
+            frame.to_csv(outputDirectory+topic+"/"+filename, index = False)
             filename = "{}_{}_{}_raw.csv".format(topic, countryCode, TIME_FRAME.replace(' ','-to-'))
-            backup.to_csv(outputDirectory+filename, index = False)
+            backup.to_csv(outputDirectory+topic+"/"+filename, index = False)
+
         except IOError:
             sys.exit('Invalid output file or no space to write to output file')
+       
+       #Print so that you know how much data has been collected
+        print(' '*4+'Data collection successful ('+str(i+1)+"/"+str(len(wordsList[1:]))+")")
 
-        #Print so that you know how much data has been collected
-        print('Data collection successful')
-
-# retrieves all input data and basefile data and creates a dictionary with all
-# info needed to iteratively run code for data on an entire langauge
+#Function that reads in 4 csv "basefiles" and the keyword files and converts them all into a single json.
+#The reasoning for this method is to allow users to edit the foundational files and see how they are
+#being collected and labelled. We then loop over this json when we run our code on all the countries and topics.
 def csvToJson(directory):
     dict = {}
 
-    # opening basefiles
+    # add all keyword files to list
     categories=[]
     for filename in os.listdir(directory):
         categories.append(open(os.path.join(directory, filename), "r"))
 
-    neighbors = open("basefiles/neighboringCountries.csv", "r")
-    translations = open("basefiles/translation.csv")
+    neighbors = open("basefiles/neighboringCountries.csv", "r") #neighboring countries
+    translations = open("basefiles/translation.csv") #translations
 
     # helper func that checks if a phrase needs a destination
     # or a origin appended to it
@@ -187,8 +216,10 @@ def csvToJson(directory):
     # arranges the 'topics' subdictionary
     dict["topics"] = {}
 
+    #For each topic, we want to read the keywords, check if they need
+    #either a destination or origin appended (or no appending)
     for topic in categories:
-        tpc = topic.name[9:]
+        tpc = topic.name.split("/")[-1]
         dict["topics"][tpc] = {
             "destination":[],
             "origin":[],
@@ -201,7 +232,7 @@ def csvToJson(directory):
         topic.close()
 
     # helper func that returns the 2-char and 3-char ISO codes
-    # for a given country name    
+    # for a given country name
     def checkISO(name):
         with open("basefiles/ISO.csv", "r") as iso_codes:
             for line in csv.reader(iso_codes):
@@ -212,13 +243,16 @@ def csvToJson(directory):
     # arranges the "countries" subdictionary
     dict["countries"] = {}
 
+    #For each conutry, populate it's dictionary entry
+    #with information such as ISO, name, neighboring countries, and translation
     for line in translations.readlines()[1:]:
         name = line.split(",")[0]
         ISO_3 = checkISO(name)[1]
         dict["countries"][ISO_3]={}
         dict["countries"][ISO_3]["name"] = name
         dict["countries"][ISO_3]["2-char ISO"] = checkISO(name)[0]
-
+        
+        #Append neighboring countries (if applicable)
         neighbor_reader=csv.reader(neighbors)
         for lne in neighbor_reader:
             if lne[0] == name:
@@ -236,28 +270,42 @@ def csvToJson(directory):
 
     return dict
 
+#This function loops over the json created earlier and returns a
+#list of dictionaries where each dictionary contains the parameters
+#for a unique iteration
 def getArgsList(jsonName):
     retList = []
 
     with open(jsonName, "r") as f:
 
-        jsonObj = json.load(f)
+        jsonObj = json.load(f) #load json
 
+        #Every county in the neighboring country file is present as a dictionary entry in
+        #the json, but only a subset of those countries function as an origin country. Any
+        #origin country will have a list of neighboring countries, so we can check this way
         for originISO in jsonObj["countries"]:
             if "neighbor ISO" in jsonObj["countries"][originISO]:
 
                 for topic in jsonObj["topics"]:
                     keywordList=jsonObj["topics"][topic]["none"]
-
+                    
+                    #If the keyword needs an origin appended, we append that here
                     for originPhrase in jsonObj["topics"][topic]["origin"]:
                         originTranslation = jsonObj["countries"][originISO]["translation"]
-                        keywordList.append(originPhrase + originTranslation)
+                        keywordList.append(originPhrase +" "+ originTranslation)
 
+                    #If the keyword needs a destination appended, we append that here
                     for destinationPhrase in jsonObj["topics"][topic]["destination"]:
                         for neighborISO in jsonObj["countries"][originISO]["neighbor ISO"]:
                             destinationTranslation = jsonObj["countries"][neighborISO]["translation"]
-                            keywordList.append(destinationPhrase + destinationTranslation)
+                            keywordList.append(destinationPhrase +" "+ destinationTranslation)
 
+                    #Strip each word
+                    for i,word in enumerate(keywordList):
+                        keywordList[i] = word.strip()
+
+                    #Pass the keyword list to the function that produces the
+                    #list that we use in our actual function run
                     keywordList = get_wordslist(keywordList)
 
                     argsDict = {
@@ -279,13 +327,24 @@ def main():
     parser.add_argument("--output", required=True, help="output directory")
     args = parser.parse_args()
 
+    #Create consolidating json and output
     with open("dataDict.json", "w+") as o:
         json.dump(csvToJson(args.wordsDir[0]), o, indent=2, ensure_ascii=False)
     
+    #Get list of arguments to be passed
     argsList = getArgsList("dataDict.json")
-    
-    for argDict in argsList:
-        run(argDict["wordList"], argDict["ISO"], int(args.wait), args.output, argDict["topic"])
+
+    #Run for each iteration
+    t0 = time.time()
+    for i, argDict in enumerate(argsList):
+        print("Country: "+ argDict["ISO"]+"; Topic: "+argDict["topic"]+\
+              "; Iteration: "+str(i+1)+"/"+str(len(argsList)))
+        t1 = time.time()
+
+        if i >= 51:
+            run(argDict["wordList"], argDict["ISO"], int(args.wait), args.output, argDict["topic"])
+        print("Iteration Run Time: "+str(time.time()-t1)[:5]+" sec")
+        print("Total Run Time: "+str((time.time()-t0)/60)[:5]+" min\n")
 
 if __name__ == "__main__":
 
