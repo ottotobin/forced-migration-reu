@@ -9,8 +9,8 @@
 
 #########
 import os
+import argparse
 import matplotlib.pyplot as plt
-import pickle
 import numpy as np
 import matplotlib.dates as mdates
 import pandas as pd
@@ -77,6 +77,8 @@ def time_series(df, iso):
     # plot normalized time series
     fig = plt.figure()
     norm_df.plot(x="date", y=df.columns[1:])
+    # ax = plt.gca()
+    # ax.xaxis.set_major_formatter(mdates.DateFormatter('%b'))
     plt.legend()
     plt.savefig(f"{r}_norm.pdf")
     plt.close()
@@ -162,14 +164,18 @@ def pca(corr, norm_df):
 
 
 def main():
-    iso = "SD"
+    parser = argparse.ArgumentParser(description="Google Trend PCA")
+    parser.add_argument("--iso", required=True, help="ISO code for country PCA is applied to")
+    args = parser.parse_args()
+
+    iso = str(args.iso)
     categories = ["generic_terms","geography","safe_places","travel"]
 
     df = concat_df(aggregate(load_data(iso, categories)))
 
     norm_df = time_series(df, iso)
     corr = corr_matrix(df)
-    pca(corr)
-
+    # pca(corr, norm_df)
+    
 if __name__ == '__main__':
     main()
