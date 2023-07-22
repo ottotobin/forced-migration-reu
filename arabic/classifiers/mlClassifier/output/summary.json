@@ -1,0 +1,1190 @@
+{
+    "LogisticRegression": {
+        "anger": {
+            "Precision": {
+                "Best Mean Precision": 0.7193564373873068,
+                "Params": {
+                    "C": 3,
+                    "max_iter": 1000
+                }
+            },
+            "Recall": {
+                "Best Mean Recall": 0.7332659987071752,
+                "Params": {
+                    "C": 0.1,
+                    "max_iter": 1000
+                }
+            },
+            "Accuracy": {
+                "Best Mean Accuracy": 0.7211629789530491,
+                "Params": {
+                    "C": 1.0,
+                    "max_iter": 1000
+                }
+            },
+            "F1": {
+                "Best Mean F1": 0.7270032475970758,
+                "Params": {
+                    "C": 100,
+                    "max_iter": 1000
+                }
+            }
+        },
+        "fear": {
+            "Precision": {
+                "Best Mean Precision": 0.7193564373873068,
+                "Params": {
+                    "C": 3,
+                    "max_iter": 1000
+                }
+            },
+            "Recall": {
+                "Best Mean Recall": 0.7332659987071752,
+                "Params": {
+                    "C": 0.1,
+                    "max_iter": 1000
+                }
+            },
+            "Accuracy": {
+                "Best Mean Accuracy": 0.7211629789530491,
+                "Params": {
+                    "C": 1.0,
+                    "max_iter": 1000
+                }
+            },
+            "F1": {
+                "Best Mean F1": 0.7270032475970758,
+                "Params": {
+                    "C": 100,
+                    "max_iter": 1000
+                }
+            }
+        },
+        "sadness": {
+            "Precision": {
+                "Best Mean Precision": 0.7193564373873068,
+                "Params": {
+                    "C": 3,
+                    "max_iter": 1000
+                }
+            },
+            "Recall": {
+                "Best Mean Recall": 0.7332659987071752,
+                "Params": {
+                    "C": 0.1,
+                    "max_iter": 1000
+                }
+            },
+            "Accuracy": {
+                "Best Mean Accuracy": 0.7211629789530491,
+                "Params": {
+                    "C": 1.0,
+                    "max_iter": 1000
+                }
+            },
+            "F1": {
+                "Best Mean F1": 0.7270032475970758,
+                "Params": {
+                    "C": 100,
+                    "max_iter": 1000
+                }
+            }
+        },
+        "disgust": {
+            "Precision": {
+                "Best Mean Precision": 0.7193564373873068,
+                "Params": {
+                    "C": 3,
+                    "max_iter": 1000
+                }
+            },
+            "Recall": {
+                "Best Mean Recall": 0.7332659987071752,
+                "Params": {
+                    "C": 0.1,
+                    "max_iter": 1000
+                }
+            },
+            "Accuracy": {
+                "Best Mean Accuracy": 0.7211629789530491,
+                "Params": {
+                    "C": 1.0,
+                    "max_iter": 1000
+                }
+            },
+            "F1": {
+                "Best Mean F1": 0.7270032475970758,
+                "Params": {
+                    "C": 100,
+                    "max_iter": 1000
+                }
+            }
+        },
+        "joy": {
+            "Precision": {
+                "Best Mean Precision": 0.7193564373873068,
+                "Params": {
+                    "C": 3,
+                    "max_iter": 1000
+                }
+            },
+            "Recall": {
+                "Best Mean Recall": 0.7332659987071752,
+                "Params": {
+                    "C": 0.1,
+                    "max_iter": 1000
+                }
+            },
+            "Accuracy": {
+                "Best Mean Accuracy": 0.7211629789530491,
+                "Params": {
+                    "C": 1.0,
+                    "max_iter": 1000
+                }
+            },
+            "F1": {
+                "Best Mean F1": 0.7270032475970758,
+                "Params": {
+                    "C": 100,
+                    "max_iter": 1000
+                }
+            }
+        },
+        "anger-disgust": {
+            "Precision": {
+                "Best Mean Precision": 0.7193564373873068,
+                "Params": {
+                    "C": 3,
+                    "max_iter": 1000
+                }
+            },
+            "Recall": {
+                "Best Mean Recall": 0.7332659987071752,
+                "Params": {
+                    "C": 0.1,
+                    "max_iter": 1000
+                }
+            },
+            "Accuracy": {
+                "Best Mean Accuracy": 0.7211629789530491,
+                "Params": {
+                    "C": 1.0,
+                    "max_iter": 1000
+                }
+            },
+            "F1": {
+                "Best Mean F1": 0.7270032475970758,
+                "Params": {
+                    "C": 100,
+                    "max_iter": 1000
+                }
+            }
+        }
+    },
+    "MultinomialNB": {
+        "anger": {
+            "Precision": {
+                "Best Mean Precision": 0.7394640207796588,
+                "Params": {
+                    "alpha": 0.5
+                }
+            },
+            "Recall": {
+                "Best Mean Recall": 0.7104268774703557,
+                "Params": {
+                    "alpha": 0.95
+                }
+            },
+            "Accuracy": {
+                "Best Mean Accuracy": 0.7282273337015702,
+                "Params": {
+                    "alpha": 0.5
+                }
+            },
+            "F1": {
+                "Best Mean F1": 0.7219490348270066,
+                "Params": {
+                    "alpha": 0.5
+                }
+            }
+        },
+        "fear": {
+            "Precision": {
+                "Best Mean Precision": 0.7394640207796588,
+                "Params": {
+                    "alpha": 0.5
+                }
+            },
+            "Recall": {
+                "Best Mean Recall": 0.7104268774703557,
+                "Params": {
+                    "alpha": 0.95
+                }
+            },
+            "Accuracy": {
+                "Best Mean Accuracy": 0.7282273337015702,
+                "Params": {
+                    "alpha": 0.5
+                }
+            },
+            "F1": {
+                "Best Mean F1": 0.7219490348270066,
+                "Params": {
+                    "alpha": 0.5
+                }
+            }
+        },
+        "sadness": {
+            "Precision": {
+                "Best Mean Precision": 0.7394640207796588,
+                "Params": {
+                    "alpha": 0.5
+                }
+            },
+            "Recall": {
+                "Best Mean Recall": 0.7104268774703557,
+                "Params": {
+                    "alpha": 0.95
+                }
+            },
+            "Accuracy": {
+                "Best Mean Accuracy": 0.7282273337015702,
+                "Params": {
+                    "alpha": 0.5
+                }
+            },
+            "F1": {
+                "Best Mean F1": 0.7219490348270066,
+                "Params": {
+                    "alpha": 0.5
+                }
+            }
+        },
+        "disgust": {
+            "Precision": {
+                "Best Mean Precision": 0.7394640207796588,
+                "Params": {
+                    "alpha": 0.5
+                }
+            },
+            "Recall": {
+                "Best Mean Recall": 0.7104268774703557,
+                "Params": {
+                    "alpha": 0.95
+                }
+            },
+            "Accuracy": {
+                "Best Mean Accuracy": 0.7282273337015702,
+                "Params": {
+                    "alpha": 0.5
+                }
+            },
+            "F1": {
+                "Best Mean F1": 0.7219490348270066,
+                "Params": {
+                    "alpha": 0.5
+                }
+            }
+        },
+        "joy": {
+            "Precision": {
+                "Best Mean Precision": 0.7394640207796588,
+                "Params": {
+                    "alpha": 0.5
+                }
+            },
+            "Recall": {
+                "Best Mean Recall": 0.7104268774703557,
+                "Params": {
+                    "alpha": 0.95
+                }
+            },
+            "Accuracy": {
+                "Best Mean Accuracy": 0.7282273337015702,
+                "Params": {
+                    "alpha": 0.5
+                }
+            },
+            "F1": {
+                "Best Mean F1": 0.7219490348270066,
+                "Params": {
+                    "alpha": 0.5
+                }
+            }
+        },
+        "anger-disgust": {
+            "Precision": {
+                "Best Mean Precision": 0.7394640207796588,
+                "Params": {
+                    "alpha": 0.5
+                }
+            },
+            "Recall": {
+                "Best Mean Recall": 0.7104268774703557,
+                "Params": {
+                    "alpha": 0.95
+                }
+            },
+            "Accuracy": {
+                "Best Mean Accuracy": 0.7282273337015702,
+                "Params": {
+                    "alpha": 0.5
+                }
+            },
+            "F1": {
+                "Best Mean F1": 0.7219490348270066,
+                "Params": {
+                    "alpha": 0.5
+                }
+            }
+        }
+    },
+    "DecisionTreeClassifier": {
+        "anger": {
+            "Precision": {
+                "Best Mean Precision": 0.5455816421916273,
+                "Params": {
+                    "criterion": "gini",
+                    "max_depth": 10,
+                    "splitter": "random"
+                }
+            },
+            "Recall": {
+                "Best Mean Recall": 0.9752090245520902,
+                "Params": {
+                    "criterion": "entropy",
+                    "max_depth": 10,
+                    "splitter": "random"
+                }
+            },
+            "Accuracy": {
+                "Best Mean Accuracy": 0.6498896467366014,
+                "Params": {
+                    "criterion": "gini",
+                    "max_depth": null,
+                    "splitter": "random"
+                }
+            },
+            "F1": {
+                "Best Mean F1": 0.7029386217557336,
+                "Params": {
+                    "criterion": "entropy",
+                    "max_depth": 30,
+                    "splitter": "best"
+                }
+            }
+        },
+        "fear": {
+            "Precision": {
+                "Best Mean Precision": 0.5455816421916273,
+                "Params": {
+                    "criterion": "gini",
+                    "max_depth": 10,
+                    "splitter": "random"
+                }
+            },
+            "Recall": {
+                "Best Mean Recall": 0.9752090245520902,
+                "Params": {
+                    "criterion": "entropy",
+                    "max_depth": 10,
+                    "splitter": "random"
+                }
+            },
+            "Accuracy": {
+                "Best Mean Accuracy": 0.6498896467366014,
+                "Params": {
+                    "criterion": "gini",
+                    "max_depth": null,
+                    "splitter": "random"
+                }
+            },
+            "F1": {
+                "Best Mean F1": 0.7029386217557336,
+                "Params": {
+                    "criterion": "entropy",
+                    "max_depth": 30,
+                    "splitter": "best"
+                }
+            }
+        },
+        "sadness": {
+            "Precision": {
+                "Best Mean Precision": 0.5455816421916273,
+                "Params": {
+                    "criterion": "gini",
+                    "max_depth": 10,
+                    "splitter": "random"
+                }
+            },
+            "Recall": {
+                "Best Mean Recall": 0.9752090245520902,
+                "Params": {
+                    "criterion": "entropy",
+                    "max_depth": 10,
+                    "splitter": "random"
+                }
+            },
+            "Accuracy": {
+                "Best Mean Accuracy": 0.6498896467366014,
+                "Params": {
+                    "criterion": "gini",
+                    "max_depth": null,
+                    "splitter": "random"
+                }
+            },
+            "F1": {
+                "Best Mean F1": 0.7029386217557336,
+                "Params": {
+                    "criterion": "entropy",
+                    "max_depth": 30,
+                    "splitter": "best"
+                }
+            }
+        },
+        "disgust": {
+            "Precision": {
+                "Best Mean Precision": 0.5455816421916273,
+                "Params": {
+                    "criterion": "gini",
+                    "max_depth": 10,
+                    "splitter": "random"
+                }
+            },
+            "Recall": {
+                "Best Mean Recall": 0.9752090245520902,
+                "Params": {
+                    "criterion": "entropy",
+                    "max_depth": 10,
+                    "splitter": "random"
+                }
+            },
+            "Accuracy": {
+                "Best Mean Accuracy": 0.6498896467366014,
+                "Params": {
+                    "criterion": "gini",
+                    "max_depth": null,
+                    "splitter": "random"
+                }
+            },
+            "F1": {
+                "Best Mean F1": 0.7029386217557336,
+                "Params": {
+                    "criterion": "entropy",
+                    "max_depth": 30,
+                    "splitter": "best"
+                }
+            }
+        },
+        "joy": {
+            "Precision": {
+                "Best Mean Precision": 0.5455816421916273,
+                "Params": {
+                    "criterion": "gini",
+                    "max_depth": 10,
+                    "splitter": "random"
+                }
+            },
+            "Recall": {
+                "Best Mean Recall": 0.9752090245520902,
+                "Params": {
+                    "criterion": "entropy",
+                    "max_depth": 10,
+                    "splitter": "random"
+                }
+            },
+            "Accuracy": {
+                "Best Mean Accuracy": 0.6498896467366014,
+                "Params": {
+                    "criterion": "gini",
+                    "max_depth": null,
+                    "splitter": "random"
+                }
+            },
+            "F1": {
+                "Best Mean F1": 0.7029386217557336,
+                "Params": {
+                    "criterion": "entropy",
+                    "max_depth": 30,
+                    "splitter": "best"
+                }
+            }
+        },
+        "anger-disgust": {
+            "Precision": {
+                "Best Mean Precision": 0.5455816421916273,
+                "Params": {
+                    "criterion": "gini",
+                    "max_depth": 10,
+                    "splitter": "random"
+                }
+            },
+            "Recall": {
+                "Best Mean Recall": 0.9752090245520902,
+                "Params": {
+                    "criterion": "entropy",
+                    "max_depth": 10,
+                    "splitter": "random"
+                }
+            },
+            "Accuracy": {
+                "Best Mean Accuracy": 0.6498896467366014,
+                "Params": {
+                    "criterion": "gini",
+                    "max_depth": null,
+                    "splitter": "random"
+                }
+            },
+            "F1": {
+                "Best Mean F1": 0.7029386217557336,
+                "Params": {
+                    "criterion": "entropy",
+                    "max_depth": 30,
+                    "splitter": "best"
+                }
+            }
+        }
+    },
+    "RandomForestClassifier": {
+        "anger": {
+            "Precision": {
+                "Best Mean Precision": 0.7120454290705547,
+                "Params": {
+                    "criterion": "gini",
+                    "max_depth": null,
+                    "min_samples_leaf": 1,
+                    "min_samples_split": 10,
+                    "n_estimators": 100
+                }
+            },
+            "Recall": {
+                "Best Mean Recall": 0.8945964011657443,
+                "Params": {
+                    "criterion": "entropy",
+                    "max_depth": 10,
+                    "min_samples_leaf": 2,
+                    "min_samples_split": 10,
+                    "n_estimators": 10
+                }
+            },
+            "Accuracy": {
+                "Best Mean Accuracy": 0.7218306982475173,
+                "Params": {
+                    "criterion": "entropy",
+                    "max_depth": null,
+                    "min_samples_leaf": 2,
+                    "min_samples_split": 2,
+                    "n_estimators": 200
+                }
+            },
+            "F1": {
+                "Best Mean F1": 0.7321073055390859,
+                "Params": {
+                    "criterion": "entropy",
+                    "max_depth": null,
+                    "min_samples_leaf": 2,
+                    "min_samples_split": 2,
+                    "n_estimators": 200
+                }
+            }
+        },
+        "fear": {
+            "Precision": {
+                "Best Mean Precision": 0.7120454290705547,
+                "Params": {
+                    "criterion": "gini",
+                    "max_depth": null,
+                    "min_samples_leaf": 1,
+                    "min_samples_split": 10,
+                    "n_estimators": 100
+                }
+            },
+            "Recall": {
+                "Best Mean Recall": 0.8945964011657443,
+                "Params": {
+                    "criterion": "entropy",
+                    "max_depth": 10,
+                    "min_samples_leaf": 2,
+                    "min_samples_split": 10,
+                    "n_estimators": 10
+                }
+            },
+            "Accuracy": {
+                "Best Mean Accuracy": 0.7218306982475173,
+                "Params": {
+                    "criterion": "entropy",
+                    "max_depth": null,
+                    "min_samples_leaf": 2,
+                    "min_samples_split": 2,
+                    "n_estimators": 200
+                }
+            },
+            "F1": {
+                "Best Mean F1": 0.7321073055390859,
+                "Params": {
+                    "criterion": "entropy",
+                    "max_depth": null,
+                    "min_samples_leaf": 2,
+                    "min_samples_split": 2,
+                    "n_estimators": 200
+                }
+            }
+        },
+        "sadness": {
+            "Precision": {
+                "Best Mean Precision": 0.7120454290705547,
+                "Params": {
+                    "criterion": "gini",
+                    "max_depth": null,
+                    "min_samples_leaf": 1,
+                    "min_samples_split": 10,
+                    "n_estimators": 100
+                }
+            },
+            "Recall": {
+                "Best Mean Recall": 0.8945964011657443,
+                "Params": {
+                    "criterion": "entropy",
+                    "max_depth": 10,
+                    "min_samples_leaf": 2,
+                    "min_samples_split": 10,
+                    "n_estimators": 10
+                }
+            },
+            "Accuracy": {
+                "Best Mean Accuracy": 0.7218306982475173,
+                "Params": {
+                    "criterion": "entropy",
+                    "max_depth": null,
+                    "min_samples_leaf": 2,
+                    "min_samples_split": 2,
+                    "n_estimators": 200
+                }
+            },
+            "F1": {
+                "Best Mean F1": 0.7321073055390859,
+                "Params": {
+                    "criterion": "entropy",
+                    "max_depth": null,
+                    "min_samples_leaf": 2,
+                    "min_samples_split": 2,
+                    "n_estimators": 200
+                }
+            }
+        },
+        "disgust": {
+            "Precision": {
+                "Best Mean Precision": 0.7120454290705547,
+                "Params": {
+                    "criterion": "gini",
+                    "max_depth": null,
+                    "min_samples_leaf": 1,
+                    "min_samples_split": 10,
+                    "n_estimators": 100
+                }
+            },
+            "Recall": {
+                "Best Mean Recall": 0.8945964011657443,
+                "Params": {
+                    "criterion": "entropy",
+                    "max_depth": 10,
+                    "min_samples_leaf": 2,
+                    "min_samples_split": 10,
+                    "n_estimators": 10
+                }
+            },
+            "Accuracy": {
+                "Best Mean Accuracy": 0.7218306982475173,
+                "Params": {
+                    "criterion": "entropy",
+                    "max_depth": null,
+                    "min_samples_leaf": 2,
+                    "min_samples_split": 2,
+                    "n_estimators": 200
+                }
+            },
+            "F1": {
+                "Best Mean F1": 0.7321073055390859,
+                "Params": {
+                    "criterion": "entropy",
+                    "max_depth": null,
+                    "min_samples_leaf": 2,
+                    "min_samples_split": 2,
+                    "n_estimators": 200
+                }
+            }
+        },
+        "joy": {
+            "Precision": {
+                "Best Mean Precision": 0.7120454290705547,
+                "Params": {
+                    "criterion": "gini",
+                    "max_depth": null,
+                    "min_samples_leaf": 1,
+                    "min_samples_split": 10,
+                    "n_estimators": 100
+                }
+            },
+            "Recall": {
+                "Best Mean Recall": 0.8945964011657443,
+                "Params": {
+                    "criterion": "entropy",
+                    "max_depth": 10,
+                    "min_samples_leaf": 2,
+                    "min_samples_split": 10,
+                    "n_estimators": 10
+                }
+            },
+            "Accuracy": {
+                "Best Mean Accuracy": 0.7218306982475173,
+                "Params": {
+                    "criterion": "entropy",
+                    "max_depth": null,
+                    "min_samples_leaf": 2,
+                    "min_samples_split": 2,
+                    "n_estimators": 200
+                }
+            },
+            "F1": {
+                "Best Mean F1": 0.7321073055390859,
+                "Params": {
+                    "criterion": "entropy",
+                    "max_depth": null,
+                    "min_samples_leaf": 2,
+                    "min_samples_split": 2,
+                    "n_estimators": 200
+                }
+            }
+        },
+        "anger-disgust": {
+            "Precision": {
+                "Best Mean Precision": 0.7120454290705547,
+                "Params": {
+                    "criterion": "gini",
+                    "max_depth": null,
+                    "min_samples_leaf": 1,
+                    "min_samples_split": 10,
+                    "n_estimators": 100
+                }
+            },
+            "Recall": {
+                "Best Mean Recall": 0.8945964011657443,
+                "Params": {
+                    "criterion": "entropy",
+                    "max_depth": 10,
+                    "min_samples_leaf": 2,
+                    "min_samples_split": 10,
+                    "n_estimators": 10
+                }
+            },
+            "Accuracy": {
+                "Best Mean Accuracy": 0.7218306982475173,
+                "Params": {
+                    "criterion": "entropy",
+                    "max_depth": null,
+                    "min_samples_leaf": 2,
+                    "min_samples_split": 2,
+                    "n_estimators": 200
+                }
+            },
+            "F1": {
+                "Best Mean F1": 0.7321073055390859,
+                "Params": {
+                    "criterion": "entropy",
+                    "max_depth": null,
+                    "min_samples_leaf": 2,
+                    "min_samples_split": 2,
+                    "n_estimators": 200
+                }
+            }
+        }
+    },
+    "KNeighborsClassifier": {
+        "anger": {
+            "Precision": {
+                "Best Mean Precision": 0.5712006989607709,
+                "Params": {
+                    "algorithm": "auto",
+                    "n_neighbors": 4,
+                    "p": 1
+                }
+            },
+            "Recall": {
+                "Best Mean Recall": 0.3049847378898474,
+                "Params": {
+                    "algorithm": "auto",
+                    "n_neighbors": 17,
+                    "p": 1
+                }
+            },
+            "Accuracy": {
+                "Best Mean Accuracy": 0.5076403378042722,
+                "Params": {
+                    "algorithm": "auto",
+                    "n_neighbors": 3,
+                    "p": 1
+                }
+            },
+            "F1": {
+                "Best Mean F1": 0.21926323923075372,
+                "Params": {
+                    "algorithm": "auto",
+                    "n_neighbors": 20,
+                    "p": 2
+                }
+            }
+        },
+        "fear": {
+            "Precision": {
+                "Best Mean Precision": 0.5712006989607709,
+                "Params": {
+                    "algorithm": "auto",
+                    "n_neighbors": 4,
+                    "p": 1
+                }
+            },
+            "Recall": {
+                "Best Mean Recall": 0.3049847378898474,
+                "Params": {
+                    "algorithm": "auto",
+                    "n_neighbors": 17,
+                    "p": 1
+                }
+            },
+            "Accuracy": {
+                "Best Mean Accuracy": 0.5076403378042722,
+                "Params": {
+                    "algorithm": "auto",
+                    "n_neighbors": 3,
+                    "p": 1
+                }
+            },
+            "F1": {
+                "Best Mean F1": 0.21926323923075372,
+                "Params": {
+                    "algorithm": "auto",
+                    "n_neighbors": 20,
+                    "p": 2
+                }
+            }
+        },
+        "sadness": {
+            "Precision": {
+                "Best Mean Precision": 0.5712006989607709,
+                "Params": {
+                    "algorithm": "auto",
+                    "n_neighbors": 4,
+                    "p": 1
+                }
+            },
+            "Recall": {
+                "Best Mean Recall": 0.3049847378898474,
+                "Params": {
+                    "algorithm": "auto",
+                    "n_neighbors": 17,
+                    "p": 1
+                }
+            },
+            "Accuracy": {
+                "Best Mean Accuracy": 0.5076403378042722,
+                "Params": {
+                    "algorithm": "auto",
+                    "n_neighbors": 3,
+                    "p": 1
+                }
+            },
+            "F1": {
+                "Best Mean F1": 0.21926323923075372,
+                "Params": {
+                    "algorithm": "auto",
+                    "n_neighbors": 20,
+                    "p": 2
+                }
+            }
+        },
+        "disgust": {
+            "Precision": {
+                "Best Mean Precision": 0.5712006989607709,
+                "Params": {
+                    "algorithm": "auto",
+                    "n_neighbors": 4,
+                    "p": 1
+                }
+            },
+            "Recall": {
+                "Best Mean Recall": 0.3049847378898474,
+                "Params": {
+                    "algorithm": "auto",
+                    "n_neighbors": 17,
+                    "p": 1
+                }
+            },
+            "Accuracy": {
+                "Best Mean Accuracy": 0.5076403378042722,
+                "Params": {
+                    "algorithm": "auto",
+                    "n_neighbors": 3,
+                    "p": 1
+                }
+            },
+            "F1": {
+                "Best Mean F1": 0.21926323923075372,
+                "Params": {
+                    "algorithm": "auto",
+                    "n_neighbors": 20,
+                    "p": 2
+                }
+            }
+        },
+        "joy": {
+            "Precision": {
+                "Best Mean Precision": 0.5712006989607709,
+                "Params": {
+                    "algorithm": "auto",
+                    "n_neighbors": 4,
+                    "p": 1
+                }
+            },
+            "Recall": {
+                "Best Mean Recall": 0.3049847378898474,
+                "Params": {
+                    "algorithm": "auto",
+                    "n_neighbors": 17,
+                    "p": 1
+                }
+            },
+            "Accuracy": {
+                "Best Mean Accuracy": 0.5076403378042722,
+                "Params": {
+                    "algorithm": "auto",
+                    "n_neighbors": 3,
+                    "p": 1
+                }
+            },
+            "F1": {
+                "Best Mean F1": 0.21926323923075372,
+                "Params": {
+                    "algorithm": "auto",
+                    "n_neighbors": 20,
+                    "p": 2
+                }
+            }
+        },
+        "anger-disgust": {
+            "Precision": {
+                "Best Mean Precision": 0.5712006989607709,
+                "Params": {
+                    "algorithm": "auto",
+                    "n_neighbors": 4,
+                    "p": 1
+                }
+            },
+            "Recall": {
+                "Best Mean Recall": 0.3049847378898474,
+                "Params": {
+                    "algorithm": "auto",
+                    "n_neighbors": 17,
+                    "p": 1
+                }
+            },
+            "Accuracy": {
+                "Best Mean Accuracy": 0.5076403378042722,
+                "Params": {
+                    "algorithm": "auto",
+                    "n_neighbors": 3,
+                    "p": 1
+                }
+            },
+            "F1": {
+                "Best Mean F1": 0.21926323923075372,
+                "Params": {
+                    "algorithm": "auto",
+                    "n_neighbors": 20,
+                    "p": 2
+                }
+            }
+        }
+    },
+    "SVC": {
+        "anger": {
+            "Precision": {
+                "Best Mean Precision": 0.7118290689089127,
+                "Params": {
+                    "C": 1.0,
+                    "kernel": "sigmoid"
+                }
+            },
+            "Recall": {
+                "Best Mean Recall": 0.8043127189112591,
+                "Params": {
+                    "C": 0.1,
+                    "kernel": "poly"
+                }
+            },
+            "Accuracy": {
+                "Best Mean Accuracy": 0.7198291044726145,
+                "Params": {
+                    "C": 0.1,
+                    "kernel": "linear"
+                }
+            },
+            "F1": {
+                "Best Mean F1": 0.7151601011312823,
+                "Params": {
+                    "C": 0.1,
+                    "kernel": "linear"
+                }
+            }
+        },
+        "fear": {
+            "Precision": {
+                "Best Mean Precision": 0.7118290689089127,
+                "Params": {
+                    "C": 1.0,
+                    "kernel": "sigmoid"
+                }
+            },
+            "Recall": {
+                "Best Mean Recall": 0.8043127189112591,
+                "Params": {
+                    "C": 0.1,
+                    "kernel": "poly"
+                }
+            },
+            "Accuracy": {
+                "Best Mean Accuracy": 0.7198291044726145,
+                "Params": {
+                    "C": 0.1,
+                    "kernel": "linear"
+                }
+            },
+            "F1": {
+                "Best Mean F1": 0.7151601011312823,
+                "Params": {
+                    "C": 0.1,
+                    "kernel": "linear"
+                }
+            }
+        },
+        "sadness": {
+            "Precision": {
+                "Best Mean Precision": 0.7118290689089127,
+                "Params": {
+                    "C": 1.0,
+                    "kernel": "sigmoid"
+                }
+            },
+            "Recall": {
+                "Best Mean Recall": 0.8043127189112591,
+                "Params": {
+                    "C": 0.1,
+                    "kernel": "poly"
+                }
+            },
+            "Accuracy": {
+                "Best Mean Accuracy": 0.7198291044726145,
+                "Params": {
+                    "C": 0.1,
+                    "kernel": "linear"
+                }
+            },
+            "F1": {
+                "Best Mean F1": 0.7151601011312823,
+                "Params": {
+                    "C": 0.1,
+                    "kernel": "linear"
+                }
+            }
+        },
+        "disgust": {
+            "Precision": {
+                "Best Mean Precision": 0.7118290689089127,
+                "Params": {
+                    "C": 1.0,
+                    "kernel": "sigmoid"
+                }
+            },
+            "Recall": {
+                "Best Mean Recall": 0.8043127189112591,
+                "Params": {
+                    "C": 0.1,
+                    "kernel": "poly"
+                }
+            },
+            "Accuracy": {
+                "Best Mean Accuracy": 0.7198291044726145,
+                "Params": {
+                    "C": 0.1,
+                    "kernel": "linear"
+                }
+            },
+            "F1": {
+                "Best Mean F1": 0.7151601011312823,
+                "Params": {
+                    "C": 0.1,
+                    "kernel": "linear"
+                }
+            }
+        },
+        "joy": {
+            "Precision": {
+                "Best Mean Precision": 0.7118290689089127,
+                "Params": {
+                    "C": 1.0,
+                    "kernel": "sigmoid"
+                }
+            },
+            "Recall": {
+                "Best Mean Recall": 0.8043127189112591,
+                "Params": {
+                    "C": 0.1,
+                    "kernel": "poly"
+                }
+            },
+            "Accuracy": {
+                "Best Mean Accuracy": 0.7198291044726145,
+                "Params": {
+                    "C": 0.1,
+                    "kernel": "linear"
+                }
+            },
+            "F1": {
+                "Best Mean F1": 0.7151601011312823,
+                "Params": {
+                    "C": 0.1,
+                    "kernel": "linear"
+                }
+            }
+        },
+        "anger-disgust": {
+            "Precision": {
+                "Best Mean Precision": 0.7118290689089127,
+                "Params": {
+                    "C": 1.0,
+                    "kernel": "sigmoid"
+                }
+            },
+            "Recall": {
+                "Best Mean Recall": 0.8043127189112591,
+                "Params": {
+                    "C": 0.1,
+                    "kernel": "poly"
+                }
+            },
+            "Accuracy": {
+                "Best Mean Accuracy": 0.7198291044726145,
+                "Params": {
+                    "C": 0.1,
+                    "kernel": "linear"
+                }
+            },
+            "F1": {
+                "Best Mean F1": 0.7151601011312823,
+                "Params": {
+                    "C": 0.1,
+                    "kernel": "linear"
+                }
+            }
+        }
+    }
+}
