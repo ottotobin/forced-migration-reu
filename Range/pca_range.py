@@ -4,8 +4,8 @@
 
 # authors: Rich, Toby, Lina, Grace
 
-# last modified: 7/13/23
-# - created file
+# last modified: 7/21/23
+# - adding cluster plot
 
 #########
 import os
@@ -40,7 +40,6 @@ def aggregate(df_dict):
             for column in df.columns[3:]:
                 df["aggregate"] += df[column] / len(df.columns[3:])
 
-
         retDict[key] = df
 
     return retDict
@@ -59,13 +58,14 @@ def concat_df(df_dict):
 
     return retDf
 
+# creates a time series of the normalized data
+# and the normalized data
 def time_series(df, iso):
     # plot unnormalized time series
-    r = iso
-    fig = plt.figure()
+    # fig = plt.figure()
     df.plot(x="date", y=df.columns[1:])
     plt.legend()
-    plt.savefig(f"{r}_unnormed.pdf")
+    plt.savefig(f"{iso}_unnormed.pdf")
     plt.close()
 
     # normalize aggregates
@@ -75,12 +75,12 @@ def time_series(df, iso):
     # df["aggregate"] = (df["aggregate"] - np.mean(df["aggregate"])) / np.std(df["aggregate"])
 
     # plot normalized time series
-    fig = plt.figure()
+    # fig = plt.figure()
     norm_df.plot(x="date", y=df.columns[1:])
     # ax = plt.gca()
     # ax.xaxis.set_major_formatter(mdates.DateFormatter('%b'))
     plt.legend()
-    plt.savefig(f"{r}_norm.pdf")
+    plt.savefig(f"{iso}_norm.pdf")
     plt.close()
 
     return norm_df
@@ -94,7 +94,7 @@ def corr_matrix(df):
             # print(df[v1], df[v2])
             corr[i,j] = np.corrcoef(df[v1], df[v2])[0,1]
 
-    fig = plt.figure()
+    # fig = plt.figure()
     plt.imshow(corr, cmap = plt.get_cmap('magma'), vmin = 0, vmax = 1)
     plt.colorbar()
     ax = plt.gca()
@@ -112,14 +112,14 @@ def corr_matrix(df):
     return corr
 
 ## Compute PCA
-def pca(corr, norm_df):
+def pca(corr, norm_df, iso):
     #norm_df.T @ norm_df / norm_df.shape[0]
     #np.linalg.svd(norm_df)[2][0,:]
     #np.mean(norm_df)
 
     ed = np.linalg.eigh(corr)
 
-    # ed[1] @ np.diag(ed[0]) @ ed[1].T
+    ed[1] @ np.diag(ed[0]) @ ed[1].T
 
     ## ed[0] - EIGENVALUES: how important is each combination?
     ## ed[1] - EIGENVECTORS: what is the composition of each combination
@@ -127,19 +127,22 @@ def pca(corr, norm_df):
     ## Eigenvectors == Principal Components
 
     ed[0]
+    
+    vars = norm_df.columns[1:]
 
     # First two principal components
     ev1 = pd.Series(ed[1][:,-1], index = vars)
     ev2 = pd.Series(ed[1][:,-2], index = vars)
 
-    norm_df.iloc[0,:]
-
+    norm_df.iloc[1,:]
+   
     # low dimensional plot of each day/region
+    print(norm_df)
     V = np.stack([-ev1,-ev2]).T
-    low_d_df = norm_df @ V
+    low_d_df = norm_df.iloc[:,1:] @ V
 
     # Relative importance of principal components (given by eigenvalues)
-    fig = plt.figure()
+    # fig = plt.figure()
     plt.scatter(np.arange(len(vars)), np.flip(ed[0]))
     ax = plt.gca()
     ax1 = ax.twinx()
@@ -148,15 +151,12 @@ def pca(corr, norm_df):
     plt.savefig("evals.pdf")
     plt.close()
 
-    ck = {'Center' : 'Greens', 'South' : 'Reds', 'North' : 'Blues', 'East' : 'Purples', 'Kyiv' : 'Oranges','West':'Greys'}
-
     fig = plt.figure()
-    for r in regions:
-        cmap = plt.get_cmap(ck[r])
-        Xr = low_d_df.xs(r,level=1)
-        col_inds = np.flip(0.2+0.6*np.arange(Xr.shape[0]) / Xr.shape[0])
-        cols = cmap(col_inds)
-        plt.scatter(Xr.loc[:,0], Xr.loc[:,1], label = r, c = cols)
+    cmap = plt.get_cmap("Greens")
+    Xr = low_d_df.xs(tuple(norm_df.columns[1:]), level=1)
+    col_inds = np.flip(0.2+0.6*np.arange(Xr.shape[0]) / Xr.shape[0])
+    cols = cmap(col_inds)
+    plt.scatter(Xr.loc[:,0], Xr.loc[:,1], label = iso, c = cols)
     plt.legend()
     plt.tight_layout()
     plt.savefig("lowd.pdf")
@@ -168,14 +168,22 @@ def main():
     parser.add_argument("--iso", required=True, help="ISO code for country PCA is applied to")
     args = parser.parse_args()
 
-    iso = str(args.iso)
+    # iso_codes = ["DJ", "DZ", "EG", "ER", "IL", "IQ", "JO", "KW", "LB", "LY", "MA", "OM", "QA", "SD", "SY", "TD", "YE"]
     categories = ["generic_terms","geography","safe_places","travel"]
 
+    # df_dict = {}
+    # norm_dict = {}
+    # corr_dict = {}
+    # pca_dict = {}
+    # for iso in iso_codes:
+
+    iso = args.iso
     df = concat_df(aggregate(load_data(iso, categories)))
 
     norm_df = time_series(df, iso)
-    corr = corr_matrix(df)
-    # pca(corr, norm_df)
-    
+    corr = corr_matrix(norm_df)
+    pca(corr, norm_df, iso)
+
+
 if __name__ == '__main__':
     main()
