@@ -319,7 +319,6 @@ def getArgsList(jsonName):
     return retList
                     
 def main():
-
     parser = argparse.ArgumentParser(description="Google Trend Data")
     parser.add_argument("--wordsDir", required=True, nargs="+",
                         help="wordsDir directory: keywords/")
@@ -343,9 +342,9 @@ def main():
 
         if i >= 51:
             run(argDict["wordList"], argDict["ISO"], int(args.wait), args.output, argDict["topic"])
+
         print("Iteration Run Time: "+str(time.time()-t1)[:5]+" sec")
         print("Total Run Time: "+str((time.time()-t0)/60)[:5]+" min\n")
 
 if __name__ == "__main__":
-
     main()

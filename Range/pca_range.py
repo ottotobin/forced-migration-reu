@@ -181,7 +181,7 @@ def main():
     df = concat_df(aggregate(load_data(iso, categories)))
 
     norm_df = time_series(df, iso)
-    corr = corr_matrix(norm_df)
+    corr = corr_matrix(norm_df) 
     pca(corr, norm_df, iso)
 
 
