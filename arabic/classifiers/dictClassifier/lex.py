@@ -1,3 +1,23 @@
+"""
+Authors: Lina Laghzaoui, Grace Magny-Fokam, Toby Otto, Rich Pihlstrom
+
+Description:
+    Program runs a dictionary-based emotion classifier over a dataset of tweets.
+    The inputed data is vectorized in a 'bag-of-words' model. Notably emojis are translated into text using the emoji to Arabic dictionary(lexicon/emojis.csv).
+    The data is outputted to outfile.csv
+    
+Necessary Packages: 
+    You will need to install pytrends in order to use the API in this code:
+        pip3 install nltk
+
+threshold: the confidence threshold you want an emotion score to meet to be counted as present.
+
+filename: the path to the original datafile that you are using.
+
+USAGE:
+    python3 lexicon.py -t <[0,1]> -f <filename> 
+
+"""
 import pandas as pd
 import numpy as np
 import argparse
