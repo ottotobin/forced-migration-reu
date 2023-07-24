@@ -1,0 +1,3 @@
+Highest Accuracy: 0.8240866035182679
+Best Model: Decision Tree
+Best Emotion: sadness

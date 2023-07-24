@@ -1,0 +1,3 @@
+Highest Accuracy: 0.8146143437077131
+Best Model: SVC
+Best Emotion: sadness

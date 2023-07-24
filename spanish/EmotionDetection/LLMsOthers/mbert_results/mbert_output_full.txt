@@ -1,0 +1,64 @@
+Batch size:  8
+Training Metrics:
+Average Loss:  0.598764975634781
+Accuracy:  0.7847715736040609
+F1:  0.7787996921681799
+Confusion Matrix: 
+ [[2301   12  753  324]
+ [  94  105  121   45]
+ [ 383   14 6375  278]
+ [ 345   14  797 2814]]
+
+Evaluation Metrics:
+Average Loss:  1.0219491263551097
+Accuracy:  0.6711772665764547
+F1:  0.6744195825431007
+Confusion Matrix: 
+ [[123   1  18  22]
+ [  7   7   4   4]
+ [ 50   2 224  76]
+ [ 38   1  20 142]]
+
+Batch size:  16
+Training Metrics:
+Average Loss:  0.10532471395122844
+Accuracy:  0.9725211505922166
+F1:  0.9724426162119526
+Confusion Matrix: 
+ [[3274   10   44   62]
+ [  14  312   18   21]
+ [  52    2 6919   77]
+ [  23    9   74 3864]]
+
+Evaluation Metrics:
+Average Loss:  1.4170191858677155
+Accuracy:  0.6698240866035182
+F1:  0.6708991295917772
+Confusion Matrix: 
+ [[ 98   5  32  29]
+ [  4   6   6   6]
+ [ 34   5 254  59]
+ [ 25   3  36 137]]
+
+Batch size:  32
+Training Metrics:
+Average Loss:  0.035993185986374174
+Accuracy:  0.9909306260575296
+F1:  0.9909285218330307
+Confusion Matrix: 
+ [[3362    0   19    9]
+ [   1  351    4    9]
+ [  16    0 6992   42]
+ [   4    4   26 3936]]
+
+Evaluation Metrics:
+Average Loss:  1.5953268557786942
+Accuracy:  0.6928281461434371
+F1:  0.6942677710073802
+Confusion Matrix: 
+ [[113   3  27  21]
+ [  5   7   5   5]
+ [ 45   6 263  38]
+ [ 32   3  37 129]]
+
+Error: CUDA out of memory. Tried to allocate 42.00 MiB (GPU 0; 14.58 GiB total capacity; 12.82 GiB already allocated; 8.38 MiB free; 13.70 GiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF

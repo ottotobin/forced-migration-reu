@@ -1,0 +1,416 @@
+Binary Models:
+
+
+Logistic Regression:
+For anger:
+True Positives: 77
+True Negatives: 522
+False Positives: 95
+False Negatives: 45
+F1: 0.5238095238095238
+Accuracy: 0.8105548037889039
+Cross-validation array: [0.81049069 0.82910321 0.83079526 0.80541455 0.82910321]
+Mean cross-validation score: 0.8209813874788494
+--
+
+One vs Rest Logistic Regression:
+For anger:
+True Positives: 77
+True Negatives: 522
+False Positives: 95
+False Negatives: 45
+F1: 0.5238095238095238
+Accuracy: 0.8105548037889039
+Cross-validation array: [0.81049069 0.82910321 0.83079526 0.80541455 0.82910321]
+Mean cross-validation score: 0.8209813874788494
+--
+
+Decision Tree:
+For anger:
+True Positives: 59
+True Negatives: 501
+False Positives: 113
+False Negatives: 66
+F1: 0.39730639730639733
+Accuracy: 0.7577807848443843
+Cross-validation array: [0.78172589 0.75803723 0.78341794 0.78341794 0.73773266]
+Mean cross-validation score: 0.7688663282571911
+--
+
+Random Forest:
+For anger:
+True Positives: 23
+True Negatives: 561
+False Positives: 149
+False Negatives: 6
+F1: 0.22885572139303484
+Accuracy: 0.790257104194858
+Cross-validation array: [0.79187817 0.78680203 0.8037225  0.79357022 0.79526227]
+Mean cross-validation score: 0.7942470389170897
+--
+
+KNN:
+For anger:
+True Positives: 21
+True Negatives: 538
+False Positives: 151
+False Negatives: 29
+F1: 0.1891891891891892
+Accuracy: 0.7564276048714479
+Cross-validation array: [0.77664975 0.7749577  0.76818951 0.75972927 0.76649746]
+Mean cross-validation score: 0.7692047377326565
+--
+
+SVC:
+For anger:
+True Positives: 29
+True Negatives: 560
+False Positives: 143
+False Negatives: 7
+F1: 0.27884615384615385
+Accuracy: 0.79702300405954
+Cross-validation array: [0.79018613 0.79187817 0.79187817 0.79018613 0.78341794]
+Mean cross-validation score: 0.7895093062605754
+--
+
+XGBoost:
+For anger:
+True Positives: 65
+True Negatives: 533
+False Positives: 107
+False Negatives: 34
+F1: 0.4797047970479705
+Accuracy: 0.8092016238159675
+Cross-validation array: [0.81725888 0.79526227 0.83756345 0.81218274 0.81895093]
+Mean cross-validation score: 0.8162436548223349
+--
+Binary Models:
+
+
+Logistic Regression:
+For fear:
+True Positives: 3
+True Negatives: 715
+False Positives: 20
+False Negatives: 1
+F1: 0.2222222222222222
+Accuracy: 0.9715832205683356
+Cross-validation array: [0.97631134 0.97631134 0.97800338 0.97631134 0.97631134]
+Mean cross-validation score: 0.9766497461928934
+--
+
+One vs Rest Logistic Regression:
+For fear:
+True Positives: 3
+True Negatives: 715
+False Positives: 20
+False Negatives: 1
+F1: 0.2222222222222222
+Accuracy: 0.9715832205683356
+Cross-validation array: [0.97631134 0.97631134 0.97800338 0.97631134 0.97631134]
+Mean cross-validation score: 0.9766497461928934
+--
+
+Decision Tree:
+For fear:
+True Positives: 6
+True Negatives: 713
+False Positives: 17
+False Negatives: 3
+F1: 0.375
+Accuracy: 0.972936400541272
+Cross-validation array: [0.97123519 0.97461929 0.97123519 0.96108291 0.97800338]
+Mean cross-validation score: 0.9712351945854485
+--
+
+Random Forest:
+For fear:
+True Positives: 0
+True Negatives: 716
+False Positives: 23
+False Negatives: 0
+F1: 0.07692307692307693
+Accuracy: 0.9688768606224628
+Cross-validation array: [0.97461929 0.97631134 0.97631134 0.97461929 0.97461929]
+Mean cross-validation score: 0.9752961082910323
+--
+
+KNN:
+For fear:
+True Positives: 0
+True Negatives: 716
+False Positives: 23
+False Negatives: 0
+F1: 0.07692307692307693
+Accuracy: 0.9688768606224628
+Cross-validation array: [0.97461929 0.97631134 0.97631134 0.97461929 0.97292724]
+Mean cross-validation score: 0.9749576988155668
+--
+
+SVC:
+For fear:
+True Positives: 0
+True Negatives: 716
+False Positives: 23
+False Negatives: 0
+F1: 0.07692307692307693
+Accuracy: 0.9688768606224628
+Cross-validation array: [0.97461929 0.97631134 0.97631134 0.97461929 0.97461929]
+Mean cross-validation score: 0.9752961082910323
+--
+
+XGBoost:
+For fear:
+True Positives: 3
+True Negatives: 715
+False Positives: 20
+False Negatives: 1
+F1: 0.2222222222222222
+Accuracy: 0.9715832205683356
+Cross-validation array: [0.97800338 0.97631134 0.98307953 0.97461929 0.97800338]
+Mean cross-validation score: 0.9780033840947546
+--
+Binary Models:
+
+
+Logistic Regression:
+For sadness:
+True Positives: 110
+True Negatives: 504
+False Positives: 86
+False Negatives: 39
+F1: 0.6376811594202898
+Accuracy: 0.8308525033829499
+Cross-validation array: [0.85448393 0.82571912 0.84771574 0.84094755 0.80541455]
+Mean cross-validation score: 0.8348561759729272
+--
+
+One vs Rest Logistic Regression:
+For sadness:
+True Positives: 110
+True Negatives: 504
+False Positives: 86
+False Negatives: 39
+F1: 0.6376811594202898
+Accuracy: 0.8308525033829499
+Cross-validation array: [0.85448393 0.82571912 0.84771574 0.84094755 0.80541455]
+Mean cross-validation score: 0.8348561759729272
+--
+
+Decision Tree:
+For sadness:
+True Positives: 104
+True Negatives: 479
+False Positives: 92
+False Negatives: 64
+F1: 0.5714285714285714
+Accuracy: 0.7889039242219216
+Cross-validation array: [0.79018613 0.77834179 0.76988156 0.80033841 0.7715736 ]
+Mean cross-validation score: 0.7820642978003384
+--
+
+Random Forest:
+For sadness:
+True Positives: 100
+True Negatives: 522
+False Positives: 96
+False Negatives: 21
+F1: 0.6309148264984227
+Accuracy: 0.8416779431664412
+Cross-validation array: [0.85279188 0.84263959 0.83079526 0.82910321 0.82064298]
+Mean cross-validation score: 0.8351945854483926
+--
+
+KNN:
+For sadness:
+True Positives: 74
+True Negatives: 475
+False Positives: 122
+False Negatives: 68
+F1: 0.4378698224852071
+Accuracy: 0.7428958051420839
+Cross-validation array: [0.74450085 0.69035533 0.76142132 0.74619289 0.74450085]
+Mean cross-validation score: 0.7373942470389171
+--
+
+SVC:
+For sadness:
+True Positives: 101
+True Negatives: 518
+False Positives: 95
+False Negatives: 25
+F1: 0.6273291925465838
+Accuracy: 0.8376184032476319
+Cross-validation array: [0.8392555  0.84602369 0.80879865 0.81556684 0.80879865]
+Mean cross-validation score: 0.823688663282572
+--
+
+XGBoost:
+For sadness:
+True Positives: 103
+True Negatives: 515
+False Positives: 93
+False Negatives: 28
+F1: 0.6299694189602446
+Accuracy: 0.8362652232746955
+Cross-validation array: [0.84602369 0.82741117 0.83248731 0.82741117 0.82233503]
+Mean cross-validation score: 0.8311336717428089
+--
+Binary Models:
+
+
+Logistic Regression:
+For joy:
+True Positives: 261
+True Negatives: 296
+False Positives: 87
+False Negatives: 95
+F1: 0.7414772727272727
+Accuracy: 0.7537212449255751
+Cross-validation array: [0.7715736  0.78510998 0.81218274 0.76818951 0.79526227]
+Mean cross-validation score: 0.7864636209813874
+--
+
+One vs Rest Logistic Regression:
+For joy:
+True Positives: 261
+True Negatives: 296
+False Positives: 87
+False Negatives: 95
+F1: 0.7414772727272727
+Accuracy: 0.7537212449255751
+Cross-validation array: [0.7715736  0.78510998 0.81218274 0.76818951 0.79526227]
+Mean cross-validation score: 0.7864636209813874
+--
+
+Decision Tree:
+For joy:
+True Positives: 238
+True Negatives: 278
+False Positives: 110
+False Negatives: 113
+F1: 0.6809728183118741
+Accuracy: 0.6982408660351827
+Cross-validation array: [0.73434856 0.76988156 0.77326565 0.69881557 0.73604061]
+Mean cross-validation score: 0.7424703891708968
+--
+
+Random Forest:
+For joy:
+True Positives: 249
+True Negatives: 299
+False Positives: 99
+False Negatives: 92
+F1: 0.7227866473149492
+Accuracy: 0.7415426251691475
+Cross-validation array: [0.79695431 0.78003384 0.77326565 0.77664975 0.7715736 ]
+Mean cross-validation score: 0.7796954314720812
+--
+
+KNN:
+For joy:
+True Positives: 216
+True Negatives: 259
+False Positives: 132
+False Negatives: 132
+F1: 0.6206896551724138
+Accuracy: 0.6427604871447903
+Cross-validation array: [0.63282572 0.65313029 0.64805415 0.62436548 0.65482234]
+Mean cross-validation score: 0.6426395939086295
+--
+
+SVC:
+For joy:
+True Positives: 264
+True Negatives: 290
+False Positives: 84
+False Negatives: 101
+F1: 0.7405329593267882
+Accuracy: 0.7496617050067659
+Cross-validation array: [0.77664975 0.79526227 0.79018613 0.74788494 0.78510998]
+Mean cross-validation score: 0.7790186125211506
+--
+
+XGBoost:
+For joy:
+True Positives: 259
+True Negatives: 291
+False Positives: 89
+False Negatives: 100
+F1: 0.7326732673267327
+Accuracy: 0.7442489851150202
+Cross-validation array: [0.78510998 0.8071066  0.76818951 0.76480541 0.77326565]
+Mean cross-validation score: 0.7796954314720812
+--
+Multi-class models:
+
+
+Logistic Regression:
+[[ 92  22   6  29]
+ [ 20 119   3  34]
+ [  0   1   4   1]
+ [ 60  54  10 284]]
+Accuracy: 0.6752368064952639
+Cross-validation array: [0.69373942 0.69543147 0.71912014 0.68866328 0.68020305]
+Mean cross-validation score: 0.6954314720812182
+--
+
+One vs Rest Logistic Regression:
+[[ 92  20   6  28]
+ [ 20 118   3  36]
+ [  0   1   4   0]
+ [ 60  57  10 284]]
+Accuracy: 0.6738836265223275
+Cross-validation array: [0.70558376 0.70050761 0.71742809 0.69881557 0.6751269 ]
+Mean cross-validation score: 0.6994923857868021
+--
+
+Decision Tree:
+[[ 73  21   6  53]
+ [ 39 112   7  43]
+ [  1   5   4   4]
+ [ 59  58   6 248]]
+Accuracy: 0.591339648173207
+Cross-validation array: [0.62605753 0.56514382 0.61928934 0.57698816 0.60913706]
+Mean cross-validation score: 0.5993231810490693
+--
+
+Random Forest:
+[[ 60  11   4  13]
+ [ 19 116   0  15]
+ [  0   0   0   0]
+ [ 93  69  19 320]]
+Accuracy: 0.6711772665764547
+Cross-validation array: [0.68866328 0.7072758  0.67343486 0.65143824 0.64467005]
+Mean cross-validation score: 0.6730964467005076
+--
+
+KNN:
+[[ 48  38   4  44]
+ [ 55  98  10  86]
+ [  0   0   0   1]
+ [ 69  60   9 217]]
+Accuracy: 0.4912043301759134
+Cross-validation array: [0.5177665  0.49407783 0.56345178 0.45177665 0.50084602]
+Mean cross-validation score: 0.5055837563451776
+--
+
+SVC:
+[[ 76  21   4  32]
+ [ 13 105   1  17]
+ [  0   0   1   0]
+ [ 83  70  17 299]]
+Accuracy: 0.6508795669824087
+Cross-validation array: [0.69035533 0.69204738 0.66835871 0.642978   0.67005076]
+Mean cross-validation score: 0.6727580372250422
+--
+
+XGBoost:
+[[ 76  23   9  27]
+ [ 18 111   1  22]
+ [  0   1   4   1]
+ [ 78  61   9 298]]
+Accuracy: 0.6617050067658998
+Cross-validation array: [0.68527919 0.71235195 0.71912014 0.68020305 0.68020305]
+Mean cross-validation score: 0.6954314720812182
+--
