@@ -1,5 +1,3 @@
-import sys
-sys.path.append('../', '../..')
 import csv
 from sklearn.model_selection import train_test_split
 from helper_funcs import *
@@ -8,6 +6,9 @@ from transformers import BertForSequenceClassification, BertTokenizer
 import torch
 emotion_to_class = {'anger': 0, 'fear': 1, 'joy': 2, 'sadness': 3 , 'others':4}
 class_to_emotion = {0: 'anger', 1: 'fear', 2: 'joy', 3: 'sadness' , 4:'others'}	
+
+import sys
+sys.path += ['../', '../..']
 
 def load_data():
     '''

@@ -14,7 +14,8 @@ import argparse
 
 #make sure we get all the files we need!
 import sys
-sys.path.append('../', '../..')
+sys.path += ['../', '../..']
+
 from helper_funcs import *
 
 EMOTIONS = ['anger', 'fear', 'sadness', 'disgust', 'joy']

@@ -18,7 +18,7 @@ import argparse
 from collections import Counter
 
 import sys
-sys.path.append('../', '../..')
+sys.path += ['../', '../..']
 from helper_funcs import *
 
 EMOTIONS = ['anger', 'fear', 'sadness', 'disgust', 'joy']
