@@ -289,13 +289,13 @@ def main():
     args = parser.parse_args()
     encode = True if (args.encode == 'True' or args.encode is True) else False
     emojis = True if args.emojis == 'True' else False
-    data, features = encode_and_vectorize_binary(args.file, encode_emojis=emojis)
+    data, features, labels = encode_and_vectorize_binary(args.file, encode_emojis=emojis)
     #dec_tree_gridsearch_binary(data , features)
     random_forest_gridsearch_binary(data , features)
     #knn_gridsearch_binary(data , features)
     #svm_gridsearch_binary(data , features)
     #lr_gridsearch_binary(data, features)
-    data, features = encode_and_vectorize_multi_class(args.file, encode_emojis=emojis)
+    data, features, labels = encode_and_vectorize_multi_class(args.file, encode_emojis=emojis)
     #dec_tree_gridsearch_multiclass(data , features)
     random_forest_gridsearch_multi(data , features)
     #knn_gridsearch_multiclass(data , features)

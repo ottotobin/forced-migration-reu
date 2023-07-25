@@ -17,7 +17,7 @@ from transformers import BertModel
 import argparse
 
 import sys
-sys.path.append('../', '../..')
+sys.path += ['../', '../..']
 from helper_funcs import *
 
 EMOTIONS = ['anger', 'fear', 'sadness', 'disgust', 'joy']
@@ -144,7 +144,7 @@ def main():
     lr = float(args.learningRate)
     batch_size = int(args.batches)
     epochs = int(args.epochs)
-    encoded, X = encode_and_vectorize_binary(args.file, combine=True)
+    encoded, X, labels = encode_and_vectorize_binary(args.file, combine=True)
     print(encoded)
     for emotion in EMOTIONS2:
         model = train(encoded, lr, epochs, batch_size, emotion)

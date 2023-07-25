@@ -300,9 +300,9 @@ def main():
 
     data_file = '../data/ukrainian_emotion_new.tsv'
     if encode:
-        data, features = encode_and_vectorize_binary(data_file, encode_emojis=emojis, combine=combine)
+        data, features, labels = encode_and_vectorize_binary(data_file, encode_emojis=emojis, combine=combine)
     else: 
-        data, features = encode_and_vectorize_multi_class(data_file, encode_emojis=emojis, combine=combine)
+        data, features, labels = encode_and_vectorize_multi_class(data_file, encode_emojis=emojis, combine=combine)
 
     log_reg = dec_tree = k = nb = rand_for = s = False
 

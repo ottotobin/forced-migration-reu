@@ -385,7 +385,7 @@ def main():
     parser.add_argument('--file', default='../data/ukrainian_emotion_new_new.tsv')
     args = parser.parse_args()
 
-    encoded, _ = encode_and_vectorize_multi_class(args.file, combine=True)
+    encoded, _ , _ = encode_and_vectorize_multi_class(args.file, combine=True)
     # binary_encoded, _ = encode_and_vectorize_binary(file_name, combine=True)
     corpus_file = '../data/news.lowercased.lemmatized.glove.300d'
     learning_rate = 0.001
