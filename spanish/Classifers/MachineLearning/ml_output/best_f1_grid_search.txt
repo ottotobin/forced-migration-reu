@@ -1,0 +1,3 @@
+Highest F1: 0.7387640449438202
+Best Model: XGBoost
+Best Emotion: joy
