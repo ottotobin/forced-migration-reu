@@ -1,0 +1,74 @@
+threshold 0.6
+(others % , apperances): 0.11646586345381527 249
+(anger % , apperances): 0.75 200
+(sadness % , apperances): 0.6 200
+(fear % , apperances): 0.785 200
+(joy % , apperances): 0.78 200
+accuracy percent 0.5828571428571429
+
+threshold 0.65
+(others % , apperances): 0.14457831325301204 249
+(anger % , apperances): 0.75 200
+(sadness % , apperances): 0.6 200
+(fear % , apperances): 0.785 200
+(joy % , apperances): 0.77 200
+accuracy percent 0.5876190476190476
+
+threshold 0.7
+others % , apperances 0.1566265060240964 249
+anger % , apperances 0.75 200
+sadness % , apperances 0.6 200
+fear % , apperances 0.785 200
+joy % , apperances 0.765 200
+accuracy percent 0.5895238095238096
+328
+
+
+threshold 0.75
+others % , apperances 0.17670682730923695 249
+anger % , apperances 0.75 200
+sadness % , apperances 0.6 200
+fear % , apperances 0.785 200
+joy % , apperances 0.755 200
+accuracy percent 0.5923809523809523
+317
+
+
+threshold 0.8
+others % , apperances 0.20883534136546184 249
+anger % , apperances 0.75 200
+sadness % , apperances 0.6 200
+fear % , apperances 0.785 200
+joy % , apperances 0.745 200
+accuracy percent 0.5980952380952381
+303
+
+
+threshold 0.9
+others % , apperances 0.3293172690763052 249
+anger % , apperances 0.75 200
+sadness % , apperances 0.6 200
+fear % , apperances 0.785 200
+joy % , apperances 0.7 200
+accuracy percent 0.6180952380952381
+258
+
+
+threshold 0.93
+others % , apperances 0.41365461847389556 249
+anger % , apperances 0.75 200
+sadness % , apperances 0.6 200
+fear % , apperances 0.785 200
+joy % , apperances 0.665 200
+accuracy percent 0.6314285714285715
+224
+
+
+threshold 0.97
+others % , apperances 0.5622489959839357 249
+anger % , apperances 0.75 200
+sadness % , apperances 0.6 200
+fear % , apperances 0.785 200
+joy % , apperances 0.555 200
+accuracy percent 0.6457142857142857
+158
