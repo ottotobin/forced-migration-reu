@@ -1,6 +1,6 @@
 import sys
+sys.path.append('../', '../..')
 import csv
-sys.path.append('../')
 from sklearn.model_selection import train_test_split
 from helper_funcs import *
 import pandas as pd

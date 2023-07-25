@@ -22,7 +22,7 @@ import argparse
 
 import sys
 
-sys.path.append('../')
+sys.path.append('../', '../..')
 from helper_funcs import *
 EMOTIONS2 = ['anger', 'fear', 'sadness', 'joy']
 #gather input
