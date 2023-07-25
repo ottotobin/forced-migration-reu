@@ -13,7 +13,7 @@ from transformers import BertForSequenceClassification, BertTokenizer
 from tqdm import tqdm
 
 import sys
-sys.path.append('../')
+sys.path.append('../', '../..')
 
 from helper_funcs import preprocess_text, combine_cloudshare_data
 

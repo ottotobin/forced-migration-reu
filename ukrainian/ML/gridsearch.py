@@ -7,7 +7,7 @@
 
 # Import all your libraries.
 import sys
-sys.path.append('../')
+sys.path.append('../', '../..')
 import pandas as pd
 import numpy as np
 from sklearn.metrics import confusion_matrix , classification_report

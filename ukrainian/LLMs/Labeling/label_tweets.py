@@ -15,7 +15,7 @@ import csv
 import datetime
 
 import sys
-sys.path.append('../')
+sys.path.append('../', '../..')
 
 from helper_funcs import preprocess_text, combine_cloudshare_data
 

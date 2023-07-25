@@ -25,7 +25,7 @@ from sklearn.preprocessing import LabelEncoder
 from googletrans import Translator
 from sklearn.svm import SVC
 import sys
-sys.path.append('../')
+sys.path.append('../', '../..')
 from helper_funcs import *
 
 EMOTIONS = ['anger', 'fear', 'sadness', 'disgust', 'joy']

@@ -17,8 +17,7 @@ from transformers import BertModel
 import argparse
 
 import sys
-
-sys.path.append('../')
+sys.path.append('../', '../..')
 from helper_funcs import *
 
 EMOTIONS = ['anger', 'fear', 'sadness', 'disgust', 'joy']
