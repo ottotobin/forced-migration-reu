@@ -13,7 +13,7 @@
 
 #imports
 import sys
-sys.path.append('../', '../..')
+sys.path += ['../', '../..']
 import pandas as pd
 import re
 import json

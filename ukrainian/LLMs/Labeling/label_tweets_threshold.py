@@ -14,8 +14,7 @@ from tqdm import tqdm
 import argparse
 
 import sys
-sys.path.append('../', '../..')
-
+sys.path += ['../', '../..']
 from helper_funcs import preprocess_text, combine_cloudshare_data
 
 

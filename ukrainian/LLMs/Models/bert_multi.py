@@ -136,8 +136,8 @@ def accuracy(model_name, true, preds, epochs, batch_size, lr):
     
 def main():
     # load in major parameters and dataframe
-    parser = argparse.ArgumentParser(description="Emotion Detection ML Models", default = 0.00001)
-    parser.add_argument('--learningRate', help="learning rate for bert to use")
+    parser = argparse.ArgumentParser(description="Emotion Detection ML Models")
+    parser.add_argument('--learningRate', help="learning rate for bert to use", default = 0.00001)
     parser.add_argument('--epochs', help='Number of epochs for training', default=5)
     parser.add_argument('--batches', help="batch size", default=20)
     parser.add_argument('--file', help='tsv file where data is stored', default='../data/ukrainian_emotion_new_new.tsv')
