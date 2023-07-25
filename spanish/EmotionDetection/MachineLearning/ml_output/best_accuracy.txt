@@ -1,3 +1,0 @@
-Highest Accuracy: 0.972936400541272
-Best Model: XGBoost
-Best Emotion: fear

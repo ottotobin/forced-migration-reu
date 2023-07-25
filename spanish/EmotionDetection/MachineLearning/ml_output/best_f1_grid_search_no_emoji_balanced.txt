@@ -1,3 +1,0 @@
-Highest F1: 0.7472527472527473
-Best Model: SVC
-Best Emotion: joy
