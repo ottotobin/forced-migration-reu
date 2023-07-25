@@ -154,6 +154,35 @@ def load_combined_data():
     final = pd.concat([others_df, test_df])
     final.to_csv('../data/combined_data.csv')
 
+def aggregate_acled_data(civillian_deaths_path , political_events_path , output_dir):
+    '''
+    Parameters:
+        civillian_deaths_path: string file path to a excel sheet containing data on civillian deaths 
+        political_events+path:  string file path to a excel sheet containing data on political violence events and deaths
+        output_dir: where to place the updated version of these files
+        both file's come from https://data.humdata.org/dataset/ukraine-acled-conflict-data
+    Outputs:
+        2 new files where each event and death is aggregated by month and city
+    '''
+    #load in data
+    civillian_df = pd.read_excel(civillian_deaths_path)
+    politcal_df = pd.read_excel(political_events_path)
+
+    #drop duplicate rows!
+    civillian_df = civillian_df.drop_duplicates()
+    politcal_df = politcal_df.drop_duplicates()
+    
+    #aggregate both dataframess
+    civillian_df = civillian_df[civillian_df['Year'] >= 2022]
+    civillian_df = civillian_df.groupby(['Month','Year' , 'Admin1'])[['Fatalities' , 'Events']].sum()
+
+    politcal_df = politcal_df[politcal_df['Year'] >= 2022]
+    politcal_df = politcal_df.groupby(['Month','Year' , 'Admin1'])[['Fatalities' , 'Events']].sum()  
+    
+    #output files
+    politcal_df.to_csv( output_dir + '/political_acled2.csv')
+    civillian_df.to_csv(output_dir + '/civillian_targets2.csv')
+
 def combine_cloudshare_data(directory):
     """
     Gets confusingly sotred Google Cloud share twitter scrapes and creates one cohesive csv file with all tweets
