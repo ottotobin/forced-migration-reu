@@ -40,27 +40,28 @@ def label(data):
     labeled = pd.DataFrame(columns=['date', 'city', 'id_str', 'language', 'tweet', 'predicted_emotion'])
     tweet_count = 0
     for index, item in tqdm(unlabeled.iterrows()):
-        tweet = item['raw_tweet']
-        clean_txt = preprocess_text(tweet)
-        input = tokenizer(clean_txt, padding=True, max_length = 512,truncation=True,return_tensors="pt")
-        mask = input['attention_mask'].to(device)
-        inputs = input['input_ids'].to(device)
-        #default others
-        predicted_emotion = 'others'
-        #keep track of highest probability
-        max_prob = 0.0
-        with torch.no_grad():
-            for emotion in models:
-                outputs = models[emotion](input_ids=inputs, attention_mask=mask)
-                logits = outputs.logits
-                probabilities = torch.softmax(logits, dim=1)
-                label = torch.argmax(logits, dim=1).item()
-                emotion_prob = probabilities[0][1].item()  # Positive emotion probability
-                if (label == 1) and (emotion_prob > max_prob):
-                    max_prob = emotion_prob
-                    predicted_emotion = emotion
-        new_item = [item['date'], item['city'], item['tweet_id'], item['language'], item['raw_tweet'], predicted_emotion]
-        labeled.loc[len(labeled)] = new_item
+        if item['language'] == 'uk':
+            tweet = item['raw_tweet']
+            clean_txt = preprocess_text(tweet)
+            input = tokenizer(clean_txt, padding=True, max_length = 512,truncation=True,return_tensors="pt")
+            mask = input['attention_mask'].to(device)
+            inputs = input['input_ids'].to(device)
+            #default others
+            predicted_emotion = 'others'
+            #keep track of highest probability
+            max_prob = 0.0
+            with torch.no_grad():
+                for emotion in models:
+                    outputs = models[emotion](input_ids=inputs, attention_mask=mask)
+                    logits = outputs.logits
+                    probabilities = torch.softmax(logits, dim=1)
+                    label = torch.argmax(logits, dim=1).item()
+                    emotion_prob = probabilities[0][1].item()  # Positive emotion probability
+                    if (label == 1) and (emotion_prob > max_prob):
+                        max_prob = emotion_prob
+                        predicted_emotion = emotion
+            new_item = [item['date'], item['city'], item['tweet_id'], item['language'], item['raw_tweet'], predicted_emotion]
+            labeled.loc[len(labeled)] = new_item
     labeled.to_csv('binary_predictions.csv')
 
 

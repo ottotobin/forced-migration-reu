@@ -38,26 +38,27 @@ def label(data, threshold):
     labeled = pd.DataFrame(columns=['date', 'city', 'id_str', 'language', 'tweet', 'predicted_emotion'])
     model.eval()
     for index, item in tqdm(unlabeled.iterrows()):
-        tweet = item['raw_tweet']
-        clean_txt = preprocess_text(tweet)
-        input = tokenizer(clean_txt, padding=True, max_length = 512,truncation=True,return_tensors="pt")
-        mask = input['attention_mask'].to(device)
-        inputs = input['input_ids'].to(device)
-        with torch.no_grad():
-            outputs = model(input_ids = inputs, attention_mask=mask)
-        logits = outputs.logits
-        probabilities = torch.softmax(logits, dim=1)
-        max_prob = torch.max(probabilities, dim=1)
-        # set threshold for joy
-        if max_prob[1].item() == 2:
-            if max_prob[0].item() >= threshold:
-                predicted_emotion = class_to_emotion[max_prob[1].item()]
+        if item['language'] == 'uk':
+            tweet = item['raw_tweet']
+            clean_txt = preprocess_text(tweet)
+            input = tokenizer(clean_txt, padding=True, max_length = 512,truncation=True,return_tensors="pt")
+            mask = input['attention_mask'].to(device)
+            inputs = input['input_ids'].to(device)
+            with torch.no_grad():
+                outputs = model(input_ids = inputs, attention_mask=mask)
+            logits = outputs.logits
+            probabilities = torch.softmax(logits, dim=1)
+            max_prob = torch.max(probabilities, dim=1)
+            # set threshold for joy
+            if max_prob[1].item() == 2:
+                if max_prob[0].item() >= threshold:
+                    predicted_emotion = class_to_emotion[max_prob[1].item()]
+                else:
+                    predicted_emotion = 'others'
             else:
-                predicted_emotion = 'others'
-        else:
-            predicted_emotion = class_to_emotion[max_prob[1].item()]
-        new_item = [item['date'], item['city'], item['tweet_id'], item['language'], item['raw_tweet'], predicted_emotion]
-        labeled.loc[len(labeled)] = new_item
+                predicted_emotion = class_to_emotion[max_prob[1].item()]
+            new_item = [item['date'], item['city'], item['tweet_id'], item['language'], item['raw_tweet'], predicted_emotion]
+            labeled.loc[len(labeled)] = new_item
     labeled.to_csv('threshold_' + str(threshold) + '_predictions.csv')
 
 
