@@ -1,3 +1,0 @@
-Highest Accuracy: 0.8611261505143476
-Best Emotion: fear
-Best Method: EmoScoreVar

@@ -1,3 +1,0 @@
-Highest F1: 0.4902687673772011
-Best Emotion: sadness
-Best Method: getNRCEmotions
