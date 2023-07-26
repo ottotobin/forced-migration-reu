@@ -14,12 +14,15 @@ import numpy as np
 def read_acled(path):
     with open(path, 'r') as acled:
         df = pd.read_csv(acled)
+        df["event_date"] = pd.to_datetime(df["event_date"], format='%d %B %Y')
+        df['event_date'] = df['event_date'].dt.strftime('%Y-%m-%d')
+
         df["event_count"] = 1
         # columns to do a combined search by
-        cols_interest = ['event_date', 'admin1', 'admin2', 'location']
+        cols_interest = ['event_date', 'admin1']
 
         # groups the dataframe by event date and sums their fatalities and events
-        ret_df = df.groupby(cols_interest[:-3], as_index=False, axis=0).agg({"fatalities":"sum","event_count":"sum"})
+        ret_df = df.groupby(cols_interest, as_index=False, axis=0).agg({"fatalities":"sum","event_count":"sum"})
 
         return ret_df
   
@@ -44,7 +47,7 @@ def read_iom(file):
     # List of columns that we will be using from the iom data
     # Some of the week-datasets did not have camp/neighborhood data,
     # so we are using locality as the smallest granularity
-    cols_of_interest = ["Date","STATE OF AFFECTED POPULATION","LOCALITY OF AFFECTED POPULATION","# IDP INDIVIDUALS"]
+    cols_of_interest = ["Date","STATE OF AFFECTED POPULATION","# IDP INDIVIDUALS"]
     
     # Convert columns to appropriate data types for summing/grouping
     df[cols_of_interest[-1]] = pd.to_numeric(df[cols_of_interest[-1]].str.replace(",",""), errors="coerce")
@@ -55,6 +58,25 @@ def read_iom(file):
 
     # Group rows by date, state, and locality and sum their IDP counts
     df = df.groupby(cols_of_interest[:-1], as_index=False, axis=0)[cols_of_interest[-1]].sum()
+
+    date_list = df["Date"].unique()
+    row_list = []
+    for i in range(len(date_list)-1):
+        
+        current_date = date_list[i]
+        next_date = date_list[i+1]
+        subset = df[df["Date"]==current_date]
+
+        for index, row in subset.iterrows():
+            date = current_date + pd.Timedelta(days=1)
+            new_row = row.copy()
+            while date < next_date:
+                new_row["Date"] = date
+                row_list.append(new_row.tolist())
+                date += pd.Timedelta(days=1)
+    
+    new_df = pd.DataFrame(row_list, columns = df.columns)
+    df = pd.concat([df,new_df]).sort_values(by=["STATE OF AFFECTED POPULATION","Date"]).reset_index().drop(columns=["index"])
 
     return df
 
@@ -67,6 +89,10 @@ def main():
     # consolidate iom and acled data into smaller dataframes
     iom_df = read_iom(args.iom)
     acled_df = read_acled(args.acled)
+
+    print(iom_df)
+    print(acled_df)
+
 
 if __name__ == "__main__":
     main()
