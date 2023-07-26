@@ -16,7 +16,7 @@ import numpy as np
 def read_iom(file):
     with open(file, "r") as f:
         df = pd.read_csv(f)
-
+        
     # Helper function to fill missing pcode values
     def fill_missing_pcode(row, pcode_dict):
         if pd.isna(row["STATE PCODE OF ORIGIN"]):
@@ -34,17 +34,17 @@ def read_iom(file):
     # List of columns that we will be using from the iom data
     # Some of the week-datasets did not have camp/neighborhood data,
     # so we are using locality as the smallest granularity
-    cols_of_interest = ["Date","STATE OF AFFECTED POPULATION","# IDP INDIVIDUALS"]
+    cols_of_interest = ["Date","STATE OF AFFECTED POPULATION","# IDP INDIVIDUALS", "STATE OF ORIGIN"]
     
     # Convert columns to appropriate data types for summing/grouping
-    df[cols_of_interest[-1]] = pd.to_numeric(df[cols_of_interest[-1]].str.replace(",",""), errors="coerce")
-    df[cols_of_interest[0]] = pd.to_datetime(df[cols_of_interest[0]])
+    df[cols_of_interest[cols_of_interest.index("# IDP INDIVIDUALS")]] = pd.to_numeric(df[cols_of_interest[cols_of_interest.index("# IDP INDIVIDUALS")]].str.replace(",",""), errors="coerce")
+    df[cols_of_interest[cols_of_interest.index("Date")]] = pd.to_datetime(df[cols_of_interest[cols_of_interest.index("Date")]])
 
     # Drop missing values
     df = df[cols_of_interest].dropna()
 
     # Group rows by date, state, and locality and sum their IDP counts
-    df = df.groupby(cols_of_interest[:-1], as_index=False, axis=0)[cols_of_interest[-1]].sum()
+    df = df.groupby(cols_of_interest, as_index=False, axis=0)[cols_of_interest[cols_of_interest.index("# IDP INDIVIDUALS")]].sum()
 
     date_list = df["Date"].unique()
     row_list = []
@@ -64,7 +64,7 @@ def read_iom(file):
     
     new_df = pd.DataFrame(row_list, columns = df.columns)
     df = pd.concat([df,new_df]).sort_values(by=["STATE OF AFFECTED POPULATION","Date"]).reset_index().drop(columns=["index"])
-    df.columns = ["date","location","ipd"]
+    df.columns = ["date","location","ipd", "orig_state"]
     df["location"] = df["location"].str.lower()
 
     return df
@@ -124,6 +124,8 @@ def read_labels(file, name_pop_df):
 
     return df
 
+# merges the iom data first w/ the city population data
+# and then w/ the data from the inputted organic datafile
 def merge_df(iom_df, df2, org_cols, name_pop_df):
     # just Sudan city name and population
     name_pop_df = name_pop_df.loc[name_pop_df['country'] == 'Sudan']
