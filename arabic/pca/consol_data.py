@@ -106,8 +106,8 @@ def read_labels(file, name_pop_df):
         agg_dict[emotion] = "sum"
     df = df.groupby(["date","city"], as_index=False, axis=0).agg(agg_dict)
 
-    for emotion in df.columns[2:]:
-        df[emotion] = (df[emotion] - df[emotion].mean()) / df[emotion].std()
+    # for emotion in df.columns[2:]:
+    #     df[emotion] = (df[emotion] - df[emotion].mean()) / df[emotion].std()
 
     df.rename(columns={"city":"location"}, inplace=True)
     df["location"] = df["location"].str.lower()
@@ -115,8 +115,13 @@ def read_labels(file, name_pop_df):
 
     return df
 
-def merge_df(iom_df, df2, cols):
-    merged = pd.merge(iom_df, df2, on=cols, how="outer")
+def merge_df(iom_df, df2, org_cols, pop_df, pop_cols):
+    print(iom_df, df2)
+    exit()
+    merged_iom = pd.merge(iom_df, df2, on=org_cols, how="outer")
+    print(merged_iom)
+    exit()
+    # merged = pd.merge(merged_iom, pop_df, on=pop_cols)
     iom_locations = iom_df["location"].unique().tolist()
     merged = merged[merged["location"].isin(iom_locations)]
     merged = merged.fillna(0)
@@ -131,21 +136,25 @@ def main():
     parser.add_argument("-labels", default="data/labels.csv")
     parser.add_argument("-namePop", default="data/names-and-populations.csv")
     args = parser.parse_args()
-
-    with open(args.namePop, "r") as f:
-        name_pop_df = pd.read_csv(f)
+    
+    name_pop_df = pd.read_csv(args.namePop)
 
     # consolidate iom and acled data into smaller dataframes
     iom_df = read_iom(args.iom)
     acled_df = read_acled(args.acled)
     label_df = read_labels(args.labels, name_pop_df)
 
-    #merge_df(iom_df, acled_df, ["date","location"])
-    print(iom_df)
-    print(acled_df)
-    print(label_df)
+    # print(iom_df)
+    # print(acled_df)
+    # print(label_df)
 
-    merged = merge_df(iom_df, label_df, ["date", "location"])
+    acled_merged = merge_df(iom_df, acled_df, ["date", "location"], 
+                            name_pop_df, ["name_en", "population"])
+    label_merged = merge_df(iom_df, label_df, ["date", "location"], 
+                            name_pop_df, ["name_en", "population"])
+
+    acled_merged.to_csv("acled_outfile.csv", index=False)
+    label_merged.to_csv("label_outfile.csv", index=False)
 
 
 if __name__ == "__main__":

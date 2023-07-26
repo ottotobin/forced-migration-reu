@@ -5,13 +5,15 @@
 
 ######
 import matplotlib.pyplot as plt
-import pickle
+import pandas as pd
 import numpy as np
 import matplotlib.dates as mdates
-import pandas as pd
+import argparse
 
-with open("./pickles/reg_trends.pkl",'rb') as f:
-    trends_df = pickle.load(f)
+# with open("./pickles/reg_trends.pkl",'rb') as f:
+#     trends_df = pickle.load(f)
+
+
 
 regions = list(set(trends_df.index.get_level_values('macro')))
 days = list(set(trends_df.index.get_level_values('date')))
@@ -207,3 +209,15 @@ for v in X.columns:
     print(v)
     print(r2)
     np.square(np.corrcoef(y,X.loc[:,v]))
+
+def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("-acled", default='data/acled_outfile.csv')
+    parser.add_argument("-iom", default='data/iom_outfile.csv')
+    parser.add_argument("-label", default="data/label_outfile.csv")
+    args = parser.parse_args()
+
+    
+
+if __name__ == "__main__":
+    main()
