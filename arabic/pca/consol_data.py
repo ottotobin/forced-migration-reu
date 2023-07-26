@@ -9,28 +9,10 @@ import argparse
 import pandas as pd
 import numpy as np
 
-
-# reads in an ACLED csv file and converts it into a datafram
-# containing dates, total fatalities on that day, and the number of events per day
-def read_acled(path):
-    with open(path, 'r') as acled:
-        df = pd.read_csv(acled)
-        df["event_date"] = pd.to_datetime(df["event_date"], format='%d %B %Y')
-        df['event_date'] = df['event_date'].dt.strftime('%Y-%m-%d')
-
-        df["event_count"] = 1
-        # columns to do a combined search by
-        cols_interest = ['event_date', 'admin1']
-
-        # groups the dataframe by event date and sums their fatalities and events
-        ret_df = df.groupby(cols_interest, as_index=False, axis=0).agg({"fatalities":"sum","event_count":"sum"})
-
-    ret_df.columns = ["date","location","fatalities","event_count"]
-    ret_df["date"] = pd.to_datetime(ret_df["date"])
-    ret_df["location"] = df["location"].str.lower()
-
-    return ret_df
   
+# reads in IOM data and consolidates it into a dataframe containing the 
+# dates, locations, and internally displacement persons count, and leaving person
+# count in Sudan
 def read_iom(file):
     with open(file, "r") as f:
         df = pd.read_csv(f)
@@ -87,20 +69,47 @@ def read_iom(file):
 
     return df
 
+# reads in an ACLED csv file and converts it into a dataframe
+# containing dates, total fatalities on that day, and the number of events per day
+def read_acled(path):
+    with open(path, 'r') as acled:
+        df = pd.read_csv(acled)
+        df["event_date"] = pd.to_datetime(df["event_date"], format='%d %B %Y')
+        df['event_date'] = df['event_date'].dt.strftime('%Y-%m-%d')
+
+        df["event_count"] = 1
+        # columns to do a combined search by
+        cols_interest = ['event_date', 'admin1']
+
+        # groups the dataframe by event date and sums their fatalities and events
+        ret_df = df.groupby(cols_interest, as_index=False, axis=0).agg({"fatalities":"sum","event_count":"sum"})
+
+    ret_df.columns = ["date","location","fatalities","event_count"]
+    ret_df["date"] = pd.to_datetime(ret_df["date"])
+    ret_df["location"] = df["location"].str.lower()
+
+    return ret_df
+
+# reads in emotion labelling data and consolidates it into a dataframe containing
+# dates, location and emotion percentage for that date and location
 def read_labels(file, name_pop_df):
     with open(file, "r") as f:
         df = pd.read_csv(f)
+    # converts dataframe into just date, city, and emotion data
     df = df[["date","city"]+df.columns[6:].tolist()]
 
+    # helper func to replace Arabic text w/ English
     def replace_arabic(row, trans_dict):
         city = row["city"]
         if city in trans_dict:
             city = trans_dict[city]
         return city
 
+    # translating the Arabic city names w/ English
     city_translations = name_pop_df[["name_translated","name_en"]].set_index("name_translated")["name_en"].to_dict()
     df["city"] = df.apply(replace_arabic, axis=1, args=(city_translations,))
     
+    # aggregates the emotion data in to be sum of emotion for that day and city
     agg_dict = {}
     for emotion in df.columns[2:]:
         agg_dict[emotion] = "sum"
@@ -115,19 +124,23 @@ def read_labels(file, name_pop_df):
 
     return df
 
-def merge_df(iom_df, df2, org_cols, pop_df, pop_cols):
-    print(iom_df, df2)
-    exit()
-    merged_iom = pd.merge(iom_df, df2, on=org_cols, how="outer")
-    print(merged_iom)
-    exit()
-    # merged = pd.merge(merged_iom, pop_df, on=pop_cols)
+def merge_df(iom_df, df2, org_cols, name_pop_df):
+    # just Sudan city name and population
+    name_pop_df = name_pop_df.loc[name_pop_df['country'] == 'Sudan']
+ 
+    # merge iom w/ just intersecting cities and population
+    interest_cols = ['name_en', 'population']
+    name_pop_df = name_pop_df[interest_cols].dropna()
+    name_pop_df = name_pop_df.rename(columns={'name_en': 'location'})
+    pop_merge_df = pd.merge(iom_df, name_pop_df, on=['location'], how="outer")
+
+    # merge base dataframe w/ organic data
+    merged_df = pd.merge(pop_merge_df, df2, on=org_cols, how="outer")
     iom_locations = iom_df["location"].unique().tolist()
-    merged = merged[merged["location"].isin(iom_locations)]
-    merged = merged.fillna(0)
-    #merged.to_csv("out.csv", index=False)
+    merged_df = merged_df[merged_df["location"].isin(iom_locations)]
+    merged_df = merged_df.fillna(0)
     
-    return merged
+    return merged_df
 
 def main():
     parser = argparse.ArgumentParser()
@@ -144,15 +157,12 @@ def main():
     acled_df = read_acled(args.acled)
     label_df = read_labels(args.labels, name_pop_df)
 
-    # print(iom_df)
-    # print(acled_df)
-    # print(label_df)
+    # merging iom data first w/ city populations and then the inputted
+    # organic data
+    acled_merged = merge_df(iom_df, acled_df, ["date", "location"], name_pop_df)
+    label_merged = merge_df(iom_df, label_df, ["date", "location"], name_pop_df)
 
-    acled_merged = merge_df(iom_df, acled_df, ["date", "location"], 
-                            name_pop_df, ["name_en", "population"])
-    label_merged = merge_df(iom_df, label_df, ["date", "location"], 
-                            name_pop_df, ["name_en", "population"])
-
+    # outputting to csv
     acled_merged.to_csv("acled_outfile.csv", index=False)
     label_merged.to_csv("label_outfile.csv", index=False)
 
