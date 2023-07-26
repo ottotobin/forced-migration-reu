@@ -9,28 +9,20 @@ import argparse
 import pandas as pd
 import numpy as np
 
+# reads in an ACLED csv file and converts it into a datafram
+# containing dates, total fatalities on that day, and the number of events per day
 def read_acled(path):
     with open(path, 'r') as acled:
         df = pd.read_csv(acled)
-        ret_df = pd.DataFrame({'date': [], 'event_count': [], 'fatalities' : []})
-        fatalities = 0
-        event_count = 0
-        event_dates = df['event_date']
-        prev_date = event_dates[0]
-        print(prev_date)
+        df["event_count"] = 1
+        # columns to do a combined search by
+        cols_interest = ['event_date', 'admin1', 'admin2', 'location']
 
-        for index, row in df.iterrows():
-            if row['event_date'] != prev_date:
-                ret_df.loc[len(ret_df.index)] = [prev_date, event_count, fatalities]
-                event_count = 0
-                fatalities = 0
-                prev_date = row['event_date']
-            else:
-                event_count += 1
-                fatalities += row['fatalities']
-            
+        # groups the dataframe by event date and sums their fatalities and events
+        ret_df = df.groupby(cols_interest[:-3], as_index=False, axis=0).agg({"fatalities":"sum","event_count":"sum"})
+
         return ret_df
-                
+  
 def read_iom(file):
     with open(file, "r") as f:
         df = pd.read_csv(f)
@@ -72,12 +64,8 @@ def main():
     parser.add_argument("-iom", default='data/iom.csv')
     args = parser.parse_args()
     
-    iom_df=read_iom(args.iom)
-
-    acled_path = args.acled 
-
-    read_acled(acled_path)
-    read_iom(args.iom)
+    # consolidate iom and acled data into smaller dataframes
+    iom_df = read_iom(args.iom)
     acled_df = read_acled(args.acled)
 
 if __name__ == "__main__":
