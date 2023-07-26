@@ -30,13 +30,16 @@ def read_acled(path):
             
         print(ret_df)
                 
+def read_iom():
+    return
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("-acled", default='data/acled/2018-07-25-2023-07-25-Northern_Africa-Sudan.csv')
+    parser.add_argument("-acled", default='data/acled.csv')
+    parser.add_argument("-iom", default='data/iom.csv')
     args = parser.parse_args()
     
-    #read_iom("data/iom/")
+    read_iom(args.iom)
 
     acled_path = args.acled 
 
