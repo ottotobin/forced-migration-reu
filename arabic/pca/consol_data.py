@@ -11,22 +11,29 @@ import numpy as np
 
 def read_acled(path):
     with open(path, 'r') as acled:
-        acled_df = pd.read_csv(acled)
-        
-        print(acled_df.columns)
-        exit()
+        df = pd.read_csv(acled)
+        ret_df = pd.DataFrame({'date': [], 'event_count': [], 'fatalities' : []})
+        fatalities = 0
+        event_count = 0
+        event_dates = df['event_date']
+        prev_date = event_dates[0]
 
-def read_iom(path):
-    for file in os.listdir(path):
-        df = pd.read_csv(os.path.join(path, file))
-        print(df.columns)
-    
-    exit()
-
+        for index, row in df.iterrows():
+            print(row['event_date'])
+            if row['event_date'] != prev_date:
+                ret_df.loc[len(df.index)] = [prev_date, event_count, fatalities]
+                event_count = 0
+                fatalities = 0
+            else:
+                event_count += 1
+                fatalities += row['fatalities']
+            
+        print(ret_df)
+                
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("-acled", default='data/acled/2018-07-2023-07-25-Northern_Africa-Sudan.csv')
+    parser.add_argument("-acled", default='data/acled/2018-07-25-2023-07-25-Northern_Africa-Sudan.csv')
     args = parser.parse_args()
     
     #read_iom("data/iom/")
