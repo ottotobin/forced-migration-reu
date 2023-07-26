@@ -17,20 +17,21 @@ def read_acled(path):
         event_count = 0
         event_dates = df['event_date']
         prev_date = event_dates[0]
+        print(prev_date)
 
         for index, row in df.iterrows():
-            print(row['event_date'])
             if row['event_date'] != prev_date:
-                ret_df.loc[len(df.index)] = [prev_date, event_count, fatalities]
+                ret_df.loc[len(ret_df.index)] = [prev_date, event_count, fatalities]
                 event_count = 0
                 fatalities = 0
+                prev_date = row['event_date']
             else:
                 event_count += 1
                 fatalities += row['fatalities']
             
-        print(ret_df)
+        return ret_df
                 
-def read_iom():
+def read_iom(path):
     return
 
 def main():
@@ -40,10 +41,7 @@ def main():
     args = parser.parse_args()
     
     read_iom(args.iom)
-
-    acled_path = args.acled 
-
-    read_acled(acled_path)
+    acled_df = read_acled(args.acled)
 
 if __name__ == "__main__":
     main()
