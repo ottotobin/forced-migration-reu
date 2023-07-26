@@ -24,7 +24,7 @@ USAGE:
     python3 label_data.py -m <muse, GloVe, bert2> -csDir "data/cloud-share"
 """
 
-import re, os, csv, torch, datetime, fasttext.util, transformers, argparse
+import re, os, csv, torch, datetime, fasttext.util, transformers, argparse, subprocess
 import pandas as pd
 import numpy as np
 from transformers import BertTokenizer, BertForSequenceClassification
@@ -108,6 +108,15 @@ def emoji_translator(token_list, emoji_flag):
         return_tweet += " "
 
     return return_tweet
+
+def get_cloud_share(remote, outDir):
+    if not os.listdir(outDir):
+        local_path = outDir
+        #subprocess.run(f"mkdir -p {local_path}", shell=True)
+
+        # Run the gsutil command to copy the remote directory to the local machine
+        cmd = f"gsutil -m cp -r {remote}/* ./{local_path}"
+        subprocess.run(cmd, shell=True)
 
 def combine_cloudshare_data(directory):
     outfile = "data/cloud-share_data.csv"
@@ -298,6 +307,8 @@ def main():
         "muse":label_muse,
         "GloVe":label_glove
     }
+
+    get_cloud_share("gs://mdi_forced_migration/sudan", "data/cloud-share/")
 
     emotions = ["anger", "fear", "sadness", "disgust", "joy", "anger-disgust"]
     df = combine_cloudshare_data(args.csDir[0])
