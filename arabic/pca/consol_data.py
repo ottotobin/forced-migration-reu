@@ -1,7 +1,13 @@
 """
 authors: Toby, Rich, Lina, Grace
 
+description:
+    program consolidates data from ACLED, Google Trends, and emotion labeling 
+    into a MultiIndex dataframe with Internally Displaced Person (IDP) data 
+    from IOM
 
+USAGE:
+    python3 consol_data.py [-iom] [-acled] [-labels] [-namePop] [-gtrKey] [-gtrLoc]
 """
 
 import os
@@ -150,7 +156,6 @@ def read_gtrLoc(file):
     df.to_csv("o.csv", index=False)
 
     return df
-    
 
 # merges the iom data first w/ the city population data
 # and then w/ the data from the inputted organic datafile
@@ -164,7 +169,6 @@ def merge_df(iom_df, df2, org_cols, name_pop_df):
     iom_locations = iom_df['location'].unique().tolist()
     merged_df = merged_df[merged_df['location'].isin(iom_locations)]
     merged_df = merged_df.fillna(0)
-
 
     # name_pop_df = name_pop_df[name_pop_df['country'] == 'Sudan']
     # name_pop_dict = dict(zip(name_pop_df["name_en"].str.lower(),name_pop_df["population"]))
@@ -210,10 +214,10 @@ def main():
     gtrLoc_merged = merge_df(iom_df, gtrLoc_df, ["date", "location"], name_pop_df)
 
     # outputting to csv
-    acled_merged.to_csv("output/acled_outfile.csv", index=False)
-    label_merged.to_csv("output/label_outfile.csv", index=False)
-    gtrKey_merged.to_csv("output/gtrKey_outfile.csv", index=False)
-    gtrLoc_merged.to_csv("output/gtrLoc_outfile.csv", index=False)
+    acled_merged.to_csv("output/acled_outfile.csv")
+    label_merged.to_csv("output/label_outfile.csv")
+    gtrKey_merged.to_csv("output/gtrKey_outfile.csv")
+    gtrLoc_merged.to_csv("output/gtrLoc_outfile.csv")
 
 
 if __name__ == "__main__":
