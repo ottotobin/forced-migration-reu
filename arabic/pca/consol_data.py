@@ -159,8 +159,10 @@ def merge_df(iom_df, df2, org_cols, name_pop_df):
     # merge base dataframe w/ organic data
     merged_df = pd.merge(iom_df, df2, on=org_cols, how="outer")
     merged_df.to_csv("o2.csv",index=False)
-    iom_locations = iom_df["location"].unique().tolist()
-    merged_df = merged_df[merged_df["location"].isin(iom_locations)]
+   
+    # trim merged_df to contain only IOM locations
+    iom_locations = iom_df['location'].unique().tolist()
+    merged_df = merged_df[merged_df['location'].isin(iom_locations)]
     merged_df = merged_df.fillna(0)
 
 
@@ -176,6 +178,8 @@ def merge_df(iom_df, df2, org_cols, name_pop_df):
     #         return 0
     # merged_df["population"] = merged_df["location"].apply(fill_pop)
 
+    # change to Multiindex dataframe
+    merged_df = merged_df.set_index(['date', 'location'])
     return merged_df
 
 def main():
