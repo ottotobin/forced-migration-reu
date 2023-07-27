@@ -9,6 +9,8 @@ import pandas as pd
 import numpy as np
 import matplotlib.dates as mdates
 import argparse
+import random 
+import matplotlib.colors as mcolors
 
 def time_series(file, location):
     with open(file, 'r') as f:
@@ -16,8 +18,6 @@ def time_series(file, location):
         local_df = trends_df.copy().loc[trends_df['location'] == location]
         local_df['date'] = sorted(local_df['date'])
 
-    regions = list(trends_df['location'].unique())
-    days = sorted(list(trends_df['date']))
     vars = trends_df.columns[5:]
 
     ## Plot to start out with.
@@ -42,7 +42,7 @@ def time_series(file, location):
 
 def corr_matrix(trends_df, location):
     ## Calculate and viz correlation
-    vars = trends_df.columns[5:]
+    vars = trends_df.columns[4:]
     corr = np.zeros([len(vars),len(vars)])
     for i,v1 in enumerate(vars):
         for j,v2 in enumerate(vars):
@@ -66,48 +66,27 @@ def corr_matrix(trends_df, location):
     return corr
 
 
-def pca(corr, norm_df):
+def pca(corr, file):
     ## Compute PCA
-
-    #corr - 
-
-    #norm_df.T @ norm_df / norm_df.shape[0]
-
-    #np.linalg.svd(norm_df)[2][0,:]
-
-    #np.mean(norm_df)
-
+    df = pd.read_csv(file)
+    
+    # extract regions, days, and vars from the data
+    regions = list(df['location'].unique())
+    days = sorted(list(df['date']))
+    norm_df = df.copy()
+    vars = norm_df.columns[4:]
+    for v in vars:
+        norm_df[v] = (norm_df[v] - np.mean(norm_df[v])) / np.std(norm_df[v])
 
     ed = np.linalg.eigh(corr)
-
-
-
-    # ed[1] @ np.diag(ed[0]) @ ed[1].T
-
-
-    ## ed[0] - EIGENVALUES: how important is each combination?
-
-    ## ed[1] - EIGENVECTORS: what is the composition of each combination
-
-
-
-    ## Eigenvectors == Principal Components
-
-
-
-    ed[0]
-
 
     # First two principal components
     ev1 = pd.Series(ed[1][:,-1], index = vars)
     ev2 = pd.Series(ed[1][:,-2], index = vars)
 
-    norm_df.iloc[0,:]
-
-
     # low dimensional plot of each day/region
     V = np.stack([-ev1,-ev2]).T
-    low_d_df = norm_df @ V
+    low_d_df = norm_df.iloc[:,4:] @ V
 
     # Relative importance of principal components (given by eigenvalues)
     fig = plt.figure()
@@ -121,12 +100,15 @@ def pca(corr, norm_df):
     plt.savefig("evals.pdf")
     plt.close()
 
-    ck = {'Center' : 'Greens', 'South' : 'Reds', 'North' : 'Blues', 'East' : 'Purples', 'Kyiv' : 'Oranges','West':'Greys'}
+    colors = ['Greens', 'Reds', 'Blues',  'Purples', 'Oranges','Greys', 'ocean', 
+              'pink', 'plasma', 'prism', 'rainbow', 'seismic', 'spring', 'summer', 
+              'terrain', 'twilight', 'twilight_shifted', 'viridis', 'winter']
+
+    color_regions = { r:c for (r,c) in zip(regions, colors)}
 
     fig = plt.figure()
-
     for r in regions:
-        cmap = plt.get_cmap(ck[r])
+        cmap = plt.get_cmap(color_regions[r])    
         Xr = low_d_df.xs(r,level=1)
         col_inds = np.flip(0.2+0.6*np.arange(Xr.shape[0]) / Xr.shape[0])
         cols = cmap(col_inds)
@@ -194,13 +176,9 @@ def main():
     args = parser.parse_args()
 
     norm_df = time_series(args.acled, args.location)
-
     corr = corr_matrix(norm_df, args.location)
 
-    pca(corr, norm_df)
-
-
-
+    pca(corr, args.acled)
     
 
 if __name__ == "__main__":
