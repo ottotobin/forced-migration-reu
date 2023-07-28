@@ -16,7 +16,10 @@ import numpy as np
 def read_iom(file):
     with open(file, "r") as f:
         df = pd.read_csv(f)
-        
+
+    df["# IDP INDIVIDUALS"] = pd.to_numeric(df["# IDP INDIVIDUALS"].str.replace(",","").replace("-","0"))
+    df = df[df["# IDP INDIVIDUALS"]>0]
+
     # Helper function to fill missing pcode values
     def fill_missing_pcode(row, pcode_dict):
         if pd.isna(row["STATE PCODE OF ORIGIN"]):
@@ -34,17 +37,20 @@ def read_iom(file):
     # List of columns that we will be using from the iom data
     # Some of the week-datasets did not have camp/neighborhood data,
     # so we are using locality as the smallest granularity
-    cols_of_interest = ["Date","STATE OF AFFECTED POPULATION","# IDP INDIVIDUALS", "STATE OF ORIGIN"]
+    cols_of_interest = ["Date","STATE OF AFFECTED POPULATION"]
     
     # Convert columns to appropriate data types for summing/grouping
-    df[cols_of_interest[cols_of_interest.index("# IDP INDIVIDUALS")]] = pd.to_numeric(df[cols_of_interest[cols_of_interest.index("# IDP INDIVIDUALS")]].str.replace(",",""), errors="coerce")
-    df[cols_of_interest[cols_of_interest.index("Date")]] = pd.to_datetime(df[cols_of_interest[cols_of_interest.index("Date")]])
+    df["Date"] = pd.to_datetime(df["Date"])
 
     # Drop missing values
-    df = df[cols_of_interest].dropna()
+    df = df.dropna()
 
     # Group rows by date, state, and locality and sum their IDP counts
-    df = df.groupby(cols_of_interest, as_index=False, axis=0)[cols_of_interest[cols_of_interest.index("# IDP INDIVIDUALS")]].sum()
+    arrive_df = df.groupby(["Date","STATE OF AFFECTED POPULATION"], as_index=False, axis=0)["# IDP INDIVIDUALS"].sum()
+    arrive_df.columns = ["Date","location","arriving_IDP"]
+    exit_df = df.groupby(["Date","STATE OF ORIGIN"], as_index=False, axis=0)["# IDP INDIVIDUALS"].sum()
+    exit_df.columns = ["Date","location","leaving_IDP"]
+    df = pd.merge(arrive_df, exit_df, on=["Date","location"], how="outer").fillna(0)
 
     date_list = df["Date"].unique()
     row_list = []
@@ -63,8 +69,8 @@ def read_iom(file):
                 date += pd.Timedelta(days=1)
     
     new_df = pd.DataFrame(row_list, columns = df.columns)
-    df = pd.concat([df,new_df]).sort_values(by=["STATE OF AFFECTED POPULATION","Date"]).reset_index().drop(columns=["index"])
-    df.columns = ["date","location","ipd", "orig_state"]
+    df = pd.concat([df,new_df]).sort_values(by=["Date", "location"]).reset_index().drop(columns=["index"])
+    df.columns = ["date","location","arriving_IDP", "leaving_IDP"]
     df["location"] = df["location"].str.lower()
 
     return df
@@ -124,24 +130,52 @@ def read_labels(file, name_pop_df):
 
     return df
 
+def read_gtrKey(file):
+    with open(file, "r") as f:
+        df = pd.read_csv(f)
+    
+    df.columns = ["date","location","topic","search_count"]
+    df["date"] = pd.to_datetime(df["date"])
+    df["location"] = df["location"].str.lower()
+    df = df.pivot(index=["date","location"], columns = "topic", values="search_count").reset_index()
+    df = df.fillna(0)
+
+    return df
+
+def read_gtrLoc(file):
+    with open(file, "r") as f:
+        df = pd.read_csv(f)
+    df["date"] = pd.to_datetime(df["date"])
+    df["location"] = df["location"].str.lower()
+    df.to_csv("o.csv", index=False)
+
+    return df
+    
+
 # merges the iom data first w/ the city population data
 # and then w/ the data from the inputted organic datafile
 def merge_df(iom_df, df2, org_cols, name_pop_df):
-    # just Sudan city name and population
-    name_pop_df = name_pop_df.loc[name_pop_df['country'] == 'Sudan']
- 
-    # merge iom w/ just intersecting cities and population
-    interest_cols = ['name_en', 'population']
-    name_pop_df = name_pop_df[interest_cols].dropna()
-    name_pop_df = name_pop_df.rename(columns={'name_en': 'location'})
-    pop_merge_df = pd.merge(iom_df, name_pop_df, on=['location'], how="outer")
 
     # merge base dataframe w/ organic data
-    merged_df = pd.merge(pop_merge_df, df2, on=org_cols, how="outer")
+    merged_df = pd.merge(iom_df, df2, on=org_cols, how="outer")
+    merged_df.to_csv("o2.csv",index=False)
     iom_locations = iom_df["location"].unique().tolist()
     merged_df = merged_df[merged_df["location"].isin(iom_locations)]
     merged_df = merged_df.fillna(0)
-    
+
+
+    # name_pop_df = name_pop_df[name_pop_df['country'] == 'Sudan']
+    # name_pop_dict = dict(zip(name_pop_df["name_en"].str.lower(),name_pop_df["population"]))
+    # def fill_pop(name):
+    #     if len(name.split()) == 1 and name in name_pop_dict:
+    #         return name_pop_dict[name]
+    #     else:
+    #         for key in name_pop_dict:
+    #             if all(word in key for word in name.split()):
+    #                 return name_pop_dict[name]
+    #         return 0
+    # merged_df["population"] = merged_df["location"].apply(fill_pop)
+
     return merged_df
 
 def main():
@@ -150,6 +184,9 @@ def main():
     parser.add_argument("-iom", default='data/iom.csv')
     parser.add_argument("-labels", default="data/labels.csv")
     parser.add_argument("-namePop", default="data/names-and-populations.csv")
+    parser.add_argument("-gtrKey", default="data/gtr_SD_keyword_data.csv")
+    parser.add_argument("-gtrLoc", default="data/gtr_location_data.csv")
+
     args = parser.parse_args()
     
     name_pop_df = pd.read_csv(args.namePop)
@@ -158,15 +195,21 @@ def main():
     iom_df = read_iom(args.iom)
     acled_df = read_acled(args.acled)
     label_df = read_labels(args.labels, name_pop_df)
+    gtrKey_df = read_gtrKey(args.gtrKey)
+    gtrLoc_df = read_gtrLoc(args.gtrLoc)
 
     # merging iom data first w/ city populations and then the inputted
     # organic data
     acled_merged = merge_df(iom_df, acled_df, ["date", "location"], name_pop_df)
     label_merged = merge_df(iom_df, label_df, ["date", "location"], name_pop_df)
+    gtrKey_merged = merge_df(iom_df, gtrKey_df, ["date", "location"], name_pop_df)
+    gtrLoc_merged = merge_df(iom_df, gtrLoc_df, ["date", "location"], name_pop_df)
 
     # outputting to csv
-    acled_merged.to_csv("acled_outfile.csv", index=False)
-    label_merged.to_csv("label_outfile.csv", index=False)
+    acled_merged.to_csv("output/acled_outfile.csv", index=False)
+    label_merged.to_csv("output/label_outfile.csv", index=False)
+    gtrKey_merged.to_csv("output/gtrKey_outfile.csv", index=False)
+    gtrLoc_merged.to_csv("output/gtrLoc_outfile.csv", index=False)
 
 
 if __name__ == "__main__":
