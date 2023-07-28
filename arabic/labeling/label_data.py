@@ -30,6 +30,7 @@ import numpy as np
 from transformers import BertTokenizer, BertForSequenceClassification
 from nltk.tokenize import RegexpTokenizer
 from transformers import BertForSequenceClassification
+from tqdm import tqdm
 
 # Function to preprocess the csv data
 # Takes input of the original data file and the emoji flag
@@ -132,7 +133,7 @@ def combine_cloudshare_data(directory):
         rows=[]
         # nestings of for loops to iterate over all of the 
         # json files stored in the larger cloud shre directory
-        for filename in os.listdir(directory):
+        for filename in tqdm(os.listdir(directory), desc="Date"):
             path_date = os.path.join(directory, filename)
             if os.path.isdir(path_date):
                 # data dir
