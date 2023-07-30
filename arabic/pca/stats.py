@@ -15,8 +15,9 @@ USAGE:
 import argparse
 import pandas as pd
 import matplotlib.pyplot as plt
-import matplotlib.dates as mdates
+import datetime
 import numpy as np
+
 
 # Calculate and viz correlation
 def corr_matrix(trends_df, file, location=None):
@@ -71,7 +72,6 @@ def corr_matrix(trends_df, file, location=None):
             plt.tight_layout()
             plt.savefig(f"visuals/{org_type}/{r}_cov_im.pdf")
             plt.close()
-
 
 # creates raw and normalized time series for the consolidated files 
 # of IOM and organic data
@@ -136,19 +136,39 @@ def time_series(file, location=None):
 # and aligns a regression model and displays the overall R^2    
 def regressions(file, location):
     org_type = file.split('_')[2].split('.')[0]
-    trends_df = pd.read_csv(file).set_index(['date', 'location'])
-    # arriving_idp = trends_df.index.get_level_values('arriving_IDP')
-    # leaving_idp = trends_df.index.get_level_values('leaving_IDP')
-    vars = trends_df.columns[2:]
+    df = pd.read_csv(file)
+    df['date'] = pd.to_datetime(df['date'])
+    df = df.loc[df['date'] >= datetime.datetime(2023, 1, 1)]
+    vars = df.columns[4:]
     
-    r = location
-    plt.plot(trends_df.xs(r,level=1).loc[:,'leaving_IDP'], label = 'leaving-IDP')
-    for v in vars:
-        plt.scatter(trends_df[v], trends_df.index.get_level_values('date'), cmap='Greens')
-    plt.legend()
-    plt.show()
-    # plt.savefig(f"visuals/{org_type}/{r}_unnorm.pdf")
-    plt.close()
+    if location != None:
+        r = location
+
+        # norm_df = df.copy()
+        # for v in vars:
+        #     norm_df[v] = (norm_df[v] - np.mean(norm_df[v])) / np.std(norm_df[v])
+
+        df = df[df['location'] == r]
+        # for v in vars:
+        fig, ax1 = plt.subplots()
+        # ax2 = ax1.twinx()
+        plt.scatter(df['fatalities'].values, df['leaving_IDP'].values)
+        # plt.scatter(df['date'].values, df['leaving_IDP'].values, label = 'leaving_IDP', color='orange')
+        ax1.set_xlabel('fatalities')
+        ax1.set_ylabel('leaving IDP')
+
+        # m, b = np.polyfit(df['fatalities'].values, df['leaving_IDP'].values, 1)
+        # plt.plot(df['fatalities'].values, m * (df['fatalities'].values + b), color='red')
+        # ax2.set_ylabel('leaving IDP')
+        # plt.gcf().autofmt_xdate()
+        # ax.xaxis.set_major_formatter(mdates.AutoDateFormatter())
+        # plt.legend()
+        plt.show()
+        # plt.savefig(f"visuals/{org_type}/{r}_unnorm.pdf")
+        plt.close()
+
+        exit()
+
 
 
 
