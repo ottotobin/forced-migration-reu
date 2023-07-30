@@ -132,6 +132,7 @@ def time_series(file, location=None):
 
         return trends_df
 
+
 # creates plots for each individual indicators against IOM data
 # and aligns a regression model and displays the overall R^2    
 def regressions(file, location):
@@ -139,6 +140,7 @@ def regressions(file, location):
     df = pd.read_csv(file)
     df['date'] = pd.to_datetime(df['date'])
     df = df.loc[df['date'] >= datetime.datetime(2023, 1, 1)]
+    df['date'] = sorted(df['date'])
     vars = df.columns[4:]
     
     if location != None:
@@ -168,8 +170,6 @@ def regressions(file, location):
         plt.close()
 
         exit()
-
-
 
 
 def main():
