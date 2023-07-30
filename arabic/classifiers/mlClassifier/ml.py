@@ -230,17 +230,75 @@ def summarize(df):
     
     return retDict
 
+def run_model_for_vals(model, filename, emotions):
+    with open("data/manual_labs.csv","r") as f:
+        man_df = pd.read_csv(f, delimiter="\t")
+        man_df = man_df[["date","tweet_id","processed_tweets"]]
+        test = man_df["processed_tweets"].values.tolist()
+    
+    with open("output/summary.json","r") as f:
+        params = json.load(f)
+
+    scoring = {
+        "Precision": make_scorer(precision_score),
+        "Recall":make_scorer(recall_score),
+        "Accuracy": make_scorer(accuracy_score),
+        "F1": make_scorer(f1_score)
+        }
+
+    df = preprocess(filename, emoji_flag=0)
+    train = df["processed_tweets"].values.tolist()
+
+    X = vectorize(test+train)
+    X_test = X[:len(test)]
+    X_train = X[len(test):]
+
+    df_out = man_df[["date","tweet_id","processed_tweets"]].copy()
+
+    for emotion in emotions:
+        y_train = df[emotion].tolist()
+
+        modelName = str(model).split("(")[0]
+        p_dict = params[modelName][emotion]["Accuracy"]["Params"]
+
+        if model == RandomForestClassifier():
+            clf = RandomizedSearchCV(model, p_dict, cv=5, scoring=scoring, refit="Accuracy")
+        else:
+            clf = GridSearchCV(model, p_dict, cv=5, scoring=scoring, refit="Accuracy")
+
+        clf = model.fit(X_train, y_train)
+
+        pred_list = clf.predict(X_test)
+
+        df_out[emotion] = pred_list
+    
+    df_out.to_csv("output/labelled_manual.csv", index=False)
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("-f", "--filename", nargs=1, type=str, default="data/arabic_emotion_new_new.csv",
                         help="The path to your data file")
     args = parser.parse_args()
 
-    filename = args.filename[0]
+    filename = args.filename
     emotions = ['anger', 'fear', 'sadness', 'disgust', 'joy', 'anger-disgust']
     models = [LogisticRegression(), MultinomialNB(),\
               DecisionTreeClassifier(), RandomForestClassifier(),\
               KNeighborsClassifier(), SVC()]
+
+    
+    run_model_for_vals(MultinomialNB(),filename,emotions)
+    exit()
+
+
+
+    with open("data/manual_labs.csv","r") as f:
+        df = pd.read_csv(f, delimiter="\t")
+        df = df[["date","processed_tweets","Man_anger","Man_fear","Man_sadness","Man_disgust","Man_joy","Man_Anger-Disgust"]]
+        X = vectorize(df["processed_tweets"].values.tolist())
+        print(X)
+    exit()
 
     paramDict = {
         "LogisticRegression":{

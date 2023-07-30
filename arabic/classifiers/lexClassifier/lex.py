@@ -239,6 +239,47 @@ def main():
                         help="The path to your data file")
     args = parser.parse_args()
     
+
+    with open("outfile.csv","r") as f:
+        df = pd.read_csv(f)
+    with open("data/manual_labs.csv","r") as f:
+        man_df = pd.read_csv(f, delimiter="\t")[["date","tweet_id","processed_tweets"]]
+    df_out = man_df.copy()
+
+    for emotion in EMOTIONS:
+        sub_df = df[df["emotion"] == emotion].reset_index()
+        best_row = sub_df.loc[sub_df["Accuracy"].idxmax()]
+
+        data = man_df["processed_tweets"]
+        emo_col = []
+        for tweet in data:
+            #Use library call to get emotion classification
+            text_object = NRCLex(tweet)
+            topEmo = text_object.top_emotions
+
+            anger_disgust_score = 0
+            for tup in topEmo:
+                if tup[0] == "anger" or tup[0] == "disgust":
+                    anger_disgust_score += tup[1]
+            topEmo.append(("anger-disgust",anger_disgust_score))
+
+            for i, tup in enumerate(topEmo):
+                if tup[0] == emotion:
+                    if tup[1] >= best_row["threshold"]:
+                        emo_col.append(1)
+                    else:
+                        emo_col.append(0)
+                    break
+                elif i == len(topEmo)-1:
+                    emo_col.append(0)
+            
+        df_out[emotion] = emo_col
+    df_out.to_csv("labelled_manual.csv", index=False)
+
+
+
+    exit()
+
     threshold_vals = np.linspace(0, 1, num=11)
     
     file_name = args.filename[0]
