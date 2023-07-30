@@ -18,6 +18,61 @@ import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
 import numpy as np
 
+# Calculate and viz correlation
+def corr_matrix(trends_df, file, location=None):
+    org_type = file.split('_')[2].split('.')[0]
+
+    # extract unique, days, and variables from the dataframe
+    regions = list(set(trends_df.index.get_level_values('location')))
+    days = list(set(trends_df.index.get_level_values('date')))
+    vars = trends_df.columns[0:]
+
+    # create a correlation matrix for each region
+    if location != None:
+        r = location
+        corr = np.zeros([len(vars),len(vars)])
+        for i,v1 in enumerate(vars):
+            for j,v2 in enumerate(vars):
+                corr[i,j] = np.corrcoef(trends_df[v1], trends_df[v2])[0,1]
+
+        # fig = plt.figure()
+        plt.imshow(corr, cmap = plt.get_cmap('Greens'), vmin = 0, vmax = 1)
+        plt.colorbar()
+        ax = plt.gca()
+        #ax.set_xticklabels(vars)
+        ax.set_yticks(np.arange(len(vars)))
+        ax.set_yticklabels(vars)
+        ax.set_xticks(np.arange(len(vars)))
+        ax.set_xticklabels(vars)
+        plt.xticks(rotation=90)
+        #ax.xaxis.set_xticks(vars)
+        plt.tight_layout()
+        plt.savefig(f"visuals/{org_type}/{r}_cov_im.pdf")
+        plt.close()
+
+    else:
+        for r in regions:
+            corr = np.zeros([len(vars),len(vars)])
+            for i,v1 in enumerate(vars):
+                for j,v2 in enumerate(vars):
+                    corr[i,j] = np.corrcoef(trends_df[v1], trends_df[v2])[0,1]
+
+            # fig = plt.figure()
+            plt.imshow(corr, cmap = plt.get_cmap('magma'), vmin = 0, vmax = 1)
+            plt.colorbar()
+            ax = plt.gca()
+            #ax.set_xticklabels(vars)
+            ax.set_yticks(np.arange(len(vars)))
+            ax.set_yticklabels(vars)
+            ax.set_xticks(np.arange(len(vars)))
+            ax.set_xticklabels(vars)
+            plt.xticks(rotation=90)
+            #ax.xaxis.set_xticks(vars)
+            plt.tight_layout()
+            plt.savefig(f"visuals/{org_type}/{r}_cov_im.pdf")
+            plt.close()
+
+
 # creates raw and normalized time series for the consolidated files 
 # of IOM and organic data
 def time_series(file, location=None):
@@ -77,59 +132,24 @@ def time_series(file, location=None):
 
         return trends_df
 
-# Calculate and viz correlation
-def corr_matrix(trends_df, file, location=None):
+# creates plots for each individual indicators against IOM data
+# and aligns a regression model and displays the overall R^2    
+def regressions(file, location):
     org_type = file.split('_')[2].split('.')[0]
+    trends_df = pd.read_csv(file).set_index(['date', 'location'])
+    # arriving_idp = trends_df.index.get_level_values('arriving_IDP')
+    # leaving_idp = trends_df.index.get_level_values('leaving_IDP')
+    vars = trends_df.columns[2:]
+    
+    r = location
+    plt.plot(trends_df.xs(r,level=1).loc[:,'leaving_IDP'], label = 'leaving-IDP')
+    for v in vars:
+        plt.scatter(trends_df[v], trends_df.index.get_level_values('date'), cmap='Greens')
+    plt.legend()
+    plt.show()
+    # plt.savefig(f"visuals/{org_type}/{r}_unnorm.pdf")
+    plt.close()
 
-    # extract unique, days, and variables from the dataframe
-    regions = list(set(trends_df.index.get_level_values('location')))
-    days = list(set(trends_df.index.get_level_values('date')))
-    vars = trends_df.columns[0:]
-
-    # create a correlation matrix for each region
-    if location != None:
-        r = location
-        corr = np.zeros([len(vars),len(vars)])
-        for i,v1 in enumerate(vars):
-            for j,v2 in enumerate(vars):
-                corr[i,j] = np.corrcoef(trends_df[v1], trends_df[v2])[0,1]
-
-        # fig = plt.figure()
-        plt.imshow(corr, cmap = plt.get_cmap('Greens'), vmin = 0, vmax = 1)
-        plt.colorbar()
-        ax = plt.gca()
-        #ax.set_xticklabels(vars)
-        ax.set_yticks(np.arange(len(vars)))
-        ax.set_yticklabels(vars)
-        ax.set_xticks(np.arange(len(vars)))
-        ax.set_xticklabels(vars)
-        plt.xticks(rotation=90)
-        #ax.xaxis.set_xticks(vars)
-        plt.tight_layout()
-        plt.savefig(f"visuals/{org_type}/{r}_cov_im.pdf")
-        plt.close()
-
-    else:
-        for r in regions:
-            corr = np.zeros([len(vars),len(vars)])
-            for i,v1 in enumerate(vars):
-                for j,v2 in enumerate(vars):
-                    corr[i,j] = np.corrcoef(trends_df[v1], trends_df[v2])[0,1]
-
-            # fig = plt.figure()
-            plt.imshow(corr, cmap = plt.get_cmap('magma'), vmin = 0, vmax = 1)
-            plt.colorbar()
-            ax = plt.gca()
-            #ax.set_xticklabels(vars)
-            ax.set_yticks(np.arange(len(vars)))
-            ax.set_yticklabels(vars)
-            ax.set_xticks(np.arange(len(vars)))
-            ax.set_xticklabels(vars)
-            plt.xticks(rotation=90)
-            #ax.xaxis.set_xticks(vars)
-            plt.tight_layout()
-            plt.savefig(f"visuals/{org_type}/{r}_cov_im.pdf")
-            plt.close()
 
 
 def main():
@@ -143,7 +163,8 @@ def main():
 
     datafiles = [arg for arg in args.__dict__.values()][1:]
 
-    print(args.location)
+    regressions('output/M_iom_acled.csv', args.location)
+    exit()
 
     if args.location != None:
         for file in datafiles:
