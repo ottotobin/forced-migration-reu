@@ -211,27 +211,27 @@ def pca(datafiles, location):
 
     ### Combine flow with indicators to make Predictions
     with open("output/iom_outfile.csv", 'rb') as f:
-        # [dfo, dfd] = pickles.load(f)
-        [dfo, dfd] = 
+        [dfo, dfd] = pickles.load(f)
+        # [dfo, dfd] = 
 
     X = pd.DataFrame(np.zeros([dfo.shape[0], trends_df.shape[1]]))
     X.columns = trends_df.columns
 
-    for offset in range(-21,21):
-        for i in range(dfo.shape[0]):
 
-            #dfrom = dfo['date_from'][i] 
-            #dto = dfo['date_to'][i] 
+    for i in range(dfo.shape[0]):
 
-            dfrom = dfo['date_from'][i] + pd.Timedelta(days=offset)
-            dto = dfo['date_to'][i] + pd.Timedelta(days=offset)
+        #dfrom = dfo['date_from'][i] 
+        #dto = dfo['date_to'][i] 
 
-            in_date_range = trends_df.loc[(slice(dfrom,dto)),:]
-            if in_date_range.shape[0] > 0:
-                in_region_too = in_date_range.xs(dfo['Macro-region'][i], level = 1)
-                X.iloc[i,:] = np.mean(in_region_too,axis=0)
-            else:
-                X.iloc[i,:] = np.repeat(np.nan, X.shape[1])
+        dfrom = dfo['date_from'][i] + pd.Timedelta(days=offset)
+        dto = dfo['date_to'][i] + pd.Timedelta(days=offset)
+
+        in_date_range = trends_df.loc[(slice(dfrom,dto)),:]
+        if in_date_range.shape[0] > 0:
+            in_region_too = in_date_range.xs(dfo['Macro-region'][i], level = 1)
+            X.iloc[i,:] = np.mean(in_region_too,axis=0)
+        else:
+            X.iloc[i,:] = np.repeat(np.nan, X.shape[1])
 
     missing = np.any(X.isna(), axis = 1)
     #dfo = dfo.loc[~missing,:]
@@ -248,6 +248,23 @@ def pca(datafiles, location):
         print(v)
         print(r2)
         np.square(np.corrcoef(y,X.loc[:,v]))
+
+def regression(merged_file, multiple=False):
+    with open(merged_file, "r") as f:
+        df = pd.read_csv(f)
+
+    for loc in df["location"].unique():
+        sub_df = df[df["location"]==loc]
+        iom_df = sub_df["date","location","arriving_IDP","leaving_IDP"]
+        indicat_df = sub_df[[col for col in df.columns if col not in ["arriving_IDP","leaving_IDP"]]]
+
+        for offset in range(-4, 4):
+            
+        
+
+    
+        
+
 
 def main():
     parser = argparse.ArgumentParser()
