@@ -24,7 +24,7 @@
 ### 1.3 How to Run
 * `python3 lexicon.py`
 * `python3 lexicon.py --emojis True --combine True --v 3`
-## 2. Emotion Detection - Classic ML Models
+## 2. Emotion Detection - ML
 ### 2.1 File Descriptors
 * `ml_models.py` - script that reads in file, preprocesses data, runs various ML models on a 80/20 train/test split of data, then cross validates 5 times for accuracies
 * `misclassified.json` -  Contains mislassified tweets and their humuan label on FP and the predictions for that tweet on FN
@@ -73,7 +73,19 @@
 * `python3 label_tweets.py`
 * `python3 label_tweets_binary.py`
 * `python3 label_tweets_threshold.py --threshold 0.8`
-
+## 4. Indicators
+* Folder for ACLED, Google Trends, and Emotion data
+### 4.1 File Descriptors
+* `acled_corr.ipynb`
+* `clean_data.ipynb`
+* `emotions_corr.ipynb`
+* `emotions_explore.ipynb`
+* `pca_and_regression.py` - visualizes and analyzes trends dataset with plots, normalizations, correlation analyses, and PCA
+* `process_trends.py` - processes trends data files, categorizes, aggregates, cleans, and restructures the data
+* `trends_corr.ipynb`
+### 4.2 How to Run
+* `python3 pca_and_regression.py`
+* `python3 process_trends.py`
 ## Other Files
 * `helper_funcs.py` - encoding functions, preprocessing functions, any other helper functions needed by models
 * data folder - training data for models, json files for GLoVe and emojis
