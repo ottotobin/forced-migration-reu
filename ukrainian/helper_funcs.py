@@ -22,6 +22,7 @@ def preprocess(data_file , encode_emojis=False):
 
     df = pd.read_csv(data_file, sep='\t', encoding = 'utf8', )
     print('preprocess size: ', df.shape[0])
+    print(df.emotion.value_counts())
     #First, remove "surprise" and "others" from data
     drop_rows = df.loc[~df['emotion'].isin(EMOTIONS_OTHERS)]
     df.drop(drop_rows.index, inplace=True)
@@ -72,6 +73,7 @@ def preprocess(data_file , encode_emojis=False):
 
     df['processed_tweets'] = processed_tweets
     print('postprocess size: ', df.shape[0])
+    print(df['emotion'].value_counts())
     return df
 
 def preprocess_text(text):
@@ -154,76 +156,47 @@ def load_combined_data():
     final = pd.concat([others_df, test_df])
     final.to_csv('../data/combined_data.csv')
 
-def aggregate_acled_data(civillian_deaths_path , political_events_path , output_dir):
-    '''
-    Parameters:
-        civillian_deaths_path: string file path to a excel sheet containing data on civillian deaths 
-        political_events+path:  string file path to a excel sheet containing data on political violence events and deaths
-        output_dir: where to place the updated version of these files
-        both file's come from https://data.humdata.org/dataset/ukraine-acled-conflict-data
-    Outputs:
-        2 new files where each event and death is aggregated by month and city
-    '''
-    #load in data
-    civillian_df = pd.read_excel(civillian_deaths_path)
-    politcal_df = pd.read_excel(political_events_path)
-
-    #drop duplicate rows!
-    civillian_df = civillian_df.drop_duplicates()
-    politcal_df = politcal_df.drop_duplicates()
-    
-    #aggregate both dataframess
-    civillian_df = civillian_df[civillian_df['Year'] >= 2022]
-    civillian_df = civillian_df.groupby(['Month','Year' , 'Admin1'])[['Fatalities' , 'Events']].sum()
-
-    politcal_df = politcal_df[politcal_df['Year'] >= 2022]
-    politcal_df = politcal_df.groupby(['Month','Year' , 'Admin1'])[['Fatalities' , 'Events']].sum()  
-    
-    #output files
-    politcal_df.to_csv( output_dir + '/political_acled2.csv')
-    civillian_df.to_csv(output_dir + '/civillian_targets2.csv')
-
 def combine_cloudshare_data(directory):
     """
     Gets confusingly sotred Google Cloud share twitter scrapes and creates one cohesive csv file with all tweets
     """
-    outfile = "unlabeled_tweets.csv"
-    # if already created csv
+    outfile = "unlabeled_tweets_2022.csv"
+    # # if already created csv
     if os.path.exists(outfile):
-        return outfile
+       return outfile
 
     with open(outfile, "w+") as f:
         writer = csv.writer(f)
-        header = ["date", "city", "tweet_id", "raw_tweet", "language"]
+        header = ["date", "city", "raw_tweet"]
         writer.writerow(header)
         
         rows=[]
-
         # nestings of for loops to iterate over all of the 
         # json files stored in the larger cloud shre directory
         for filename in os.listdir(directory):
-            path_date = os.path.join(directory, filename)
-            if os.path.isdir(path_date):
-                # data dir
-                date = datetime.datetime.strptime(filename, "%Y%m%d").strftime("%Y-%m-%d") 
-
-                path_date2 = os.path.join(path_date, "twitter_Sample_preprocessed_text.csv",f"date={date}")
-                for city_dir in os.listdir(path_date2):
-                    # city= dir
-                    city = city_dir.split("=")[1]
-
-                    path_city = os.path.join(path_date2, city_dir)
-                    for json_file in os.listdir(path_city):
-                        # json file
-                        json_path = os.path.join(path_city, json_file)
-                        jsonObj = pd.read_json(json_path, lines=True)
-                        for id, text, lang in zip(jsonObj["id_str"], jsonObj["preprocessed_text"], jsonObj["lang"]):
-                            row = [date, city, id, text.replace("\n","").replace("\r",""), lang]
-                            if row not in rows:
-                                rows.append(row)
-                                writer.writerow(row)
-    
+                #path to month date folder
+                first_path = os.path.join(directory, filename)
+                for datefile in os.listdir(first_path):
+                        if '2022' in datefile:
+                            #path to one day folder
+                            second_path = os.path.join(first_path, datefile)
+                            date = datetime.datetime.strptime(datefile.split('date=')[1], "%Y-%m-%d").strftime("%Y-%m-%d") 
+                            for city in os.listdir(second_path):
+                                    city_name = city.split('city=')[1]
+                                    # data dir
+                                    third_path = os.path.join(second_path, city)
+                                    for json_file in os.listdir(third_path):
+                                            # json file
+                                            json_path = os.path.join(third_path, json_file)
+                                            jsonObj = pd.read_json(json_path, lines=True)
+                                            print(jsonObj)
+                                            text = jsonObj['preprocessed_text'].values[0]
+                                            row = [date, city_name, text.replace("\n","").replace("\r","")]
+                                            rows.append(row)
+                                            writer.writerow(row)
+                    
     return outfile
+
 
 
 

@@ -1,8 +1,3 @@
-"""
-Label tweets using binary BERT model 
-
-Authors: Eliza Salamon, Apollo Callero, Kate Liggio
-"""
 import os
 import glob
 import json
@@ -13,7 +8,7 @@ from transformers import BertForSequenceClassification, BertTokenizer
 from tqdm import tqdm
 
 import sys
-sys.path += ['../', '../..']
+sys.path.append('../')
 
 from helper_funcs import preprocess_text, combine_cloudshare_data
 
@@ -37,10 +32,9 @@ def label(data):
 
     #get twitter data
     unlabeled = pd.read_csv(data)
-    labeled = pd.DataFrame(columns=['date', 'city', 'id_str', 'language', 'tweet', 'predicted_emotion'])
+    labeled = pd.DataFrame(columns=['date', 'city', 'tweet', 'predicted_emotion'])
     tweet_count = 0
     for index, item in tqdm(unlabeled.iterrows()):
-        if item['language'] == 'uk':
             tweet = item['raw_tweet']
             clean_txt = preprocess_text(tweet)
             input = tokenizer(clean_txt, padding=True, max_length = 512,truncation=True,return_tensors="pt")
@@ -60,13 +54,13 @@ def label(data):
                     if (label == 1) and (emotion_prob > max_prob):
                         max_prob = emotion_prob
                         predicted_emotion = emotion
-            new_item = [item['date'], item['city'], item['tweet_id'], item['language'], item['raw_tweet'], predicted_emotion]
+            new_item = [item['date'], item['city'], item['raw_tweet'], predicted_emotion]
             labeled.loc[len(labeled)] = new_item
-    labeled.to_csv('binary_predictions.csv')
+    labeled.to_csv('binary_predictions_2023.csv')
 
 
 def main():
-    df = combine_cloudshare_data('tweets')
+    df = combine_cloudshare_data('tweets_23')
     label(df)
 
 

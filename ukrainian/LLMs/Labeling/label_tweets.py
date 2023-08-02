@@ -1,8 +1,3 @@
-"""
-Label tweets using multiclass BERT model
-
-Authors: Eliza Salamon, Apollo Callero, Kate Liggio
-"""
 import os
 import glob
 import json
@@ -15,7 +10,7 @@ import csv
 import datetime
 
 import sys
-sys.path += ['../', '../..']
+sys.path.append('../')
 
 from helper_funcs import preprocess_text, combine_cloudshare_data
 
@@ -38,10 +33,10 @@ def label(data):
 
     #get twitter data
     unlabeled = pd.read_csv(data)
-    labeled = pd.DataFrame(columns=['date', 'city', 'id_str', 'language', 'tweet', 'predicted_emotion'])
+    labeled = pd.DataFrame(columns=['date', 'city', 'language', 'tweet', 'predicted_emotion'])
     model.eval()
     for index, item in tqdm(unlabeled.iterrows()):
-        if item['language'] == 'uk':
+        if item['language'] == 'ukr':
             tweet = item['raw_tweet']
             clean_txt = preprocess_text(tweet)
             input = tokenizer(clean_txt, padding=True, max_length = 512,truncation=True,return_tensors="pt")
@@ -52,9 +47,9 @@ def label(data):
             logits = outputs.logits
             predicted_class = torch.argmax(logits, dim=1).item()
             predicted_emotion = class_to_emotion[predicted_class]
-            new_item = [item['date'], item['city'], item['tweet_id'], item['language'], item['raw_tweet'], predicted_emotion]
+            new_item = [item['date'], item['city'], item['language'], item['raw_tweet'], predicted_emotion]
             labeled.loc[len(labeled)] = new_item
-    labeled.to_csv('multiclass_predictions.csv')
+    labeled.to_csv('output/multiclass_predictions.csv')
 
 
 def main():

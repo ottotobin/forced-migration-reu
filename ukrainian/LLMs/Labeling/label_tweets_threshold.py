@@ -1,8 +1,3 @@
-"""
-Label tweets using multiclass BERT model with a threshold
-
-Authors: Eliza Salamon, Apollo Callero, Kate Liggio
-"""
 import os
 import glob
 import json
@@ -14,7 +9,8 @@ from tqdm import tqdm
 import argparse
 
 import sys
-sys.path += ['../', '../..']
+sys.path.append('../')
+
 from helper_funcs import preprocess_text, combine_cloudshare_data
 
 
@@ -35,10 +31,10 @@ def label(data, threshold):
     model.to(device)
 
     unlabeled = pd.read_csv(data)
-    labeled = pd.DataFrame(columns=['date', 'city', 'id_str', 'language', 'tweet', 'predicted_emotion'])
+    labeled = pd.DataFrame(columns=['date', 'city', 'language', 'tweet', 'predicted_emotion'])
     model.eval()
     for index, item in tqdm(unlabeled.iterrows()):
-        if item['language'] == 'uk':
+        if item['language'] == 'ukr':
             tweet = item['raw_tweet']
             clean_txt = preprocess_text(tweet)
             input = tokenizer(clean_txt, padding=True, max_length = 512,truncation=True,return_tensors="pt")
@@ -57,9 +53,9 @@ def label(data, threshold):
                     predicted_emotion = 'others'
             else:
                 predicted_emotion = class_to_emotion[max_prob[1].item()]
-            new_item = [item['date'], item['city'], item['tweet_id'], item['language'], item['raw_tweet'], predicted_emotion]
+            new_item = [item['date'], item['city'], item['language'], item['raw_tweet'], predicted_emotion]
             labeled.loc[len(labeled)] = new_item
-    labeled.to_csv('threshold_' + str(threshold) + '_predictions.csv')
+    labeled.to_csv('output/threshold_' + str(threshold) + '_predictions.csv')
 
 
 def main():

@@ -1,0 +1,16 @@
+Hungary, travel = 0.657150340620486
+Hungary, oblast = 0.3189974960384699
+Hungary, internal_city = 0.6594278741649334
+Hungary, external_locations = 0.7256160089767933
+Poland, travel = 0.3876935572990918
+Poland, oblast = 0.24708005230753288
+Poland, internal_city = 0.829106259372696
+Poland, external_locations = 0.8333088633251453
+Republic of Moldova, travel = 0.5546865757906426
+Republic of Moldova, oblast = 0.3256456774787608
+Republic of Moldova, internal_city = 0.8438404423511864
+Republic of Moldova, external_locations = 0.7855820804428333
+Slovakia, travel = 0.39022396585892305
+Slovakia, oblast = 0.2365169908377595
+Slovakia, internal_city = 0.7801940919455946
+Slovakia, external_locations = 0.8258856888790116
