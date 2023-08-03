@@ -34,9 +34,7 @@ def regression(merged, week_offset, multiple=False):
     row_list = []
     for loc in df["location"].unique():
         sub_df = df[df["location"]==loc]
-
-        weeks = floor((sub_df["date"].unique()[-1] - sub_df["date"].unique()[0]).days / 7)
-
+        
         iom_df = sub_df[["date","location","arriving_IDP","leaving_IDP"]]
         indic_df = sub_df[[col for col in df.columns if col not in ["arriving_IDP","leaving_IDP"]]].copy()
 
