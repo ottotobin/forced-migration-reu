@@ -43,24 +43,34 @@ def read_iom(file):
     exit_df.columns = ["Date","location","leaving_IDP"]
     df = pd.merge(arrive_df, exit_df, on=["Date","location"], how="outer").fillna(0)
 
+    ss_df = df[df["location"]=="South Sudan"]
+    df = df[df["location"]!="South Sudan"]
     date_list = df["Date"].unique()
-    row_list = []
-    for i in range(len(date_list)-1):
-        
-        current_date = date_list[i]
-        next_date = date_list[i+1]
-        subset = df[df["Date"]==current_date]
-
-        for index, row in subset.iterrows():
-            date = current_date + pd.Timedelta(days=1)
-            new_row = row.copy()
-            while date < next_date:
-                new_row["Date"] = date
-                row_list.append(new_row.tolist())
-                date += pd.Timedelta(days=1)
+    loc_list = df["location"].unique()
     
+    row_list = []
+    for loc in loc_list:
+
+        subset = df[df["location"]==loc]
+        subset = subset.sort_values(by="Date", ascending=True)
+        date_vals = subset["Date"].unique()
+        date = date_vals[0]
+        last_date = date_vals[-1]
+
+        last_val_idp_arriving = 0
+        last_val_idp_leaving = 0
+
+        while date <= last_date:
+            if date in date_vals:
+                last_val_idp_arriving = subset[subset["Date"]==date]["arriving_IDP"].iloc[0]
+                last_val_idp_leaving = subset[subset["Date"]==date]["leaving_IDP"].iloc[0]
+            else:
+                row_list.append([date, loc, last_val_idp_arriving, last_val_idp_leaving])
+            
+            date += pd.Timedelta(days=1)
+
     new_df = pd.DataFrame(row_list, columns = df.columns)
-    df = pd.concat([df,new_df]).sort_values(by=["Date", "location"]).reset_index().drop(columns=["index"])
+    df = pd.concat([df,new_df,ss_df]).sort_values(by=["Date", "location"]).reset_index().drop(columns=["index"])
     df.columns = ["date","location","arriving_IDP", "leaving_IDP"]
     df["location"] = df["location"].str.lower()
 
