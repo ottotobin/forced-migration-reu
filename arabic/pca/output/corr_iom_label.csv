@@ -1,0 +1,1729 @@
+location,Y,X(s),covariate num.,r^2,offset
+aj jazirah,arriving_IDP,anger,1,0.0,-4
+aj jazirah,arriving_IDP,fear,1,0.0,-4
+aj jazirah,arriving_IDP,sadness,1,0.0,-4
+aj jazirah,arriving_IDP,disgust,1,0.0,-4
+aj jazirah,arriving_IDP,joy,1,0.0,-4
+aj jazirah,arriving_IDP,anger-disgust,1,0.0,-4
+aj jazirah,leaving_IDP,anger,1,0.0,-4
+aj jazirah,leaving_IDP,fear,1,0.0,-4
+aj jazirah,leaving_IDP,sadness,1,0.0,-4
+aj jazirah,leaving_IDP,disgust,1,0.0,-4
+aj jazirah,leaving_IDP,joy,1,0.0,-4
+aj jazirah,leaving_IDP,anger-disgust,1,0.0,-4
+aj jazirah,arriving_IDP,anger,1,0.0,-3
+aj jazirah,arriving_IDP,fear,1,0.0,-3
+aj jazirah,arriving_IDP,sadness,1,0.0,-3
+aj jazirah,arriving_IDP,disgust,1,0.0,-3
+aj jazirah,arriving_IDP,joy,1,0.0,-3
+aj jazirah,arriving_IDP,anger-disgust,1,0.0,-3
+aj jazirah,leaving_IDP,anger,1,0.0,-3
+aj jazirah,leaving_IDP,fear,1,0.0,-3
+aj jazirah,leaving_IDP,sadness,1,0.0,-3
+aj jazirah,leaving_IDP,disgust,1,0.0,-3
+aj jazirah,leaving_IDP,joy,1,0.0,-3
+aj jazirah,leaving_IDP,anger-disgust,1,0.0,-3
+aj jazirah,arriving_IDP,anger,1,0.0,-2
+aj jazirah,arriving_IDP,fear,1,0.0,-2
+aj jazirah,arriving_IDP,sadness,1,0.0,-2
+aj jazirah,arriving_IDP,disgust,1,0.0,-2
+aj jazirah,arriving_IDP,joy,1,0.0,-2
+aj jazirah,arriving_IDP,anger-disgust,1,0.0,-2
+aj jazirah,leaving_IDP,anger,1,0.0,-2
+aj jazirah,leaving_IDP,fear,1,0.0,-2
+aj jazirah,leaving_IDP,sadness,1,0.0,-2
+aj jazirah,leaving_IDP,disgust,1,0.0,-2
+aj jazirah,leaving_IDP,joy,1,0.0,-2
+aj jazirah,leaving_IDP,anger-disgust,1,0.0,-2
+aj jazirah,arriving_IDP,anger,1,0.0,-1
+aj jazirah,arriving_IDP,fear,1,0.0,-1
+aj jazirah,arriving_IDP,sadness,1,0.0,-1
+aj jazirah,arriving_IDP,disgust,1,0.0,-1
+aj jazirah,arriving_IDP,joy,1,0.0,-1
+aj jazirah,arriving_IDP,anger-disgust,1,0.0,-1
+aj jazirah,leaving_IDP,anger,1,0.0,-1
+aj jazirah,leaving_IDP,fear,1,0.0,-1
+aj jazirah,leaving_IDP,sadness,1,0.0,-1
+aj jazirah,leaving_IDP,disgust,1,0.0,-1
+aj jazirah,leaving_IDP,joy,1,0.0,-1
+aj jazirah,leaving_IDP,anger-disgust,1,0.0,-1
+aj jazirah,arriving_IDP,anger,1,0.0,0
+aj jazirah,arriving_IDP,fear,1,0.0,0
+aj jazirah,arriving_IDP,sadness,1,0.0,0
+aj jazirah,arriving_IDP,disgust,1,0.0,0
+aj jazirah,arriving_IDP,joy,1,0.0,0
+aj jazirah,arriving_IDP,anger-disgust,1,0.0,0
+aj jazirah,leaving_IDP,anger,1,0.0,0
+aj jazirah,leaving_IDP,fear,1,0.0,0
+aj jazirah,leaving_IDP,sadness,1,0.0,0
+aj jazirah,leaving_IDP,disgust,1,0.0,0
+aj jazirah,leaving_IDP,joy,1,0.0,0
+aj jazirah,leaving_IDP,anger-disgust,1,0.0,0
+aj jazirah,arriving_IDP,anger,1,0.0,1
+aj jazirah,arriving_IDP,fear,1,0.0,1
+aj jazirah,arriving_IDP,sadness,1,0.0,1
+aj jazirah,arriving_IDP,disgust,1,0.0,1
+aj jazirah,arriving_IDP,joy,1,0.0,1
+aj jazirah,arriving_IDP,anger-disgust,1,0.0,1
+aj jazirah,leaving_IDP,anger,1,0.0,1
+aj jazirah,leaving_IDP,fear,1,0.0,1
+aj jazirah,leaving_IDP,sadness,1,0.0,1
+aj jazirah,leaving_IDP,disgust,1,0.0,1
+aj jazirah,leaving_IDP,joy,1,0.0,1
+aj jazirah,leaving_IDP,anger-disgust,1,0.0,1
+aj jazirah,arriving_IDP,anger,1,0.0,2
+aj jazirah,arriving_IDP,fear,1,0.0,2
+aj jazirah,arriving_IDP,sadness,1,0.0,2
+aj jazirah,arriving_IDP,disgust,1,0.0,2
+aj jazirah,arriving_IDP,joy,1,0.0,2
+aj jazirah,arriving_IDP,anger-disgust,1,0.0,2
+aj jazirah,leaving_IDP,anger,1,0.0,2
+aj jazirah,leaving_IDP,fear,1,0.0,2
+aj jazirah,leaving_IDP,sadness,1,0.0,2
+aj jazirah,leaving_IDP,disgust,1,0.0,2
+aj jazirah,leaving_IDP,joy,1,0.0,2
+aj jazirah,leaving_IDP,anger-disgust,1,0.0,2
+aj jazirah,arriving_IDP,anger,1,0.0,3
+aj jazirah,arriving_IDP,fear,1,0.0,3
+aj jazirah,arriving_IDP,sadness,1,0.0,3
+aj jazirah,arriving_IDP,disgust,1,0.0,3
+aj jazirah,arriving_IDP,joy,1,0.0,3
+aj jazirah,arriving_IDP,anger-disgust,1,0.0,3
+aj jazirah,leaving_IDP,anger,1,0.0,3
+aj jazirah,leaving_IDP,fear,1,0.0,3
+aj jazirah,leaving_IDP,sadness,1,0.0,3
+aj jazirah,leaving_IDP,disgust,1,0.0,3
+aj jazirah,leaving_IDP,joy,1,0.0,3
+aj jazirah,leaving_IDP,anger-disgust,1,0.0,3
+blue nile,arriving_IDP,anger,1,0.0,-4
+blue nile,arriving_IDP,fear,1,0.0,-4
+blue nile,arriving_IDP,sadness,1,0.0,-4
+blue nile,arriving_IDP,disgust,1,0.0,-4
+blue nile,arriving_IDP,joy,1,0.0,-4
+blue nile,arriving_IDP,anger-disgust,1,0.0,-4
+blue nile,leaving_IDP,anger,1,,-4
+blue nile,leaving_IDP,fear,1,,-4
+blue nile,leaving_IDP,sadness,1,,-4
+blue nile,leaving_IDP,disgust,1,,-4
+blue nile,leaving_IDP,joy,1,,-4
+blue nile,leaving_IDP,anger-disgust,1,,-4
+blue nile,arriving_IDP,anger,1,0.0,-3
+blue nile,arriving_IDP,fear,1,0.0,-3
+blue nile,arriving_IDP,sadness,1,0.0,-3
+blue nile,arriving_IDP,disgust,1,0.0,-3
+blue nile,arriving_IDP,joy,1,0.0,-3
+blue nile,arriving_IDP,anger-disgust,1,0.0,-3
+blue nile,leaving_IDP,anger,1,,-3
+blue nile,leaving_IDP,fear,1,,-3
+blue nile,leaving_IDP,sadness,1,,-3
+blue nile,leaving_IDP,disgust,1,,-3
+blue nile,leaving_IDP,joy,1,,-3
+blue nile,leaving_IDP,anger-disgust,1,,-3
+blue nile,arriving_IDP,anger,1,0.0,-2
+blue nile,arriving_IDP,fear,1,0.0,-2
+blue nile,arriving_IDP,sadness,1,0.0,-2
+blue nile,arriving_IDP,disgust,1,0.0,-2
+blue nile,arriving_IDP,joy,1,0.0,-2
+blue nile,arriving_IDP,anger-disgust,1,0.0,-2
+blue nile,leaving_IDP,anger,1,,-2
+blue nile,leaving_IDP,fear,1,,-2
+blue nile,leaving_IDP,sadness,1,,-2
+blue nile,leaving_IDP,disgust,1,,-2
+blue nile,leaving_IDP,joy,1,,-2
+blue nile,leaving_IDP,anger-disgust,1,,-2
+blue nile,arriving_IDP,anger,1,0.0,-1
+blue nile,arriving_IDP,fear,1,0.0,-1
+blue nile,arriving_IDP,sadness,1,0.0,-1
+blue nile,arriving_IDP,disgust,1,0.0,-1
+blue nile,arriving_IDP,joy,1,0.0,-1
+blue nile,arriving_IDP,anger-disgust,1,0.0,-1
+blue nile,leaving_IDP,anger,1,,-1
+blue nile,leaving_IDP,fear,1,,-1
+blue nile,leaving_IDP,sadness,1,,-1
+blue nile,leaving_IDP,disgust,1,,-1
+blue nile,leaving_IDP,joy,1,,-1
+blue nile,leaving_IDP,anger-disgust,1,,-1
+blue nile,arriving_IDP,anger,1,0.0,0
+blue nile,arriving_IDP,fear,1,0.0,0
+blue nile,arriving_IDP,sadness,1,0.0,0
+blue nile,arriving_IDP,disgust,1,0.0,0
+blue nile,arriving_IDP,joy,1,0.0,0
+blue nile,arriving_IDP,anger-disgust,1,0.0,0
+blue nile,leaving_IDP,anger,1,,0
+blue nile,leaving_IDP,fear,1,,0
+blue nile,leaving_IDP,sadness,1,,0
+blue nile,leaving_IDP,disgust,1,,0
+blue nile,leaving_IDP,joy,1,,0
+blue nile,leaving_IDP,anger-disgust,1,,0
+blue nile,arriving_IDP,anger,1,0.0,1
+blue nile,arriving_IDP,fear,1,0.0,1
+blue nile,arriving_IDP,sadness,1,0.0,1
+blue nile,arriving_IDP,disgust,1,0.0,1
+blue nile,arriving_IDP,joy,1,0.0,1
+blue nile,arriving_IDP,anger-disgust,1,0.0,1
+blue nile,leaving_IDP,anger,1,,1
+blue nile,leaving_IDP,fear,1,,1
+blue nile,leaving_IDP,sadness,1,,1
+blue nile,leaving_IDP,disgust,1,,1
+blue nile,leaving_IDP,joy,1,,1
+blue nile,leaving_IDP,anger-disgust,1,,1
+blue nile,arriving_IDP,anger,1,0.0,2
+blue nile,arriving_IDP,fear,1,0.0,2
+blue nile,arriving_IDP,sadness,1,0.0,2
+blue nile,arriving_IDP,disgust,1,0.0,2
+blue nile,arriving_IDP,joy,1,0.0,2
+blue nile,arriving_IDP,anger-disgust,1,0.0,2
+blue nile,leaving_IDP,anger,1,,2
+blue nile,leaving_IDP,fear,1,,2
+blue nile,leaving_IDP,sadness,1,,2
+blue nile,leaving_IDP,disgust,1,,2
+blue nile,leaving_IDP,joy,1,,2
+blue nile,leaving_IDP,anger-disgust,1,,2
+blue nile,arriving_IDP,anger,1,0.0,3
+blue nile,arriving_IDP,fear,1,0.0,3
+blue nile,arriving_IDP,sadness,1,0.0,3
+blue nile,arriving_IDP,disgust,1,0.0,3
+blue nile,arriving_IDP,joy,1,0.0,3
+blue nile,arriving_IDP,anger-disgust,1,0.0,3
+blue nile,leaving_IDP,anger,1,,3
+blue nile,leaving_IDP,fear,1,,3
+blue nile,leaving_IDP,sadness,1,,3
+blue nile,leaving_IDP,disgust,1,,3
+blue nile,leaving_IDP,joy,1,,3
+blue nile,leaving_IDP,anger-disgust,1,,3
+central darfur,arriving_IDP,anger,1,0.0,-4
+central darfur,arriving_IDP,fear,1,0.0,-4
+central darfur,arriving_IDP,sadness,1,0.0,-4
+central darfur,arriving_IDP,disgust,1,0.0,-4
+central darfur,arriving_IDP,joy,1,0.0,-4
+central darfur,arriving_IDP,anger-disgust,1,0.0,-4
+central darfur,leaving_IDP,anger,1,0.0,-4
+central darfur,leaving_IDP,fear,1,0.0,-4
+central darfur,leaving_IDP,sadness,1,0.0,-4
+central darfur,leaving_IDP,disgust,1,0.0,-4
+central darfur,leaving_IDP,joy,1,0.0,-4
+central darfur,leaving_IDP,anger-disgust,1,0.0,-4
+central darfur,arriving_IDP,anger,1,0.0,-3
+central darfur,arriving_IDP,fear,1,0.0,-3
+central darfur,arriving_IDP,sadness,1,0.0,-3
+central darfur,arriving_IDP,disgust,1,0.0,-3
+central darfur,arriving_IDP,joy,1,0.0,-3
+central darfur,arriving_IDP,anger-disgust,1,0.0,-3
+central darfur,leaving_IDP,anger,1,0.0,-3
+central darfur,leaving_IDP,fear,1,0.0,-3
+central darfur,leaving_IDP,sadness,1,0.0,-3
+central darfur,leaving_IDP,disgust,1,0.0,-3
+central darfur,leaving_IDP,joy,1,0.0,-3
+central darfur,leaving_IDP,anger-disgust,1,0.0,-3
+central darfur,arriving_IDP,anger,1,0.0,-2
+central darfur,arriving_IDP,fear,1,0.0,-2
+central darfur,arriving_IDP,sadness,1,0.0,-2
+central darfur,arriving_IDP,disgust,1,0.0,-2
+central darfur,arriving_IDP,joy,1,0.0,-2
+central darfur,arriving_IDP,anger-disgust,1,0.0,-2
+central darfur,leaving_IDP,anger,1,0.0,-2
+central darfur,leaving_IDP,fear,1,0.0,-2
+central darfur,leaving_IDP,sadness,1,0.0,-2
+central darfur,leaving_IDP,disgust,1,0.0,-2
+central darfur,leaving_IDP,joy,1,0.0,-2
+central darfur,leaving_IDP,anger-disgust,1,0.0,-2
+central darfur,arriving_IDP,anger,1,0.0,-1
+central darfur,arriving_IDP,fear,1,0.0,-1
+central darfur,arriving_IDP,sadness,1,0.0,-1
+central darfur,arriving_IDP,disgust,1,0.0,-1
+central darfur,arriving_IDP,joy,1,0.0,-1
+central darfur,arriving_IDP,anger-disgust,1,0.0,-1
+central darfur,leaving_IDP,anger,1,0.0,-1
+central darfur,leaving_IDP,fear,1,0.0,-1
+central darfur,leaving_IDP,sadness,1,0.0,-1
+central darfur,leaving_IDP,disgust,1,0.0,-1
+central darfur,leaving_IDP,joy,1,0.0,-1
+central darfur,leaving_IDP,anger-disgust,1,0.0,-1
+central darfur,arriving_IDP,anger,1,0.0,0
+central darfur,arriving_IDP,fear,1,0.0,0
+central darfur,arriving_IDP,sadness,1,0.0,0
+central darfur,arriving_IDP,disgust,1,0.0,0
+central darfur,arriving_IDP,joy,1,0.0,0
+central darfur,arriving_IDP,anger-disgust,1,0.0,0
+central darfur,leaving_IDP,anger,1,0.0,0
+central darfur,leaving_IDP,fear,1,0.0,0
+central darfur,leaving_IDP,sadness,1,0.0,0
+central darfur,leaving_IDP,disgust,1,0.0,0
+central darfur,leaving_IDP,joy,1,0.0,0
+central darfur,leaving_IDP,anger-disgust,1,0.0,0
+central darfur,arriving_IDP,anger,1,0.0,1
+central darfur,arriving_IDP,fear,1,0.0,1
+central darfur,arriving_IDP,sadness,1,0.0,1
+central darfur,arriving_IDP,disgust,1,0.0,1
+central darfur,arriving_IDP,joy,1,0.0,1
+central darfur,arriving_IDP,anger-disgust,1,0.0,1
+central darfur,leaving_IDP,anger,1,0.0,1
+central darfur,leaving_IDP,fear,1,0.0,1
+central darfur,leaving_IDP,sadness,1,0.0,1
+central darfur,leaving_IDP,disgust,1,0.0,1
+central darfur,leaving_IDP,joy,1,0.0,1
+central darfur,leaving_IDP,anger-disgust,1,0.0,1
+central darfur,arriving_IDP,anger,1,0.0,2
+central darfur,arriving_IDP,fear,1,0.0,2
+central darfur,arriving_IDP,sadness,1,0.0,2
+central darfur,arriving_IDP,disgust,1,0.0,2
+central darfur,arriving_IDP,joy,1,0.0,2
+central darfur,arriving_IDP,anger-disgust,1,0.0,2
+central darfur,leaving_IDP,anger,1,0.0,2
+central darfur,leaving_IDP,fear,1,0.0,2
+central darfur,leaving_IDP,sadness,1,0.0,2
+central darfur,leaving_IDP,disgust,1,0.0,2
+central darfur,leaving_IDP,joy,1,0.0,2
+central darfur,leaving_IDP,anger-disgust,1,0.0,2
+central darfur,arriving_IDP,anger,1,0.0,3
+central darfur,arriving_IDP,fear,1,0.0,3
+central darfur,arriving_IDP,sadness,1,0.0,3
+central darfur,arriving_IDP,disgust,1,0.0,3
+central darfur,arriving_IDP,joy,1,0.0,3
+central darfur,arriving_IDP,anger-disgust,1,0.0,3
+central darfur,leaving_IDP,anger,1,0.0,3
+central darfur,leaving_IDP,fear,1,0.0,3
+central darfur,leaving_IDP,sadness,1,0.0,3
+central darfur,leaving_IDP,disgust,1,0.0,3
+central darfur,leaving_IDP,joy,1,0.0,3
+central darfur,leaving_IDP,anger-disgust,1,0.0,3
+kassala,arriving_IDP,anger,1,2.220446049250313e-16,-4
+kassala,arriving_IDP,fear,1,2.220446049250313e-16,-4
+kassala,arriving_IDP,sadness,1,2.220446049250313e-16,-4
+kassala,arriving_IDP,disgust,1,2.220446049250313e-16,-4
+kassala,arriving_IDP,joy,1,2.220446049250313e-16,-4
+kassala,arriving_IDP,anger-disgust,1,2.220446049250313e-16,-4
+kassala,leaving_IDP,anger,1,,-4
+kassala,leaving_IDP,fear,1,,-4
+kassala,leaving_IDP,sadness,1,,-4
+kassala,leaving_IDP,disgust,1,,-4
+kassala,leaving_IDP,joy,1,,-4
+kassala,leaving_IDP,anger-disgust,1,,-4
+kassala,arriving_IDP,anger,1,0.0,-3
+kassala,arriving_IDP,fear,1,0.0,-3
+kassala,arriving_IDP,sadness,1,0.0,-3
+kassala,arriving_IDP,disgust,1,0.0,-3
+kassala,arriving_IDP,joy,1,0.0,-3
+kassala,arriving_IDP,anger-disgust,1,0.0,-3
+kassala,leaving_IDP,anger,1,,-3
+kassala,leaving_IDP,fear,1,,-3
+kassala,leaving_IDP,sadness,1,,-3
+kassala,leaving_IDP,disgust,1,,-3
+kassala,leaving_IDP,joy,1,,-3
+kassala,leaving_IDP,anger-disgust,1,,-3
+kassala,arriving_IDP,anger,1,0.0,-2
+kassala,arriving_IDP,fear,1,0.0,-2
+kassala,arriving_IDP,sadness,1,0.0,-2
+kassala,arriving_IDP,disgust,1,0.0,-2
+kassala,arriving_IDP,joy,1,0.0,-2
+kassala,arriving_IDP,anger-disgust,1,0.0,-2
+kassala,leaving_IDP,anger,1,,-2
+kassala,leaving_IDP,fear,1,,-2
+kassala,leaving_IDP,sadness,1,,-2
+kassala,leaving_IDP,disgust,1,,-2
+kassala,leaving_IDP,joy,1,,-2
+kassala,leaving_IDP,anger-disgust,1,,-2
+kassala,arriving_IDP,anger,1,0.0,-1
+kassala,arriving_IDP,fear,1,0.0,-1
+kassala,arriving_IDP,sadness,1,0.0,-1
+kassala,arriving_IDP,disgust,1,0.0,-1
+kassala,arriving_IDP,joy,1,0.0,-1
+kassala,arriving_IDP,anger-disgust,1,0.0,-1
+kassala,leaving_IDP,anger,1,,-1
+kassala,leaving_IDP,fear,1,,-1
+kassala,leaving_IDP,sadness,1,,-1
+kassala,leaving_IDP,disgust,1,,-1
+kassala,leaving_IDP,joy,1,,-1
+kassala,leaving_IDP,anger-disgust,1,,-1
+kassala,arriving_IDP,anger,1,0.0,0
+kassala,arriving_IDP,fear,1,0.0,0
+kassala,arriving_IDP,sadness,1,0.0,0
+kassala,arriving_IDP,disgust,1,0.0,0
+kassala,arriving_IDP,joy,1,0.0,0
+kassala,arriving_IDP,anger-disgust,1,0.0,0
+kassala,leaving_IDP,anger,1,,0
+kassala,leaving_IDP,fear,1,,0
+kassala,leaving_IDP,sadness,1,,0
+kassala,leaving_IDP,disgust,1,,0
+kassala,leaving_IDP,joy,1,,0
+kassala,leaving_IDP,anger-disgust,1,,0
+kassala,arriving_IDP,anger,1,0.0,1
+kassala,arriving_IDP,fear,1,0.0,1
+kassala,arriving_IDP,sadness,1,0.0,1
+kassala,arriving_IDP,disgust,1,0.0,1
+kassala,arriving_IDP,joy,1,0.0,1
+kassala,arriving_IDP,anger-disgust,1,0.0,1
+kassala,leaving_IDP,anger,1,,1
+kassala,leaving_IDP,fear,1,,1
+kassala,leaving_IDP,sadness,1,,1
+kassala,leaving_IDP,disgust,1,,1
+kassala,leaving_IDP,joy,1,,1
+kassala,leaving_IDP,anger-disgust,1,,1
+kassala,arriving_IDP,anger,1,0.0,2
+kassala,arriving_IDP,fear,1,0.0,2
+kassala,arriving_IDP,sadness,1,0.0,2
+kassala,arriving_IDP,disgust,1,0.0,2
+kassala,arriving_IDP,joy,1,0.0,2
+kassala,arriving_IDP,anger-disgust,1,0.0,2
+kassala,leaving_IDP,anger,1,,2
+kassala,leaving_IDP,fear,1,,2
+kassala,leaving_IDP,sadness,1,,2
+kassala,leaving_IDP,disgust,1,,2
+kassala,leaving_IDP,joy,1,,2
+kassala,leaving_IDP,anger-disgust,1,,2
+kassala,arriving_IDP,anger,1,2.220446049250313e-16,3
+kassala,arriving_IDP,fear,1,2.220446049250313e-16,3
+kassala,arriving_IDP,sadness,1,2.220446049250313e-16,3
+kassala,arriving_IDP,disgust,1,2.220446049250313e-16,3
+kassala,arriving_IDP,joy,1,2.220446049250313e-16,3
+kassala,arriving_IDP,anger-disgust,1,2.220446049250313e-16,3
+kassala,leaving_IDP,anger,1,,3
+kassala,leaving_IDP,fear,1,,3
+kassala,leaving_IDP,sadness,1,,3
+kassala,leaving_IDP,disgust,1,,3
+kassala,leaving_IDP,joy,1,,3
+kassala,leaving_IDP,anger-disgust,1,,3
+khartoum,arriving_IDP,anger,1,0.7016358528244115,-4
+khartoum,arriving_IDP,fear,1,0.6684551595195991,-4
+khartoum,arriving_IDP,sadness,1,0.6824389361047849,-4
+khartoum,arriving_IDP,disgust,1,0.5967930738435393,-4
+khartoum,arriving_IDP,joy,1,0.6771641651737368,-4
+khartoum,arriving_IDP,anger-disgust,1,0.7003262765957805,-4
+khartoum,leaving_IDP,anger,1,0.39849663078763775,-4
+khartoum,leaving_IDP,fear,1,0.38968107400663055,-4
+khartoum,leaving_IDP,sadness,1,0.3957476696150033,-4
+khartoum,leaving_IDP,disgust,1,0.40938411146906595,-4
+khartoum,leaving_IDP,joy,1,0.3899051027387216,-4
+khartoum,leaving_IDP,anger-disgust,1,0.4002732244368662,-4
+khartoum,arriving_IDP,anger,1,0.8418906310387037,-3
+khartoum,arriving_IDP,fear,1,0.7604264437566458,-3
+khartoum,arriving_IDP,sadness,1,0.8326139442877026,-3
+khartoum,arriving_IDP,disgust,1,0.8437468540144938,-3
+khartoum,arriving_IDP,joy,1,0.8492975353496648,-3
+khartoum,arriving_IDP,anger-disgust,1,0.8413307737925515,-3
+khartoum,leaving_IDP,anger,1,0.6156639750131587,-3
+khartoum,leaving_IDP,fear,1,0.4231744386514631,-3
+khartoum,leaving_IDP,sadness,1,0.5828046488374921,-3
+khartoum,leaving_IDP,disgust,1,0.6233089445537434,-3
+khartoum,leaving_IDP,joy,1,0.6500878869784986,-3
+khartoum,leaving_IDP,anger-disgust,1,0.6134480519131219,-3
+khartoum,arriving_IDP,anger,1,0.7609301642352279,-2
+khartoum,arriving_IDP,fear,1,0.7609301642352279,-2
+khartoum,arriving_IDP,sadness,1,0.7609301642352279,-2
+khartoum,arriving_IDP,disgust,1,0.7609301642352279,-2
+khartoum,arriving_IDP,joy,1,0.7609301642352279,-2
+khartoum,arriving_IDP,anger-disgust,1,0.7609301642352279,-2
+khartoum,leaving_IDP,anger,1,0.401924941790908,-2
+khartoum,leaving_IDP,fear,1,0.4019249417909079,-2
+khartoum,leaving_IDP,sadness,1,0.401924941790908,-2
+khartoum,leaving_IDP,disgust,1,0.401924941790908,-2
+khartoum,leaving_IDP,joy,1,0.4019249417909079,-2
+khartoum,leaving_IDP,anger-disgust,1,0.4019249417909079,-2
+khartoum,arriving_IDP,anger,1,0.7716703877981448,-1
+khartoum,arriving_IDP,fear,1,0.7716703877981449,-1
+khartoum,arriving_IDP,sadness,1,0.7716703877981448,-1
+khartoum,arriving_IDP,disgust,1,0.7716703877981449,-1
+khartoum,arriving_IDP,joy,1,0.7716703877981449,-1
+khartoum,arriving_IDP,anger-disgust,1,0.7716703877981448,-1
+khartoum,leaving_IDP,anger,1,0.36340502508741324,-1
+khartoum,leaving_IDP,fear,1,0.36340502508741335,-1
+khartoum,leaving_IDP,sadness,1,0.36340502508741324,-1
+khartoum,leaving_IDP,disgust,1,0.36340502508741335,-1
+khartoum,leaving_IDP,joy,1,0.36340502508741335,-1
+khartoum,leaving_IDP,anger-disgust,1,0.36340502508741324,-1
+khartoum,arriving_IDP,anger,1,0.7716703877981448,0
+khartoum,arriving_IDP,fear,1,0.7716703877981449,0
+khartoum,arriving_IDP,sadness,1,0.7716703877981448,0
+khartoum,arriving_IDP,disgust,1,0.7716703877981449,0
+khartoum,arriving_IDP,joy,1,0.7716703877981449,0
+khartoum,arriving_IDP,anger-disgust,1,0.7716703877981448,0
+khartoum,leaving_IDP,anger,1,0.36340502508741324,0
+khartoum,leaving_IDP,fear,1,0.36340502508741335,0
+khartoum,leaving_IDP,sadness,1,0.36340502508741324,0
+khartoum,leaving_IDP,disgust,1,0.36340502508741335,0
+khartoum,leaving_IDP,joy,1,0.36340502508741335,0
+khartoum,leaving_IDP,anger-disgust,1,0.36340502508741324,0
+khartoum,arriving_IDP,anger,1,0.7609301642352279,1
+khartoum,arriving_IDP,fear,1,0.7609301642352279,1
+khartoum,arriving_IDP,sadness,1,0.7609301642352279,1
+khartoum,arriving_IDP,disgust,1,0.7609301642352279,1
+khartoum,arriving_IDP,joy,1,0.7609301642352279,1
+khartoum,arriving_IDP,anger-disgust,1,0.7609301642352279,1
+khartoum,leaving_IDP,anger,1,0.401924941790908,1
+khartoum,leaving_IDP,fear,1,0.4019249417909079,1
+khartoum,leaving_IDP,sadness,1,0.401924941790908,1
+khartoum,leaving_IDP,disgust,1,0.401924941790908,1
+khartoum,leaving_IDP,joy,1,0.4019249417909079,1
+khartoum,leaving_IDP,anger-disgust,1,0.4019249417909079,1
+khartoum,arriving_IDP,anger,1,0.8418906310387037,2
+khartoum,arriving_IDP,fear,1,0.7604264437566458,2
+khartoum,arriving_IDP,sadness,1,0.8326139442877026,2
+khartoum,arriving_IDP,disgust,1,0.8437468540144938,2
+khartoum,arriving_IDP,joy,1,0.8492975353496648,2
+khartoum,arriving_IDP,anger-disgust,1,0.8413307737925515,2
+khartoum,leaving_IDP,anger,1,0.6156639750131587,2
+khartoum,leaving_IDP,fear,1,0.4231744386514631,2
+khartoum,leaving_IDP,sadness,1,0.5828046488374921,2
+khartoum,leaving_IDP,disgust,1,0.6233089445537434,2
+khartoum,leaving_IDP,joy,1,0.6500878869784986,2
+khartoum,leaving_IDP,anger-disgust,1,0.6134480519131219,2
+khartoum,arriving_IDP,anger,1,0.7016358528244115,3
+khartoum,arriving_IDP,fear,1,0.6684551595195991,3
+khartoum,arriving_IDP,sadness,1,0.6824389361047849,3
+khartoum,arriving_IDP,disgust,1,0.5967930738435393,3
+khartoum,arriving_IDP,joy,1,0.6771641651737368,3
+khartoum,arriving_IDP,anger-disgust,1,0.7003262765957805,3
+khartoum,leaving_IDP,anger,1,0.39849663078763775,3
+khartoum,leaving_IDP,fear,1,0.38968107400663055,3
+khartoum,leaving_IDP,sadness,1,0.3957476696150033,3
+khartoum,leaving_IDP,disgust,1,0.40938411146906595,3
+khartoum,leaving_IDP,joy,1,0.3899051027387216,3
+khartoum,leaving_IDP,anger-disgust,1,0.4002732244368662,3
+north darfur,arriving_IDP,anger,1,0.0,-4
+north darfur,arriving_IDP,fear,1,0.0,-4
+north darfur,arriving_IDP,sadness,1,0.0,-4
+north darfur,arriving_IDP,disgust,1,0.0,-4
+north darfur,arriving_IDP,joy,1,0.0,-4
+north darfur,arriving_IDP,anger-disgust,1,0.0,-4
+north darfur,leaving_IDP,anger,1,0.0,-4
+north darfur,leaving_IDP,fear,1,0.0,-4
+north darfur,leaving_IDP,sadness,1,0.0,-4
+north darfur,leaving_IDP,disgust,1,0.0,-4
+north darfur,leaving_IDP,joy,1,0.0,-4
+north darfur,leaving_IDP,anger-disgust,1,0.0,-4
+north darfur,arriving_IDP,anger,1,0.0,-3
+north darfur,arriving_IDP,fear,1,0.0,-3
+north darfur,arriving_IDP,sadness,1,0.0,-3
+north darfur,arriving_IDP,disgust,1,0.0,-3
+north darfur,arriving_IDP,joy,1,0.0,-3
+north darfur,arriving_IDP,anger-disgust,1,0.0,-3
+north darfur,leaving_IDP,anger,1,0.0,-3
+north darfur,leaving_IDP,fear,1,0.0,-3
+north darfur,leaving_IDP,sadness,1,0.0,-3
+north darfur,leaving_IDP,disgust,1,0.0,-3
+north darfur,leaving_IDP,joy,1,0.0,-3
+north darfur,leaving_IDP,anger-disgust,1,0.0,-3
+north darfur,arriving_IDP,anger,1,0.0,-2
+north darfur,arriving_IDP,fear,1,0.0,-2
+north darfur,arriving_IDP,sadness,1,0.0,-2
+north darfur,arriving_IDP,disgust,1,0.0,-2
+north darfur,arriving_IDP,joy,1,0.0,-2
+north darfur,arriving_IDP,anger-disgust,1,0.0,-2
+north darfur,leaving_IDP,anger,1,0.0,-2
+north darfur,leaving_IDP,fear,1,0.0,-2
+north darfur,leaving_IDP,sadness,1,0.0,-2
+north darfur,leaving_IDP,disgust,1,0.0,-2
+north darfur,leaving_IDP,joy,1,0.0,-2
+north darfur,leaving_IDP,anger-disgust,1,0.0,-2
+north darfur,arriving_IDP,anger,1,-2.220446049250313e-16,-1
+north darfur,arriving_IDP,fear,1,-2.220446049250313e-16,-1
+north darfur,arriving_IDP,sadness,1,-2.220446049250313e-16,-1
+north darfur,arriving_IDP,disgust,1,-2.220446049250313e-16,-1
+north darfur,arriving_IDP,joy,1,-2.220446049250313e-16,-1
+north darfur,arriving_IDP,anger-disgust,1,-2.220446049250313e-16,-1
+north darfur,leaving_IDP,anger,1,0.0,-1
+north darfur,leaving_IDP,fear,1,0.0,-1
+north darfur,leaving_IDP,sadness,1,0.0,-1
+north darfur,leaving_IDP,disgust,1,0.0,-1
+north darfur,leaving_IDP,joy,1,0.0,-1
+north darfur,leaving_IDP,anger-disgust,1,0.0,-1
+north darfur,arriving_IDP,anger,1,-2.220446049250313e-16,0
+north darfur,arriving_IDP,fear,1,-2.220446049250313e-16,0
+north darfur,arriving_IDP,sadness,1,-2.220446049250313e-16,0
+north darfur,arriving_IDP,disgust,1,-2.220446049250313e-16,0
+north darfur,arriving_IDP,joy,1,-2.220446049250313e-16,0
+north darfur,arriving_IDP,anger-disgust,1,-2.220446049250313e-16,0
+north darfur,leaving_IDP,anger,1,0.0,0
+north darfur,leaving_IDP,fear,1,0.0,0
+north darfur,leaving_IDP,sadness,1,0.0,0
+north darfur,leaving_IDP,disgust,1,0.0,0
+north darfur,leaving_IDP,joy,1,0.0,0
+north darfur,leaving_IDP,anger-disgust,1,0.0,0
+north darfur,arriving_IDP,anger,1,0.0,1
+north darfur,arriving_IDP,fear,1,0.0,1
+north darfur,arriving_IDP,sadness,1,0.0,1
+north darfur,arriving_IDP,disgust,1,0.0,1
+north darfur,arriving_IDP,joy,1,0.0,1
+north darfur,arriving_IDP,anger-disgust,1,0.0,1
+north darfur,leaving_IDP,anger,1,0.0,1
+north darfur,leaving_IDP,fear,1,0.0,1
+north darfur,leaving_IDP,sadness,1,0.0,1
+north darfur,leaving_IDP,disgust,1,0.0,1
+north darfur,leaving_IDP,joy,1,0.0,1
+north darfur,leaving_IDP,anger-disgust,1,0.0,1
+north darfur,arriving_IDP,anger,1,0.0,2
+north darfur,arriving_IDP,fear,1,0.0,2
+north darfur,arriving_IDP,sadness,1,0.0,2
+north darfur,arriving_IDP,disgust,1,0.0,2
+north darfur,arriving_IDP,joy,1,0.0,2
+north darfur,arriving_IDP,anger-disgust,1,0.0,2
+north darfur,leaving_IDP,anger,1,0.0,2
+north darfur,leaving_IDP,fear,1,0.0,2
+north darfur,leaving_IDP,sadness,1,0.0,2
+north darfur,leaving_IDP,disgust,1,0.0,2
+north darfur,leaving_IDP,joy,1,0.0,2
+north darfur,leaving_IDP,anger-disgust,1,0.0,2
+north darfur,arriving_IDP,anger,1,0.0,3
+north darfur,arriving_IDP,fear,1,0.0,3
+north darfur,arriving_IDP,sadness,1,0.0,3
+north darfur,arriving_IDP,disgust,1,0.0,3
+north darfur,arriving_IDP,joy,1,0.0,3
+north darfur,arriving_IDP,anger-disgust,1,0.0,3
+north darfur,leaving_IDP,anger,1,0.0,3
+north darfur,leaving_IDP,fear,1,0.0,3
+north darfur,leaving_IDP,sadness,1,0.0,3
+north darfur,leaving_IDP,disgust,1,0.0,3
+north darfur,leaving_IDP,joy,1,0.0,3
+north darfur,leaving_IDP,anger-disgust,1,0.0,3
+north kordofan,arriving_IDP,anger,1,0.0,-4
+north kordofan,arriving_IDP,fear,1,0.0,-4
+north kordofan,arriving_IDP,sadness,1,0.0,-4
+north kordofan,arriving_IDP,disgust,1,0.0,-4
+north kordofan,arriving_IDP,joy,1,0.0,-4
+north kordofan,arriving_IDP,anger-disgust,1,0.0,-4
+north kordofan,leaving_IDP,anger,1,-2.220446049250313e-16,-4
+north kordofan,leaving_IDP,fear,1,-2.220446049250313e-16,-4
+north kordofan,leaving_IDP,sadness,1,-2.220446049250313e-16,-4
+north kordofan,leaving_IDP,disgust,1,-2.220446049250313e-16,-4
+north kordofan,leaving_IDP,joy,1,-2.220446049250313e-16,-4
+north kordofan,leaving_IDP,anger-disgust,1,-2.220446049250313e-16,-4
+north kordofan,arriving_IDP,anger,1,-2.220446049250313e-16,-3
+north kordofan,arriving_IDP,fear,1,-2.220446049250313e-16,-3
+north kordofan,arriving_IDP,sadness,1,-2.220446049250313e-16,-3
+north kordofan,arriving_IDP,disgust,1,-2.220446049250313e-16,-3
+north kordofan,arriving_IDP,joy,1,-2.220446049250313e-16,-3
+north kordofan,arriving_IDP,anger-disgust,1,-2.220446049250313e-16,-3
+north kordofan,leaving_IDP,anger,1,0.0,-3
+north kordofan,leaving_IDP,fear,1,0.0,-3
+north kordofan,leaving_IDP,sadness,1,0.0,-3
+north kordofan,leaving_IDP,disgust,1,0.0,-3
+north kordofan,leaving_IDP,joy,1,0.0,-3
+north kordofan,leaving_IDP,anger-disgust,1,0.0,-3
+north kordofan,arriving_IDP,anger,1,0.0,-2
+north kordofan,arriving_IDP,fear,1,0.0,-2
+north kordofan,arriving_IDP,sadness,1,0.0,-2
+north kordofan,arriving_IDP,disgust,1,0.0,-2
+north kordofan,arriving_IDP,joy,1,0.0,-2
+north kordofan,arriving_IDP,anger-disgust,1,0.0,-2
+north kordofan,leaving_IDP,anger,1,0.0,-2
+north kordofan,leaving_IDP,fear,1,0.0,-2
+north kordofan,leaving_IDP,sadness,1,0.0,-2
+north kordofan,leaving_IDP,disgust,1,0.0,-2
+north kordofan,leaving_IDP,joy,1,0.0,-2
+north kordofan,leaving_IDP,anger-disgust,1,0.0,-2
+north kordofan,arriving_IDP,anger,1,-2.220446049250313e-16,-1
+north kordofan,arriving_IDP,fear,1,-2.220446049250313e-16,-1
+north kordofan,arriving_IDP,sadness,1,-2.220446049250313e-16,-1
+north kordofan,arriving_IDP,disgust,1,-2.220446049250313e-16,-1
+north kordofan,arriving_IDP,joy,1,-2.220446049250313e-16,-1
+north kordofan,arriving_IDP,anger-disgust,1,-2.220446049250313e-16,-1
+north kordofan,leaving_IDP,anger,1,-2.220446049250313e-16,-1
+north kordofan,leaving_IDP,fear,1,-2.220446049250313e-16,-1
+north kordofan,leaving_IDP,sadness,1,-2.220446049250313e-16,-1
+north kordofan,leaving_IDP,disgust,1,-2.220446049250313e-16,-1
+north kordofan,leaving_IDP,joy,1,-2.220446049250313e-16,-1
+north kordofan,leaving_IDP,anger-disgust,1,-2.220446049250313e-16,-1
+north kordofan,arriving_IDP,anger,1,-2.220446049250313e-16,0
+north kordofan,arriving_IDP,fear,1,-2.220446049250313e-16,0
+north kordofan,arriving_IDP,sadness,1,-2.220446049250313e-16,0
+north kordofan,arriving_IDP,disgust,1,-2.220446049250313e-16,0
+north kordofan,arriving_IDP,joy,1,-2.220446049250313e-16,0
+north kordofan,arriving_IDP,anger-disgust,1,-2.220446049250313e-16,0
+north kordofan,leaving_IDP,anger,1,-2.220446049250313e-16,0
+north kordofan,leaving_IDP,fear,1,-2.220446049250313e-16,0
+north kordofan,leaving_IDP,sadness,1,-2.220446049250313e-16,0
+north kordofan,leaving_IDP,disgust,1,-2.220446049250313e-16,0
+north kordofan,leaving_IDP,joy,1,-2.220446049250313e-16,0
+north kordofan,leaving_IDP,anger-disgust,1,-2.220446049250313e-16,0
+north kordofan,arriving_IDP,anger,1,0.0,1
+north kordofan,arriving_IDP,fear,1,0.0,1
+north kordofan,arriving_IDP,sadness,1,0.0,1
+north kordofan,arriving_IDP,disgust,1,0.0,1
+north kordofan,arriving_IDP,joy,1,0.0,1
+north kordofan,arriving_IDP,anger-disgust,1,0.0,1
+north kordofan,leaving_IDP,anger,1,0.0,1
+north kordofan,leaving_IDP,fear,1,0.0,1
+north kordofan,leaving_IDP,sadness,1,0.0,1
+north kordofan,leaving_IDP,disgust,1,0.0,1
+north kordofan,leaving_IDP,joy,1,0.0,1
+north kordofan,leaving_IDP,anger-disgust,1,0.0,1
+north kordofan,arriving_IDP,anger,1,-2.220446049250313e-16,2
+north kordofan,arriving_IDP,fear,1,-2.220446049250313e-16,2
+north kordofan,arriving_IDP,sadness,1,-2.220446049250313e-16,2
+north kordofan,arriving_IDP,disgust,1,-2.220446049250313e-16,2
+north kordofan,arriving_IDP,joy,1,-2.220446049250313e-16,2
+north kordofan,arriving_IDP,anger-disgust,1,-2.220446049250313e-16,2
+north kordofan,leaving_IDP,anger,1,0.0,2
+north kordofan,leaving_IDP,fear,1,0.0,2
+north kordofan,leaving_IDP,sadness,1,0.0,2
+north kordofan,leaving_IDP,disgust,1,0.0,2
+north kordofan,leaving_IDP,joy,1,0.0,2
+north kordofan,leaving_IDP,anger-disgust,1,0.0,2
+north kordofan,arriving_IDP,anger,1,0.0,3
+north kordofan,arriving_IDP,fear,1,0.0,3
+north kordofan,arriving_IDP,sadness,1,0.0,3
+north kordofan,arriving_IDP,disgust,1,0.0,3
+north kordofan,arriving_IDP,joy,1,0.0,3
+north kordofan,arriving_IDP,anger-disgust,1,0.0,3
+north kordofan,leaving_IDP,anger,1,-2.220446049250313e-16,3
+north kordofan,leaving_IDP,fear,1,-2.220446049250313e-16,3
+north kordofan,leaving_IDP,sadness,1,-2.220446049250313e-16,3
+north kordofan,leaving_IDP,disgust,1,-2.220446049250313e-16,3
+north kordofan,leaving_IDP,joy,1,-2.220446049250313e-16,3
+north kordofan,leaving_IDP,anger-disgust,1,-2.220446049250313e-16,3
+northern,arriving_IDP,anger,1,0.0,-4
+northern,arriving_IDP,fear,1,0.0,-4
+northern,arriving_IDP,sadness,1,0.0,-4
+northern,arriving_IDP,disgust,1,0.0,-4
+northern,arriving_IDP,joy,1,0.0,-4
+northern,arriving_IDP,anger-disgust,1,0.0,-4
+northern,leaving_IDP,anger,1,,-4
+northern,leaving_IDP,fear,1,,-4
+northern,leaving_IDP,sadness,1,,-4
+northern,leaving_IDP,disgust,1,,-4
+northern,leaving_IDP,joy,1,,-4
+northern,leaving_IDP,anger-disgust,1,,-4
+northern,arriving_IDP,anger,1,1.1102230246251565e-16,-3
+northern,arriving_IDP,fear,1,1.1102230246251565e-16,-3
+northern,arriving_IDP,sadness,1,1.1102230246251565e-16,-3
+northern,arriving_IDP,disgust,1,1.1102230246251565e-16,-3
+northern,arriving_IDP,joy,1,1.1102230246251565e-16,-3
+northern,arriving_IDP,anger-disgust,1,1.1102230246251565e-16,-3
+northern,leaving_IDP,anger,1,,-3
+northern,leaving_IDP,fear,1,,-3
+northern,leaving_IDP,sadness,1,,-3
+northern,leaving_IDP,disgust,1,,-3
+northern,leaving_IDP,joy,1,,-3
+northern,leaving_IDP,anger-disgust,1,,-3
+northern,arriving_IDP,anger,1,0.0,-2
+northern,arriving_IDP,fear,1,0.0,-2
+northern,arriving_IDP,sadness,1,0.0,-2
+northern,arriving_IDP,disgust,1,0.0,-2
+northern,arriving_IDP,joy,1,0.0,-2
+northern,arriving_IDP,anger-disgust,1,0.0,-2
+northern,leaving_IDP,anger,1,,-2
+northern,leaving_IDP,fear,1,,-2
+northern,leaving_IDP,sadness,1,,-2
+northern,leaving_IDP,disgust,1,,-2
+northern,leaving_IDP,joy,1,,-2
+northern,leaving_IDP,anger-disgust,1,,-2
+northern,arriving_IDP,anger,1,0.0,-1
+northern,arriving_IDP,fear,1,0.0,-1
+northern,arriving_IDP,sadness,1,0.0,-1
+northern,arriving_IDP,disgust,1,0.0,-1
+northern,arriving_IDP,joy,1,0.0,-1
+northern,arriving_IDP,anger-disgust,1,0.0,-1
+northern,leaving_IDP,anger,1,,-1
+northern,leaving_IDP,fear,1,,-1
+northern,leaving_IDP,sadness,1,,-1
+northern,leaving_IDP,disgust,1,,-1
+northern,leaving_IDP,joy,1,,-1
+northern,leaving_IDP,anger-disgust,1,,-1
+northern,arriving_IDP,anger,1,0.0,0
+northern,arriving_IDP,fear,1,0.0,0
+northern,arriving_IDP,sadness,1,0.0,0
+northern,arriving_IDP,disgust,1,0.0,0
+northern,arriving_IDP,joy,1,0.0,0
+northern,arriving_IDP,anger-disgust,1,0.0,0
+northern,leaving_IDP,anger,1,,0
+northern,leaving_IDP,fear,1,,0
+northern,leaving_IDP,sadness,1,,0
+northern,leaving_IDP,disgust,1,,0
+northern,leaving_IDP,joy,1,,0
+northern,leaving_IDP,anger-disgust,1,,0
+northern,arriving_IDP,anger,1,0.0,1
+northern,arriving_IDP,fear,1,0.0,1
+northern,arriving_IDP,sadness,1,0.0,1
+northern,arriving_IDP,disgust,1,0.0,1
+northern,arriving_IDP,joy,1,0.0,1
+northern,arriving_IDP,anger-disgust,1,0.0,1
+northern,leaving_IDP,anger,1,,1
+northern,leaving_IDP,fear,1,,1
+northern,leaving_IDP,sadness,1,,1
+northern,leaving_IDP,disgust,1,,1
+northern,leaving_IDP,joy,1,,1
+northern,leaving_IDP,anger-disgust,1,,1
+northern,arriving_IDP,anger,1,1.1102230246251565e-16,2
+northern,arriving_IDP,fear,1,1.1102230246251565e-16,2
+northern,arriving_IDP,sadness,1,1.1102230246251565e-16,2
+northern,arriving_IDP,disgust,1,1.1102230246251565e-16,2
+northern,arriving_IDP,joy,1,1.1102230246251565e-16,2
+northern,arriving_IDP,anger-disgust,1,1.1102230246251565e-16,2
+northern,leaving_IDP,anger,1,,2
+northern,leaving_IDP,fear,1,,2
+northern,leaving_IDP,sadness,1,,2
+northern,leaving_IDP,disgust,1,,2
+northern,leaving_IDP,joy,1,,2
+northern,leaving_IDP,anger-disgust,1,,2
+northern,arriving_IDP,anger,1,0.0,3
+northern,arriving_IDP,fear,1,0.0,3
+northern,arriving_IDP,sadness,1,0.0,3
+northern,arriving_IDP,disgust,1,0.0,3
+northern,arriving_IDP,joy,1,0.0,3
+northern,arriving_IDP,anger-disgust,1,0.0,3
+northern,leaving_IDP,anger,1,,3
+northern,leaving_IDP,fear,1,,3
+northern,leaving_IDP,sadness,1,,3
+northern,leaving_IDP,disgust,1,,3
+northern,leaving_IDP,joy,1,,3
+northern,leaving_IDP,anger-disgust,1,,3
+red sea,arriving_IDP,anger,1,0.0,-4
+red sea,arriving_IDP,fear,1,0.0,-4
+red sea,arriving_IDP,sadness,1,0.0,-4
+red sea,arriving_IDP,disgust,1,0.0,-4
+red sea,arriving_IDP,joy,1,0.0,-4
+red sea,arriving_IDP,anger-disgust,1,0.0,-4
+red sea,leaving_IDP,anger,1,,-4
+red sea,leaving_IDP,fear,1,,-4
+red sea,leaving_IDP,sadness,1,,-4
+red sea,leaving_IDP,disgust,1,,-4
+red sea,leaving_IDP,joy,1,,-4
+red sea,leaving_IDP,anger-disgust,1,,-4
+red sea,arriving_IDP,anger,1,0.0,-3
+red sea,arriving_IDP,fear,1,0.0,-3
+red sea,arriving_IDP,sadness,1,0.0,-3
+red sea,arriving_IDP,disgust,1,0.0,-3
+red sea,arriving_IDP,joy,1,0.0,-3
+red sea,arriving_IDP,anger-disgust,1,0.0,-3
+red sea,leaving_IDP,anger,1,,-3
+red sea,leaving_IDP,fear,1,,-3
+red sea,leaving_IDP,sadness,1,,-3
+red sea,leaving_IDP,disgust,1,,-3
+red sea,leaving_IDP,joy,1,,-3
+red sea,leaving_IDP,anger-disgust,1,,-3
+red sea,arriving_IDP,anger,1,0.0,-2
+red sea,arriving_IDP,fear,1,0.0,-2
+red sea,arriving_IDP,sadness,1,0.0,-2
+red sea,arriving_IDP,disgust,1,0.0,-2
+red sea,arriving_IDP,joy,1,0.0,-2
+red sea,arriving_IDP,anger-disgust,1,0.0,-2
+red sea,leaving_IDP,anger,1,,-2
+red sea,leaving_IDP,fear,1,,-2
+red sea,leaving_IDP,sadness,1,,-2
+red sea,leaving_IDP,disgust,1,,-2
+red sea,leaving_IDP,joy,1,,-2
+red sea,leaving_IDP,anger-disgust,1,,-2
+red sea,arriving_IDP,anger,1,-2.220446049250313e-16,-1
+red sea,arriving_IDP,fear,1,-2.220446049250313e-16,-1
+red sea,arriving_IDP,sadness,1,-2.220446049250313e-16,-1
+red sea,arriving_IDP,disgust,1,-2.220446049250313e-16,-1
+red sea,arriving_IDP,joy,1,-2.220446049250313e-16,-1
+red sea,arriving_IDP,anger-disgust,1,-2.220446049250313e-16,-1
+red sea,leaving_IDP,anger,1,,-1
+red sea,leaving_IDP,fear,1,,-1
+red sea,leaving_IDP,sadness,1,,-1
+red sea,leaving_IDP,disgust,1,,-1
+red sea,leaving_IDP,joy,1,,-1
+red sea,leaving_IDP,anger-disgust,1,,-1
+red sea,arriving_IDP,anger,1,-2.220446049250313e-16,0
+red sea,arriving_IDP,fear,1,-2.220446049250313e-16,0
+red sea,arriving_IDP,sadness,1,-2.220446049250313e-16,0
+red sea,arriving_IDP,disgust,1,-2.220446049250313e-16,0
+red sea,arriving_IDP,joy,1,-2.220446049250313e-16,0
+red sea,arriving_IDP,anger-disgust,1,-2.220446049250313e-16,0
+red sea,leaving_IDP,anger,1,,0
+red sea,leaving_IDP,fear,1,,0
+red sea,leaving_IDP,sadness,1,,0
+red sea,leaving_IDP,disgust,1,,0
+red sea,leaving_IDP,joy,1,,0
+red sea,leaving_IDP,anger-disgust,1,,0
+red sea,arriving_IDP,anger,1,0.0,1
+red sea,arriving_IDP,fear,1,0.0,1
+red sea,arriving_IDP,sadness,1,0.0,1
+red sea,arriving_IDP,disgust,1,0.0,1
+red sea,arriving_IDP,joy,1,0.0,1
+red sea,arriving_IDP,anger-disgust,1,0.0,1
+red sea,leaving_IDP,anger,1,,1
+red sea,leaving_IDP,fear,1,,1
+red sea,leaving_IDP,sadness,1,,1
+red sea,leaving_IDP,disgust,1,,1
+red sea,leaving_IDP,joy,1,,1
+red sea,leaving_IDP,anger-disgust,1,,1
+red sea,arriving_IDP,anger,1,0.0,2
+red sea,arriving_IDP,fear,1,0.0,2
+red sea,arriving_IDP,sadness,1,0.0,2
+red sea,arriving_IDP,disgust,1,0.0,2
+red sea,arriving_IDP,joy,1,0.0,2
+red sea,arriving_IDP,anger-disgust,1,0.0,2
+red sea,leaving_IDP,anger,1,,2
+red sea,leaving_IDP,fear,1,,2
+red sea,leaving_IDP,sadness,1,,2
+red sea,leaving_IDP,disgust,1,,2
+red sea,leaving_IDP,joy,1,,2
+red sea,leaving_IDP,anger-disgust,1,,2
+red sea,arriving_IDP,anger,1,0.0,3
+red sea,arriving_IDP,fear,1,0.0,3
+red sea,arriving_IDP,sadness,1,0.0,3
+red sea,arriving_IDP,disgust,1,0.0,3
+red sea,arriving_IDP,joy,1,0.0,3
+red sea,arriving_IDP,anger-disgust,1,0.0,3
+red sea,leaving_IDP,anger,1,,3
+red sea,leaving_IDP,fear,1,,3
+red sea,leaving_IDP,sadness,1,,3
+red sea,leaving_IDP,disgust,1,,3
+red sea,leaving_IDP,joy,1,,3
+red sea,leaving_IDP,anger-disgust,1,,3
+river nile,arriving_IDP,anger,1,0.0,-4
+river nile,arriving_IDP,fear,1,0.0,-4
+river nile,arriving_IDP,sadness,1,0.0,-4
+river nile,arriving_IDP,disgust,1,0.0,-4
+river nile,arriving_IDP,joy,1,0.0,-4
+river nile,arriving_IDP,anger-disgust,1,0.0,-4
+river nile,leaving_IDP,anger,1,,-4
+river nile,leaving_IDP,fear,1,,-4
+river nile,leaving_IDP,sadness,1,,-4
+river nile,leaving_IDP,disgust,1,,-4
+river nile,leaving_IDP,joy,1,,-4
+river nile,leaving_IDP,anger-disgust,1,,-4
+river nile,arriving_IDP,anger,1,0.0,-3
+river nile,arriving_IDP,fear,1,0.0,-3
+river nile,arriving_IDP,sadness,1,0.0,-3
+river nile,arriving_IDP,disgust,1,0.0,-3
+river nile,arriving_IDP,joy,1,0.0,-3
+river nile,arriving_IDP,anger-disgust,1,0.0,-3
+river nile,leaving_IDP,anger,1,,-3
+river nile,leaving_IDP,fear,1,,-3
+river nile,leaving_IDP,sadness,1,,-3
+river nile,leaving_IDP,disgust,1,,-3
+river nile,leaving_IDP,joy,1,,-3
+river nile,leaving_IDP,anger-disgust,1,,-3
+river nile,arriving_IDP,anger,1,0.0,-2
+river nile,arriving_IDP,fear,1,0.0,-2
+river nile,arriving_IDP,sadness,1,0.0,-2
+river nile,arriving_IDP,disgust,1,0.0,-2
+river nile,arriving_IDP,joy,1,0.0,-2
+river nile,arriving_IDP,anger-disgust,1,0.0,-2
+river nile,leaving_IDP,anger,1,,-2
+river nile,leaving_IDP,fear,1,,-2
+river nile,leaving_IDP,sadness,1,,-2
+river nile,leaving_IDP,disgust,1,,-2
+river nile,leaving_IDP,joy,1,,-2
+river nile,leaving_IDP,anger-disgust,1,,-2
+river nile,arriving_IDP,anger,1,1.1102230246251565e-16,-1
+river nile,arriving_IDP,fear,1,1.1102230246251565e-16,-1
+river nile,arriving_IDP,sadness,1,1.1102230246251565e-16,-1
+river nile,arriving_IDP,disgust,1,1.1102230246251565e-16,-1
+river nile,arriving_IDP,joy,1,1.1102230246251565e-16,-1
+river nile,arriving_IDP,anger-disgust,1,1.1102230246251565e-16,-1
+river nile,leaving_IDP,anger,1,,-1
+river nile,leaving_IDP,fear,1,,-1
+river nile,leaving_IDP,sadness,1,,-1
+river nile,leaving_IDP,disgust,1,,-1
+river nile,leaving_IDP,joy,1,,-1
+river nile,leaving_IDP,anger-disgust,1,,-1
+river nile,arriving_IDP,anger,1,1.1102230246251565e-16,0
+river nile,arriving_IDP,fear,1,1.1102230246251565e-16,0
+river nile,arriving_IDP,sadness,1,1.1102230246251565e-16,0
+river nile,arriving_IDP,disgust,1,1.1102230246251565e-16,0
+river nile,arriving_IDP,joy,1,1.1102230246251565e-16,0
+river nile,arriving_IDP,anger-disgust,1,1.1102230246251565e-16,0
+river nile,leaving_IDP,anger,1,,0
+river nile,leaving_IDP,fear,1,,0
+river nile,leaving_IDP,sadness,1,,0
+river nile,leaving_IDP,disgust,1,,0
+river nile,leaving_IDP,joy,1,,0
+river nile,leaving_IDP,anger-disgust,1,,0
+river nile,arriving_IDP,anger,1,0.0,1
+river nile,arriving_IDP,fear,1,0.0,1
+river nile,arriving_IDP,sadness,1,0.0,1
+river nile,arriving_IDP,disgust,1,0.0,1
+river nile,arriving_IDP,joy,1,0.0,1
+river nile,arriving_IDP,anger-disgust,1,0.0,1
+river nile,leaving_IDP,anger,1,,1
+river nile,leaving_IDP,fear,1,,1
+river nile,leaving_IDP,sadness,1,,1
+river nile,leaving_IDP,disgust,1,,1
+river nile,leaving_IDP,joy,1,,1
+river nile,leaving_IDP,anger-disgust,1,,1
+river nile,arriving_IDP,anger,1,0.0,2
+river nile,arriving_IDP,fear,1,0.0,2
+river nile,arriving_IDP,sadness,1,0.0,2
+river nile,arriving_IDP,disgust,1,0.0,2
+river nile,arriving_IDP,joy,1,0.0,2
+river nile,arriving_IDP,anger-disgust,1,0.0,2
+river nile,leaving_IDP,anger,1,,2
+river nile,leaving_IDP,fear,1,,2
+river nile,leaving_IDP,sadness,1,,2
+river nile,leaving_IDP,disgust,1,,2
+river nile,leaving_IDP,joy,1,,2
+river nile,leaving_IDP,anger-disgust,1,,2
+river nile,arriving_IDP,anger,1,0.0,3
+river nile,arriving_IDP,fear,1,0.0,3
+river nile,arriving_IDP,sadness,1,0.0,3
+river nile,arriving_IDP,disgust,1,0.0,3
+river nile,arriving_IDP,joy,1,0.0,3
+river nile,arriving_IDP,anger-disgust,1,0.0,3
+river nile,leaving_IDP,anger,1,,3
+river nile,leaving_IDP,fear,1,,3
+river nile,leaving_IDP,sadness,1,,3
+river nile,leaving_IDP,disgust,1,,3
+river nile,leaving_IDP,joy,1,,3
+river nile,leaving_IDP,anger-disgust,1,,3
+sennar,arriving_IDP,anger,1,0.0,-4
+sennar,arriving_IDP,fear,1,0.0,-4
+sennar,arriving_IDP,sadness,1,0.0,-4
+sennar,arriving_IDP,disgust,1,0.0,-4
+sennar,arriving_IDP,joy,1,0.0,-4
+sennar,arriving_IDP,anger-disgust,1,0.0,-4
+sennar,leaving_IDP,anger,1,,-4
+sennar,leaving_IDP,fear,1,,-4
+sennar,leaving_IDP,sadness,1,,-4
+sennar,leaving_IDP,disgust,1,,-4
+sennar,leaving_IDP,joy,1,,-4
+sennar,leaving_IDP,anger-disgust,1,,-4
+sennar,arriving_IDP,anger,1,0.0,-3
+sennar,arriving_IDP,fear,1,0.0,-3
+sennar,arriving_IDP,sadness,1,0.0,-3
+sennar,arriving_IDP,disgust,1,0.0,-3
+sennar,arriving_IDP,joy,1,0.0,-3
+sennar,arriving_IDP,anger-disgust,1,0.0,-3
+sennar,leaving_IDP,anger,1,,-3
+sennar,leaving_IDP,fear,1,,-3
+sennar,leaving_IDP,sadness,1,,-3
+sennar,leaving_IDP,disgust,1,,-3
+sennar,leaving_IDP,joy,1,,-3
+sennar,leaving_IDP,anger-disgust,1,,-3
+sennar,arriving_IDP,anger,1,0.0,-2
+sennar,arriving_IDP,fear,1,0.0,-2
+sennar,arriving_IDP,sadness,1,0.0,-2
+sennar,arriving_IDP,disgust,1,0.0,-2
+sennar,arriving_IDP,joy,1,0.0,-2
+sennar,arriving_IDP,anger-disgust,1,0.0,-2
+sennar,leaving_IDP,anger,1,,-2
+sennar,leaving_IDP,fear,1,,-2
+sennar,leaving_IDP,sadness,1,,-2
+sennar,leaving_IDP,disgust,1,,-2
+sennar,leaving_IDP,joy,1,,-2
+sennar,leaving_IDP,anger-disgust,1,,-2
+sennar,arriving_IDP,anger,1,0.0,-1
+sennar,arriving_IDP,fear,1,0.0,-1
+sennar,arriving_IDP,sadness,1,0.0,-1
+sennar,arriving_IDP,disgust,1,0.0,-1
+sennar,arriving_IDP,joy,1,0.0,-1
+sennar,arriving_IDP,anger-disgust,1,0.0,-1
+sennar,leaving_IDP,anger,1,,-1
+sennar,leaving_IDP,fear,1,,-1
+sennar,leaving_IDP,sadness,1,,-1
+sennar,leaving_IDP,disgust,1,,-1
+sennar,leaving_IDP,joy,1,,-1
+sennar,leaving_IDP,anger-disgust,1,,-1
+sennar,arriving_IDP,anger,1,0.0,0
+sennar,arriving_IDP,fear,1,0.0,0
+sennar,arriving_IDP,sadness,1,0.0,0
+sennar,arriving_IDP,disgust,1,0.0,0
+sennar,arriving_IDP,joy,1,0.0,0
+sennar,arriving_IDP,anger-disgust,1,0.0,0
+sennar,leaving_IDP,anger,1,,0
+sennar,leaving_IDP,fear,1,,0
+sennar,leaving_IDP,sadness,1,,0
+sennar,leaving_IDP,disgust,1,,0
+sennar,leaving_IDP,joy,1,,0
+sennar,leaving_IDP,anger-disgust,1,,0
+sennar,arriving_IDP,anger,1,0.0,1
+sennar,arriving_IDP,fear,1,0.0,1
+sennar,arriving_IDP,sadness,1,0.0,1
+sennar,arriving_IDP,disgust,1,0.0,1
+sennar,arriving_IDP,joy,1,0.0,1
+sennar,arriving_IDP,anger-disgust,1,0.0,1
+sennar,leaving_IDP,anger,1,,1
+sennar,leaving_IDP,fear,1,,1
+sennar,leaving_IDP,sadness,1,,1
+sennar,leaving_IDP,disgust,1,,1
+sennar,leaving_IDP,joy,1,,1
+sennar,leaving_IDP,anger-disgust,1,,1
+sennar,arriving_IDP,anger,1,0.0,2
+sennar,arriving_IDP,fear,1,0.0,2
+sennar,arriving_IDP,sadness,1,0.0,2
+sennar,arriving_IDP,disgust,1,0.0,2
+sennar,arriving_IDP,joy,1,0.0,2
+sennar,arriving_IDP,anger-disgust,1,0.0,2
+sennar,leaving_IDP,anger,1,,2
+sennar,leaving_IDP,fear,1,,2
+sennar,leaving_IDP,sadness,1,,2
+sennar,leaving_IDP,disgust,1,,2
+sennar,leaving_IDP,joy,1,,2
+sennar,leaving_IDP,anger-disgust,1,,2
+sennar,arriving_IDP,anger,1,0.0,3
+sennar,arriving_IDP,fear,1,0.0,3
+sennar,arriving_IDP,sadness,1,0.0,3
+sennar,arriving_IDP,disgust,1,0.0,3
+sennar,arriving_IDP,joy,1,0.0,3
+sennar,arriving_IDP,anger-disgust,1,0.0,3
+sennar,leaving_IDP,anger,1,,3
+sennar,leaving_IDP,fear,1,,3
+sennar,leaving_IDP,sadness,1,,3
+sennar,leaving_IDP,disgust,1,,3
+sennar,leaving_IDP,joy,1,,3
+sennar,leaving_IDP,anger-disgust,1,,3
+south darfur,arriving_IDP,anger,1,1.1102230246251565e-16,-4
+south darfur,arriving_IDP,fear,1,1.1102230246251565e-16,-4
+south darfur,arriving_IDP,sadness,1,1.1102230246251565e-16,-4
+south darfur,arriving_IDP,disgust,1,1.1102230246251565e-16,-4
+south darfur,arriving_IDP,joy,1,1.1102230246251565e-16,-4
+south darfur,arriving_IDP,anger-disgust,1,1.1102230246251565e-16,-4
+south darfur,leaving_IDP,anger,1,0.0,-4
+south darfur,leaving_IDP,fear,1,0.0,-4
+south darfur,leaving_IDP,sadness,1,0.0,-4
+south darfur,leaving_IDP,disgust,1,0.0,-4
+south darfur,leaving_IDP,joy,1,0.0,-4
+south darfur,leaving_IDP,anger-disgust,1,0.0,-4
+south darfur,arriving_IDP,anger,1,0.0,-3
+south darfur,arriving_IDP,fear,1,0.0,-3
+south darfur,arriving_IDP,sadness,1,0.0,-3
+south darfur,arriving_IDP,disgust,1,0.0,-3
+south darfur,arriving_IDP,joy,1,0.0,-3
+south darfur,arriving_IDP,anger-disgust,1,0.0,-3
+south darfur,leaving_IDP,anger,1,0.0,-3
+south darfur,leaving_IDP,fear,1,0.0,-3
+south darfur,leaving_IDP,sadness,1,0.0,-3
+south darfur,leaving_IDP,disgust,1,0.0,-3
+south darfur,leaving_IDP,joy,1,0.0,-3
+south darfur,leaving_IDP,anger-disgust,1,0.0,-3
+south darfur,arriving_IDP,anger,1,0.0,-2
+south darfur,arriving_IDP,fear,1,0.0,-2
+south darfur,arriving_IDP,sadness,1,0.0,-2
+south darfur,arriving_IDP,disgust,1,0.0,-2
+south darfur,arriving_IDP,joy,1,0.0,-2
+south darfur,arriving_IDP,anger-disgust,1,0.0,-2
+south darfur,leaving_IDP,anger,1,0.0,-2
+south darfur,leaving_IDP,fear,1,0.0,-2
+south darfur,leaving_IDP,sadness,1,0.0,-2
+south darfur,leaving_IDP,disgust,1,0.0,-2
+south darfur,leaving_IDP,joy,1,0.0,-2
+south darfur,leaving_IDP,anger-disgust,1,0.0,-2
+south darfur,arriving_IDP,anger,1,2.220446049250313e-16,-1
+south darfur,arriving_IDP,fear,1,2.220446049250313e-16,-1
+south darfur,arriving_IDP,sadness,1,2.220446049250313e-16,-1
+south darfur,arriving_IDP,disgust,1,2.220446049250313e-16,-1
+south darfur,arriving_IDP,joy,1,2.220446049250313e-16,-1
+south darfur,arriving_IDP,anger-disgust,1,2.220446049250313e-16,-1
+south darfur,leaving_IDP,anger,1,0.0,-1
+south darfur,leaving_IDP,fear,1,0.0,-1
+south darfur,leaving_IDP,sadness,1,0.0,-1
+south darfur,leaving_IDP,disgust,1,0.0,-1
+south darfur,leaving_IDP,joy,1,0.0,-1
+south darfur,leaving_IDP,anger-disgust,1,0.0,-1
+south darfur,arriving_IDP,anger,1,2.220446049250313e-16,0
+south darfur,arriving_IDP,fear,1,2.220446049250313e-16,0
+south darfur,arriving_IDP,sadness,1,2.220446049250313e-16,0
+south darfur,arriving_IDP,disgust,1,2.220446049250313e-16,0
+south darfur,arriving_IDP,joy,1,2.220446049250313e-16,0
+south darfur,arriving_IDP,anger-disgust,1,2.220446049250313e-16,0
+south darfur,leaving_IDP,anger,1,0.0,0
+south darfur,leaving_IDP,fear,1,0.0,0
+south darfur,leaving_IDP,sadness,1,0.0,0
+south darfur,leaving_IDP,disgust,1,0.0,0
+south darfur,leaving_IDP,joy,1,0.0,0
+south darfur,leaving_IDP,anger-disgust,1,0.0,0
+south darfur,arriving_IDP,anger,1,0.0,1
+south darfur,arriving_IDP,fear,1,0.0,1
+south darfur,arriving_IDP,sadness,1,0.0,1
+south darfur,arriving_IDP,disgust,1,0.0,1
+south darfur,arriving_IDP,joy,1,0.0,1
+south darfur,arriving_IDP,anger-disgust,1,0.0,1
+south darfur,leaving_IDP,anger,1,0.0,1
+south darfur,leaving_IDP,fear,1,0.0,1
+south darfur,leaving_IDP,sadness,1,0.0,1
+south darfur,leaving_IDP,disgust,1,0.0,1
+south darfur,leaving_IDP,joy,1,0.0,1
+south darfur,leaving_IDP,anger-disgust,1,0.0,1
+south darfur,arriving_IDP,anger,1,0.0,2
+south darfur,arriving_IDP,fear,1,0.0,2
+south darfur,arriving_IDP,sadness,1,0.0,2
+south darfur,arriving_IDP,disgust,1,0.0,2
+south darfur,arriving_IDP,joy,1,0.0,2
+south darfur,arriving_IDP,anger-disgust,1,0.0,2
+south darfur,leaving_IDP,anger,1,0.0,2
+south darfur,leaving_IDP,fear,1,0.0,2
+south darfur,leaving_IDP,sadness,1,0.0,2
+south darfur,leaving_IDP,disgust,1,0.0,2
+south darfur,leaving_IDP,joy,1,0.0,2
+south darfur,leaving_IDP,anger-disgust,1,0.0,2
+south darfur,arriving_IDP,anger,1,1.1102230246251565e-16,3
+south darfur,arriving_IDP,fear,1,1.1102230246251565e-16,3
+south darfur,arriving_IDP,sadness,1,1.1102230246251565e-16,3
+south darfur,arriving_IDP,disgust,1,1.1102230246251565e-16,3
+south darfur,arriving_IDP,joy,1,1.1102230246251565e-16,3
+south darfur,arriving_IDP,anger-disgust,1,1.1102230246251565e-16,3
+south darfur,leaving_IDP,anger,1,0.0,3
+south darfur,leaving_IDP,fear,1,0.0,3
+south darfur,leaving_IDP,sadness,1,0.0,3
+south darfur,leaving_IDP,disgust,1,0.0,3
+south darfur,leaving_IDP,joy,1,0.0,3
+south darfur,leaving_IDP,anger-disgust,1,0.0,3
+west darfur,arriving_IDP,anger,1,0.0,-4
+west darfur,arriving_IDP,fear,1,0.0,-4
+west darfur,arriving_IDP,sadness,1,0.0,-4
+west darfur,arriving_IDP,disgust,1,0.0,-4
+west darfur,arriving_IDP,joy,1,0.0,-4
+west darfur,arriving_IDP,anger-disgust,1,0.0,-4
+west darfur,leaving_IDP,anger,1,-2.220446049250313e-16,-4
+west darfur,leaving_IDP,fear,1,-2.220446049250313e-16,-4
+west darfur,leaving_IDP,sadness,1,-2.220446049250313e-16,-4
+west darfur,leaving_IDP,disgust,1,-2.220446049250313e-16,-4
+west darfur,leaving_IDP,joy,1,-2.220446049250313e-16,-4
+west darfur,leaving_IDP,anger-disgust,1,-2.220446049250313e-16,-4
+west darfur,arriving_IDP,anger,1,0.0,-3
+west darfur,arriving_IDP,fear,1,0.0,-3
+west darfur,arriving_IDP,sadness,1,0.0,-3
+west darfur,arriving_IDP,disgust,1,0.0,-3
+west darfur,arriving_IDP,joy,1,0.0,-3
+west darfur,arriving_IDP,anger-disgust,1,0.0,-3
+west darfur,leaving_IDP,anger,1,0.0,-3
+west darfur,leaving_IDP,fear,1,0.0,-3
+west darfur,leaving_IDP,sadness,1,0.0,-3
+west darfur,leaving_IDP,disgust,1,0.0,-3
+west darfur,leaving_IDP,joy,1,0.0,-3
+west darfur,leaving_IDP,anger-disgust,1,0.0,-3
+west darfur,arriving_IDP,anger,1,0.0,-2
+west darfur,arriving_IDP,fear,1,0.0,-2
+west darfur,arriving_IDP,sadness,1,0.0,-2
+west darfur,arriving_IDP,disgust,1,0.0,-2
+west darfur,arriving_IDP,joy,1,0.0,-2
+west darfur,arriving_IDP,anger-disgust,1,0.0,-2
+west darfur,leaving_IDP,anger,1,0.0,-2
+west darfur,leaving_IDP,fear,1,0.0,-2
+west darfur,leaving_IDP,sadness,1,0.0,-2
+west darfur,leaving_IDP,disgust,1,0.0,-2
+west darfur,leaving_IDP,joy,1,0.0,-2
+west darfur,leaving_IDP,anger-disgust,1,0.0,-2
+west darfur,arriving_IDP,anger,1,0.0,-1
+west darfur,arriving_IDP,fear,1,0.0,-1
+west darfur,arriving_IDP,sadness,1,0.0,-1
+west darfur,arriving_IDP,disgust,1,0.0,-1
+west darfur,arriving_IDP,joy,1,0.0,-1
+west darfur,arriving_IDP,anger-disgust,1,0.0,-1
+west darfur,leaving_IDP,anger,1,0.0,-1
+west darfur,leaving_IDP,fear,1,0.0,-1
+west darfur,leaving_IDP,sadness,1,0.0,-1
+west darfur,leaving_IDP,disgust,1,0.0,-1
+west darfur,leaving_IDP,joy,1,0.0,-1
+west darfur,leaving_IDP,anger-disgust,1,0.0,-1
+west darfur,arriving_IDP,anger,1,0.0,0
+west darfur,arriving_IDP,fear,1,0.0,0
+west darfur,arriving_IDP,sadness,1,0.0,0
+west darfur,arriving_IDP,disgust,1,0.0,0
+west darfur,arriving_IDP,joy,1,0.0,0
+west darfur,arriving_IDP,anger-disgust,1,0.0,0
+west darfur,leaving_IDP,anger,1,0.0,0
+west darfur,leaving_IDP,fear,1,0.0,0
+west darfur,leaving_IDP,sadness,1,0.0,0
+west darfur,leaving_IDP,disgust,1,0.0,0
+west darfur,leaving_IDP,joy,1,0.0,0
+west darfur,leaving_IDP,anger-disgust,1,0.0,0
+west darfur,arriving_IDP,anger,1,0.0,1
+west darfur,arriving_IDP,fear,1,0.0,1
+west darfur,arriving_IDP,sadness,1,0.0,1
+west darfur,arriving_IDP,disgust,1,0.0,1
+west darfur,arriving_IDP,joy,1,0.0,1
+west darfur,arriving_IDP,anger-disgust,1,0.0,1
+west darfur,leaving_IDP,anger,1,0.0,1
+west darfur,leaving_IDP,fear,1,0.0,1
+west darfur,leaving_IDP,sadness,1,0.0,1
+west darfur,leaving_IDP,disgust,1,0.0,1
+west darfur,leaving_IDP,joy,1,0.0,1
+west darfur,leaving_IDP,anger-disgust,1,0.0,1
+west darfur,arriving_IDP,anger,1,0.0,2
+west darfur,arriving_IDP,fear,1,0.0,2
+west darfur,arriving_IDP,sadness,1,0.0,2
+west darfur,arriving_IDP,disgust,1,0.0,2
+west darfur,arriving_IDP,joy,1,0.0,2
+west darfur,arriving_IDP,anger-disgust,1,0.0,2
+west darfur,leaving_IDP,anger,1,0.0,2
+west darfur,leaving_IDP,fear,1,0.0,2
+west darfur,leaving_IDP,sadness,1,0.0,2
+west darfur,leaving_IDP,disgust,1,0.0,2
+west darfur,leaving_IDP,joy,1,0.0,2
+west darfur,leaving_IDP,anger-disgust,1,0.0,2
+west darfur,arriving_IDP,anger,1,0.0,3
+west darfur,arriving_IDP,fear,1,0.0,3
+west darfur,arriving_IDP,sadness,1,0.0,3
+west darfur,arriving_IDP,disgust,1,0.0,3
+west darfur,arriving_IDP,joy,1,0.0,3
+west darfur,arriving_IDP,anger-disgust,1,0.0,3
+west darfur,leaving_IDP,anger,1,-2.220446049250313e-16,3
+west darfur,leaving_IDP,fear,1,-2.220446049250313e-16,3
+west darfur,leaving_IDP,sadness,1,-2.220446049250313e-16,3
+west darfur,leaving_IDP,disgust,1,-2.220446049250313e-16,3
+west darfur,leaving_IDP,joy,1,-2.220446049250313e-16,3
+west darfur,leaving_IDP,anger-disgust,1,-2.220446049250313e-16,3
+white nile,arriving_IDP,anger,1,2.220446049250313e-16,-4
+white nile,arriving_IDP,fear,1,2.220446049250313e-16,-4
+white nile,arriving_IDP,sadness,1,2.220446049250313e-16,-4
+white nile,arriving_IDP,disgust,1,2.220446049250313e-16,-4
+white nile,arriving_IDP,joy,1,2.220446049250313e-16,-4
+white nile,arriving_IDP,anger-disgust,1,2.220446049250313e-16,-4
+white nile,leaving_IDP,anger,1,,-4
+white nile,leaving_IDP,fear,1,,-4
+white nile,leaving_IDP,sadness,1,,-4
+white nile,leaving_IDP,disgust,1,,-4
+white nile,leaving_IDP,joy,1,,-4
+white nile,leaving_IDP,anger-disgust,1,,-4
+white nile,arriving_IDP,anger,1,1.1102230246251565e-16,-3
+white nile,arriving_IDP,fear,1,1.1102230246251565e-16,-3
+white nile,arriving_IDP,sadness,1,1.1102230246251565e-16,-3
+white nile,arriving_IDP,disgust,1,1.1102230246251565e-16,-3
+white nile,arriving_IDP,joy,1,1.1102230246251565e-16,-3
+white nile,arriving_IDP,anger-disgust,1,1.1102230246251565e-16,-3
+white nile,leaving_IDP,anger,1,,-3
+white nile,leaving_IDP,fear,1,,-3
+white nile,leaving_IDP,sadness,1,,-3
+white nile,leaving_IDP,disgust,1,,-3
+white nile,leaving_IDP,joy,1,,-3
+white nile,leaving_IDP,anger-disgust,1,,-3
+white nile,arriving_IDP,anger,1,0.0,-2
+white nile,arriving_IDP,fear,1,0.0,-2
+white nile,arriving_IDP,sadness,1,0.0,-2
+white nile,arriving_IDP,disgust,1,0.0,-2
+white nile,arriving_IDP,joy,1,0.0,-2
+white nile,arriving_IDP,anger-disgust,1,0.0,-2
+white nile,leaving_IDP,anger,1,,-2
+white nile,leaving_IDP,fear,1,,-2
+white nile,leaving_IDP,sadness,1,,-2
+white nile,leaving_IDP,disgust,1,,-2
+white nile,leaving_IDP,joy,1,,-2
+white nile,leaving_IDP,anger-disgust,1,,-2
+white nile,arriving_IDP,anger,1,0.0,-1
+white nile,arriving_IDP,fear,1,0.0,-1
+white nile,arriving_IDP,sadness,1,0.0,-1
+white nile,arriving_IDP,disgust,1,0.0,-1
+white nile,arriving_IDP,joy,1,0.0,-1
+white nile,arriving_IDP,anger-disgust,1,0.0,-1
+white nile,leaving_IDP,anger,1,,-1
+white nile,leaving_IDP,fear,1,,-1
+white nile,leaving_IDP,sadness,1,,-1
+white nile,leaving_IDP,disgust,1,,-1
+white nile,leaving_IDP,joy,1,,-1
+white nile,leaving_IDP,anger-disgust,1,,-1
+white nile,arriving_IDP,anger,1,0.0,0
+white nile,arriving_IDP,fear,1,0.0,0
+white nile,arriving_IDP,sadness,1,0.0,0
+white nile,arriving_IDP,disgust,1,0.0,0
+white nile,arriving_IDP,joy,1,0.0,0
+white nile,arriving_IDP,anger-disgust,1,0.0,0
+white nile,leaving_IDP,anger,1,,0
+white nile,leaving_IDP,fear,1,,0
+white nile,leaving_IDP,sadness,1,,0
+white nile,leaving_IDP,disgust,1,,0
+white nile,leaving_IDP,joy,1,,0
+white nile,leaving_IDP,anger-disgust,1,,0
+white nile,arriving_IDP,anger,1,0.0,1
+white nile,arriving_IDP,fear,1,0.0,1
+white nile,arriving_IDP,sadness,1,0.0,1
+white nile,arriving_IDP,disgust,1,0.0,1
+white nile,arriving_IDP,joy,1,0.0,1
+white nile,arriving_IDP,anger-disgust,1,0.0,1
+white nile,leaving_IDP,anger,1,,1
+white nile,leaving_IDP,fear,1,,1
+white nile,leaving_IDP,sadness,1,,1
+white nile,leaving_IDP,disgust,1,,1
+white nile,leaving_IDP,joy,1,,1
+white nile,leaving_IDP,anger-disgust,1,,1
+white nile,arriving_IDP,anger,1,1.1102230246251565e-16,2
+white nile,arriving_IDP,fear,1,1.1102230246251565e-16,2
+white nile,arriving_IDP,sadness,1,1.1102230246251565e-16,2
+white nile,arriving_IDP,disgust,1,1.1102230246251565e-16,2
+white nile,arriving_IDP,joy,1,1.1102230246251565e-16,2
+white nile,arriving_IDP,anger-disgust,1,1.1102230246251565e-16,2
+white nile,leaving_IDP,anger,1,,2
+white nile,leaving_IDP,fear,1,,2
+white nile,leaving_IDP,sadness,1,,2
+white nile,leaving_IDP,disgust,1,,2
+white nile,leaving_IDP,joy,1,,2
+white nile,leaving_IDP,anger-disgust,1,,2
+white nile,arriving_IDP,anger,1,2.220446049250313e-16,3
+white nile,arriving_IDP,fear,1,2.220446049250313e-16,3
+white nile,arriving_IDP,sadness,1,2.220446049250313e-16,3
+white nile,arriving_IDP,disgust,1,2.220446049250313e-16,3
+white nile,arriving_IDP,joy,1,2.220446049250313e-16,3
+white nile,arriving_IDP,anger-disgust,1,2.220446049250313e-16,3
+white nile,leaving_IDP,anger,1,,3
+white nile,leaving_IDP,fear,1,,3
+white nile,leaving_IDP,sadness,1,,3
+white nile,leaving_IDP,disgust,1,,3
+white nile,leaving_IDP,joy,1,,3
+white nile,leaving_IDP,anger-disgust,1,,3
+east darfur,arriving_IDP,anger,1,0.0,-4
+east darfur,arriving_IDP,fear,1,0.0,-4
+east darfur,arriving_IDP,sadness,1,0.0,-4
+east darfur,arriving_IDP,disgust,1,0.0,-4
+east darfur,arriving_IDP,joy,1,0.0,-4
+east darfur,arriving_IDP,anger-disgust,1,0.0,-4
+east darfur,leaving_IDP,anger,1,,-4
+east darfur,leaving_IDP,fear,1,,-4
+east darfur,leaving_IDP,sadness,1,,-4
+east darfur,leaving_IDP,disgust,1,,-4
+east darfur,leaving_IDP,joy,1,,-4
+east darfur,leaving_IDP,anger-disgust,1,,-4
+east darfur,arriving_IDP,anger,1,0.0,-3
+east darfur,arriving_IDP,fear,1,0.0,-3
+east darfur,arriving_IDP,sadness,1,0.0,-3
+east darfur,arriving_IDP,disgust,1,0.0,-3
+east darfur,arriving_IDP,joy,1,0.0,-3
+east darfur,arriving_IDP,anger-disgust,1,0.0,-3
+east darfur,leaving_IDP,anger,1,,-3
+east darfur,leaving_IDP,fear,1,,-3
+east darfur,leaving_IDP,sadness,1,,-3
+east darfur,leaving_IDP,disgust,1,,-3
+east darfur,leaving_IDP,joy,1,,-3
+east darfur,leaving_IDP,anger-disgust,1,,-3
+east darfur,arriving_IDP,anger,1,,-2
+east darfur,arriving_IDP,fear,1,,-2
+east darfur,arriving_IDP,sadness,1,,-2
+east darfur,arriving_IDP,disgust,1,,-2
+east darfur,arriving_IDP,joy,1,,-2
+east darfur,arriving_IDP,anger-disgust,1,,-2
+east darfur,leaving_IDP,anger,1,,-2
+east darfur,leaving_IDP,fear,1,,-2
+east darfur,leaving_IDP,sadness,1,,-2
+east darfur,leaving_IDP,disgust,1,,-2
+east darfur,leaving_IDP,joy,1,,-2
+east darfur,leaving_IDP,anger-disgust,1,,-2
+east darfur,arriving_IDP,anger,1,,-1
+east darfur,arriving_IDP,fear,1,,-1
+east darfur,arriving_IDP,sadness,1,,-1
+east darfur,arriving_IDP,disgust,1,,-1
+east darfur,arriving_IDP,joy,1,,-1
+east darfur,arriving_IDP,anger-disgust,1,,-1
+east darfur,leaving_IDP,anger,1,,-1
+east darfur,leaving_IDP,fear,1,,-1
+east darfur,leaving_IDP,sadness,1,,-1
+east darfur,leaving_IDP,disgust,1,,-1
+east darfur,leaving_IDP,joy,1,,-1
+east darfur,leaving_IDP,anger-disgust,1,,-1
+east darfur,arriving_IDP,anger,1,,0
+east darfur,arriving_IDP,fear,1,,0
+east darfur,arriving_IDP,sadness,1,,0
+east darfur,arriving_IDP,disgust,1,,0
+east darfur,arriving_IDP,joy,1,,0
+east darfur,arriving_IDP,anger-disgust,1,,0
+east darfur,leaving_IDP,anger,1,,0
+east darfur,leaving_IDP,fear,1,,0
+east darfur,leaving_IDP,sadness,1,,0
+east darfur,leaving_IDP,disgust,1,,0
+east darfur,leaving_IDP,joy,1,,0
+east darfur,leaving_IDP,anger-disgust,1,,0
+east darfur,arriving_IDP,anger,1,,1
+east darfur,arriving_IDP,fear,1,,1
+east darfur,arriving_IDP,sadness,1,,1
+east darfur,arriving_IDP,disgust,1,,1
+east darfur,arriving_IDP,joy,1,,1
+east darfur,arriving_IDP,anger-disgust,1,,1
+east darfur,leaving_IDP,anger,1,,1
+east darfur,leaving_IDP,fear,1,,1
+east darfur,leaving_IDP,sadness,1,,1
+east darfur,leaving_IDP,disgust,1,,1
+east darfur,leaving_IDP,joy,1,,1
+east darfur,leaving_IDP,anger-disgust,1,,1
+east darfur,arriving_IDP,anger,1,0.0,2
+east darfur,arriving_IDP,fear,1,0.0,2
+east darfur,arriving_IDP,sadness,1,0.0,2
+east darfur,arriving_IDP,disgust,1,0.0,2
+east darfur,arriving_IDP,joy,1,0.0,2
+east darfur,arriving_IDP,anger-disgust,1,0.0,2
+east darfur,leaving_IDP,anger,1,,2
+east darfur,leaving_IDP,fear,1,,2
+east darfur,leaving_IDP,sadness,1,,2
+east darfur,leaving_IDP,disgust,1,,2
+east darfur,leaving_IDP,joy,1,,2
+east darfur,leaving_IDP,anger-disgust,1,,2
+east darfur,arriving_IDP,anger,1,0.0,3
+east darfur,arriving_IDP,fear,1,0.0,3
+east darfur,arriving_IDP,sadness,1,0.0,3
+east darfur,arriving_IDP,disgust,1,0.0,3
+east darfur,arriving_IDP,joy,1,0.0,3
+east darfur,arriving_IDP,anger-disgust,1,0.0,3
+east darfur,leaving_IDP,anger,1,,3
+east darfur,leaving_IDP,fear,1,,3
+east darfur,leaving_IDP,sadness,1,,3
+east darfur,leaving_IDP,disgust,1,,3
+east darfur,leaving_IDP,joy,1,,3
+east darfur,leaving_IDP,anger-disgust,1,,3
+gedaref,arriving_IDP,anger,1,0.0,-4
+gedaref,arriving_IDP,fear,1,0.0,-4
+gedaref,arriving_IDP,sadness,1,0.0,-4
+gedaref,arriving_IDP,disgust,1,0.0,-4
+gedaref,arriving_IDP,joy,1,0.0,-4
+gedaref,arriving_IDP,anger-disgust,1,0.0,-4
+gedaref,leaving_IDP,anger,1,,-4
+gedaref,leaving_IDP,fear,1,,-4
+gedaref,leaving_IDP,sadness,1,,-4
+gedaref,leaving_IDP,disgust,1,,-4
+gedaref,leaving_IDP,joy,1,,-4
+gedaref,leaving_IDP,anger-disgust,1,,-4
+gedaref,arriving_IDP,anger,1,0.0,-3
+gedaref,arriving_IDP,fear,1,0.0,-3
+gedaref,arriving_IDP,sadness,1,0.0,-3
+gedaref,arriving_IDP,disgust,1,0.0,-3
+gedaref,arriving_IDP,joy,1,0.0,-3
+gedaref,arriving_IDP,anger-disgust,1,0.0,-3
+gedaref,leaving_IDP,anger,1,,-3
+gedaref,leaving_IDP,fear,1,,-3
+gedaref,leaving_IDP,sadness,1,,-3
+gedaref,leaving_IDP,disgust,1,,-3
+gedaref,leaving_IDP,joy,1,,-3
+gedaref,leaving_IDP,anger-disgust,1,,-3
+gedaref,arriving_IDP,anger,1,-2.220446049250313e-16,-2
+gedaref,arriving_IDP,fear,1,-2.220446049250313e-16,-2
+gedaref,arriving_IDP,sadness,1,-2.220446049250313e-16,-2
+gedaref,arriving_IDP,disgust,1,-2.220446049250313e-16,-2
+gedaref,arriving_IDP,joy,1,-2.220446049250313e-16,-2
+gedaref,arriving_IDP,anger-disgust,1,-2.220446049250313e-16,-2
+gedaref,leaving_IDP,anger,1,,-2
+gedaref,leaving_IDP,fear,1,,-2
+gedaref,leaving_IDP,sadness,1,,-2
+gedaref,leaving_IDP,disgust,1,,-2
+gedaref,leaving_IDP,joy,1,,-2
+gedaref,leaving_IDP,anger-disgust,1,,-2
+gedaref,arriving_IDP,anger,1,0.0,-1
+gedaref,arriving_IDP,fear,1,0.0,-1
+gedaref,arriving_IDP,sadness,1,0.0,-1
+gedaref,arriving_IDP,disgust,1,0.0,-1
+gedaref,arriving_IDP,joy,1,0.0,-1
+gedaref,arriving_IDP,anger-disgust,1,0.0,-1
+gedaref,leaving_IDP,anger,1,,-1
+gedaref,leaving_IDP,fear,1,,-1
+gedaref,leaving_IDP,sadness,1,,-1
+gedaref,leaving_IDP,disgust,1,,-1
+gedaref,leaving_IDP,joy,1,,-1
+gedaref,leaving_IDP,anger-disgust,1,,-1
+gedaref,arriving_IDP,anger,1,0.0,0
+gedaref,arriving_IDP,fear,1,0.0,0
+gedaref,arriving_IDP,sadness,1,0.0,0
+gedaref,arriving_IDP,disgust,1,0.0,0
+gedaref,arriving_IDP,joy,1,0.0,0
+gedaref,arriving_IDP,anger-disgust,1,0.0,0
+gedaref,leaving_IDP,anger,1,,0
+gedaref,leaving_IDP,fear,1,,0
+gedaref,leaving_IDP,sadness,1,,0
+gedaref,leaving_IDP,disgust,1,,0
+gedaref,leaving_IDP,joy,1,,0
+gedaref,leaving_IDP,anger-disgust,1,,0
+gedaref,arriving_IDP,anger,1,-2.220446049250313e-16,1
+gedaref,arriving_IDP,fear,1,-2.220446049250313e-16,1
+gedaref,arriving_IDP,sadness,1,-2.220446049250313e-16,1
+gedaref,arriving_IDP,disgust,1,-2.220446049250313e-16,1
+gedaref,arriving_IDP,joy,1,-2.220446049250313e-16,1
+gedaref,arriving_IDP,anger-disgust,1,-2.220446049250313e-16,1
+gedaref,leaving_IDP,anger,1,,1
+gedaref,leaving_IDP,fear,1,,1
+gedaref,leaving_IDP,sadness,1,,1
+gedaref,leaving_IDP,disgust,1,,1
+gedaref,leaving_IDP,joy,1,,1
+gedaref,leaving_IDP,anger-disgust,1,,1
+gedaref,arriving_IDP,anger,1,0.0,2
+gedaref,arriving_IDP,fear,1,0.0,2
+gedaref,arriving_IDP,sadness,1,0.0,2
+gedaref,arriving_IDP,disgust,1,0.0,2
+gedaref,arriving_IDP,joy,1,0.0,2
+gedaref,arriving_IDP,anger-disgust,1,0.0,2
+gedaref,leaving_IDP,anger,1,,2
+gedaref,leaving_IDP,fear,1,,2
+gedaref,leaving_IDP,sadness,1,,2
+gedaref,leaving_IDP,disgust,1,,2
+gedaref,leaving_IDP,joy,1,,2
+gedaref,leaving_IDP,anger-disgust,1,,2
+gedaref,arriving_IDP,anger,1,0.0,3
+gedaref,arriving_IDP,fear,1,0.0,3
+gedaref,arriving_IDP,sadness,1,0.0,3
+gedaref,arriving_IDP,disgust,1,0.0,3
+gedaref,arriving_IDP,joy,1,0.0,3
+gedaref,arriving_IDP,anger-disgust,1,0.0,3
+gedaref,leaving_IDP,anger,1,,3
+gedaref,leaving_IDP,fear,1,,3
+gedaref,leaving_IDP,sadness,1,,3
+gedaref,leaving_IDP,disgust,1,,3
+gedaref,leaving_IDP,joy,1,,3
+gedaref,leaving_IDP,anger-disgust,1,,3
+south kordofan,arriving_IDP,anger,1,0.0,-4
+south kordofan,arriving_IDP,fear,1,0.0,-4
+south kordofan,arriving_IDP,sadness,1,0.0,-4
+south kordofan,arriving_IDP,disgust,1,0.0,-4
+south kordofan,arriving_IDP,joy,1,0.0,-4
+south kordofan,arriving_IDP,anger-disgust,1,0.0,-4
+south kordofan,leaving_IDP,anger,1,,-4
+south kordofan,leaving_IDP,fear,1,,-4
+south kordofan,leaving_IDP,sadness,1,,-4
+south kordofan,leaving_IDP,disgust,1,,-4
+south kordofan,leaving_IDP,joy,1,,-4
+south kordofan,leaving_IDP,anger-disgust,1,,-4
+south kordofan,arriving_IDP,anger,1,0.0,-3
+south kordofan,arriving_IDP,fear,1,0.0,-3
+south kordofan,arriving_IDP,sadness,1,0.0,-3
+south kordofan,arriving_IDP,disgust,1,0.0,-3
+south kordofan,arriving_IDP,joy,1,0.0,-3
+south kordofan,arriving_IDP,anger-disgust,1,0.0,-3
+south kordofan,leaving_IDP,anger,1,,-3
+south kordofan,leaving_IDP,fear,1,,-3
+south kordofan,leaving_IDP,sadness,1,,-3
+south kordofan,leaving_IDP,disgust,1,,-3
+south kordofan,leaving_IDP,joy,1,,-3
+south kordofan,leaving_IDP,anger-disgust,1,,-3
+south kordofan,arriving_IDP,anger,1,0.0,-2
+south kordofan,arriving_IDP,fear,1,0.0,-2
+south kordofan,arriving_IDP,sadness,1,0.0,-2
+south kordofan,arriving_IDP,disgust,1,0.0,-2
+south kordofan,arriving_IDP,joy,1,0.0,-2
+south kordofan,arriving_IDP,anger-disgust,1,0.0,-2
+south kordofan,leaving_IDP,anger,1,,-2
+south kordofan,leaving_IDP,fear,1,,-2
+south kordofan,leaving_IDP,sadness,1,,-2
+south kordofan,leaving_IDP,disgust,1,,-2
+south kordofan,leaving_IDP,joy,1,,-2
+south kordofan,leaving_IDP,anger-disgust,1,,-2
+south kordofan,arriving_IDP,anger,1,0.0,-1
+south kordofan,arriving_IDP,fear,1,0.0,-1
+south kordofan,arriving_IDP,sadness,1,0.0,-1
+south kordofan,arriving_IDP,disgust,1,0.0,-1
+south kordofan,arriving_IDP,joy,1,0.0,-1
+south kordofan,arriving_IDP,anger-disgust,1,0.0,-1
+south kordofan,leaving_IDP,anger,1,,-1
+south kordofan,leaving_IDP,fear,1,,-1
+south kordofan,leaving_IDP,sadness,1,,-1
+south kordofan,leaving_IDP,disgust,1,,-1
+south kordofan,leaving_IDP,joy,1,,-1
+south kordofan,leaving_IDP,anger-disgust,1,,-1
+south kordofan,arriving_IDP,anger,1,0.0,0
+south kordofan,arriving_IDP,fear,1,0.0,0
+south kordofan,arriving_IDP,sadness,1,0.0,0
+south kordofan,arriving_IDP,disgust,1,0.0,0
+south kordofan,arriving_IDP,joy,1,0.0,0
+south kordofan,arriving_IDP,anger-disgust,1,0.0,0
+south kordofan,leaving_IDP,anger,1,,0
+south kordofan,leaving_IDP,fear,1,,0
+south kordofan,leaving_IDP,sadness,1,,0
+south kordofan,leaving_IDP,disgust,1,,0
+south kordofan,leaving_IDP,joy,1,,0
+south kordofan,leaving_IDP,anger-disgust,1,,0
+south kordofan,arriving_IDP,anger,1,0.0,1
+south kordofan,arriving_IDP,fear,1,0.0,1
+south kordofan,arriving_IDP,sadness,1,0.0,1
+south kordofan,arriving_IDP,disgust,1,0.0,1
+south kordofan,arriving_IDP,joy,1,0.0,1
+south kordofan,arriving_IDP,anger-disgust,1,0.0,1
+south kordofan,leaving_IDP,anger,1,,1
+south kordofan,leaving_IDP,fear,1,,1
+south kordofan,leaving_IDP,sadness,1,,1
+south kordofan,leaving_IDP,disgust,1,,1
+south kordofan,leaving_IDP,joy,1,,1
+south kordofan,leaving_IDP,anger-disgust,1,,1
+south kordofan,arriving_IDP,anger,1,0.0,2
+south kordofan,arriving_IDP,fear,1,0.0,2
+south kordofan,arriving_IDP,sadness,1,0.0,2
+south kordofan,arriving_IDP,disgust,1,0.0,2
+south kordofan,arriving_IDP,joy,1,0.0,2
+south kordofan,arriving_IDP,anger-disgust,1,0.0,2
+south kordofan,leaving_IDP,anger,1,,2
+south kordofan,leaving_IDP,fear,1,,2
+south kordofan,leaving_IDP,sadness,1,,2
+south kordofan,leaving_IDP,disgust,1,,2
+south kordofan,leaving_IDP,joy,1,,2
+south kordofan,leaving_IDP,anger-disgust,1,,2
+south kordofan,arriving_IDP,anger,1,0.0,3
+south kordofan,arriving_IDP,fear,1,0.0,3
+south kordofan,arriving_IDP,sadness,1,0.0,3
+south kordofan,arriving_IDP,disgust,1,0.0,3
+south kordofan,arriving_IDP,joy,1,0.0,3
+south kordofan,arriving_IDP,anger-disgust,1,0.0,3
+south kordofan,leaving_IDP,anger,1,,3
+south kordofan,leaving_IDP,fear,1,,3
+south kordofan,leaving_IDP,sadness,1,,3
+south kordofan,leaving_IDP,disgust,1,,3
+south kordofan,leaving_IDP,joy,1,,3
+south kordofan,leaving_IDP,anger-disgust,1,,3
+west kordofan,arriving_IDP,anger,1,2.220446049250313e-16,-4
+west kordofan,arriving_IDP,fear,1,2.220446049250313e-16,-4
+west kordofan,arriving_IDP,sadness,1,2.220446049250313e-16,-4
+west kordofan,arriving_IDP,disgust,1,2.220446049250313e-16,-4
+west kordofan,arriving_IDP,joy,1,2.220446049250313e-16,-4
+west kordofan,arriving_IDP,anger-disgust,1,2.220446049250313e-16,-4
+west kordofan,leaving_IDP,anger,1,,-4
+west kordofan,leaving_IDP,fear,1,,-4
+west kordofan,leaving_IDP,sadness,1,,-4
+west kordofan,leaving_IDP,disgust,1,,-4
+west kordofan,leaving_IDP,joy,1,,-4
+west kordofan,leaving_IDP,anger-disgust,1,,-4
+west kordofan,arriving_IDP,anger,1,0.0,-3
+west kordofan,arriving_IDP,fear,1,0.0,-3
+west kordofan,arriving_IDP,sadness,1,0.0,-3
+west kordofan,arriving_IDP,disgust,1,0.0,-3
+west kordofan,arriving_IDP,joy,1,0.0,-3
+west kordofan,arriving_IDP,anger-disgust,1,0.0,-3
+west kordofan,leaving_IDP,anger,1,,-3
+west kordofan,leaving_IDP,fear,1,,-3
+west kordofan,leaving_IDP,sadness,1,,-3
+west kordofan,leaving_IDP,disgust,1,,-3
+west kordofan,leaving_IDP,joy,1,,-3
+west kordofan,leaving_IDP,anger-disgust,1,,-3
+west kordofan,arriving_IDP,anger,1,0.0,-2
+west kordofan,arriving_IDP,fear,1,0.0,-2
+west kordofan,arriving_IDP,sadness,1,0.0,-2
+west kordofan,arriving_IDP,disgust,1,0.0,-2
+west kordofan,arriving_IDP,joy,1,0.0,-2
+west kordofan,arriving_IDP,anger-disgust,1,0.0,-2
+west kordofan,leaving_IDP,anger,1,,-2
+west kordofan,leaving_IDP,fear,1,,-2
+west kordofan,leaving_IDP,sadness,1,,-2
+west kordofan,leaving_IDP,disgust,1,,-2
+west kordofan,leaving_IDP,joy,1,,-2
+west kordofan,leaving_IDP,anger-disgust,1,,-2
+west kordofan,arriving_IDP,anger,1,,-1
+west kordofan,arriving_IDP,fear,1,,-1
+west kordofan,arriving_IDP,sadness,1,,-1
+west kordofan,arriving_IDP,disgust,1,,-1
+west kordofan,arriving_IDP,joy,1,,-1
+west kordofan,arriving_IDP,anger-disgust,1,,-1
+west kordofan,leaving_IDP,anger,1,,-1
+west kordofan,leaving_IDP,fear,1,,-1
+west kordofan,leaving_IDP,sadness,1,,-1
+west kordofan,leaving_IDP,disgust,1,,-1
+west kordofan,leaving_IDP,joy,1,,-1
+west kordofan,leaving_IDP,anger-disgust,1,,-1
+west kordofan,arriving_IDP,anger,1,,0
+west kordofan,arriving_IDP,fear,1,,0
+west kordofan,arriving_IDP,sadness,1,,0
+west kordofan,arriving_IDP,disgust,1,,0
+west kordofan,arriving_IDP,joy,1,,0
+west kordofan,arriving_IDP,anger-disgust,1,,0
+west kordofan,leaving_IDP,anger,1,,0
+west kordofan,leaving_IDP,fear,1,,0
+west kordofan,leaving_IDP,sadness,1,,0
+west kordofan,leaving_IDP,disgust,1,,0
+west kordofan,leaving_IDP,joy,1,,0
+west kordofan,leaving_IDP,anger-disgust,1,,0
+west kordofan,arriving_IDP,anger,1,0.0,1
+west kordofan,arriving_IDP,fear,1,0.0,1
+west kordofan,arriving_IDP,sadness,1,0.0,1
+west kordofan,arriving_IDP,disgust,1,0.0,1
+west kordofan,arriving_IDP,joy,1,0.0,1
+west kordofan,arriving_IDP,anger-disgust,1,0.0,1
+west kordofan,leaving_IDP,anger,1,,1
+west kordofan,leaving_IDP,fear,1,,1
+west kordofan,leaving_IDP,sadness,1,,1
+west kordofan,leaving_IDP,disgust,1,,1
+west kordofan,leaving_IDP,joy,1,,1
+west kordofan,leaving_IDP,anger-disgust,1,,1
+west kordofan,arriving_IDP,anger,1,0.0,2
+west kordofan,arriving_IDP,fear,1,0.0,2
+west kordofan,arriving_IDP,sadness,1,0.0,2
+west kordofan,arriving_IDP,disgust,1,0.0,2
+west kordofan,arriving_IDP,joy,1,0.0,2
+west kordofan,arriving_IDP,anger-disgust,1,0.0,2
+west kordofan,leaving_IDP,anger,1,,2
+west kordofan,leaving_IDP,fear,1,,2
+west kordofan,leaving_IDP,sadness,1,,2
+west kordofan,leaving_IDP,disgust,1,,2
+west kordofan,leaving_IDP,joy,1,,2
+west kordofan,leaving_IDP,anger-disgust,1,,2
+west kordofan,arriving_IDP,anger,1,2.220446049250313e-16,3
+west kordofan,arriving_IDP,fear,1,2.220446049250313e-16,3
+west kordofan,arriving_IDP,sadness,1,2.220446049250313e-16,3
+west kordofan,arriving_IDP,disgust,1,2.220446049250313e-16,3
+west kordofan,arriving_IDP,joy,1,2.220446049250313e-16,3
+west kordofan,arriving_IDP,anger-disgust,1,2.220446049250313e-16,3
+west kordofan,leaving_IDP,anger,1,,3
+west kordofan,leaving_IDP,fear,1,,3
+west kordofan,leaving_IDP,sadness,1,,3
+west kordofan,leaving_IDP,disgust,1,,3
+west kordofan,leaving_IDP,joy,1,,3
+west kordofan,leaving_IDP,anger-disgust,1,,3

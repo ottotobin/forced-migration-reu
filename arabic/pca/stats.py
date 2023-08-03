@@ -17,278 +17,108 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import datetime
 import numpy as np
+import itertools
+import warnings
+import statsmodels.api as sm
 
+from math import floor
 
-# creates raw and normalized time series for the consolidated files 
-# of IOM and organic data
-def time_series(file, location=None):
-    org_type = file.split('_')[2].split('.')[0]
-    trends_df = pd.read_csv(file).set_index(['date', 'location'])
-
-    regions = list(set(trends_df.index.get_level_values('location')))
-    days = list(set(trends_df.index.get_level_values('date')))
-    vars = trends_df.columns[0:]
-
-    # time series of organic data vs IOM idp
-    if location != None:
-        r = location
-        for v in vars:
-            plt.plot(trends_df.xs(r,level=1).loc[:,v], label = v)
-        plt.legend()
-        plt.savefig(f"visuals/{org_type}/{r}_unnorm.pdf")
-        plt.close()
-
-
-        # normalize data
-        norm_df = trends_df.copy()
-        for v in vars:
-            norm_df[v] = (norm_df[v] - np.mean(norm_df[v])) / np.std(norm_df[v])
-
-        for v in vars:
-            plt.plot(norm_df.xs(r,level=1).loc[:,v], label = v)
-        ax = plt.gca()
-        # ax.xaxis.set_major_formatter(mdates.DateFormatter('%b'))
-        plt.legend()
-        plt.savefig(f"visuals/{org_type}/{r}_norm.pdf")
-        plt.close()
-
-        return trends_df
+def regression(merged, week_offset, multiple=False):
+    if type(merged) == str:
+        with open(merged, "r") as f:
+            df = pd.read_csv(f)
+            df["date"] = pd.to_datetime(df["date"])
     else:
-        for r in regions:
-            for v in vars:
-                plt.plot(trends_df.xs(r,level=1).loc[:,v], label = v)
-            plt.legend()
-            plt.savefig(f"visuals/{org_type}/{r}_unnorm.pdf")
-            plt.close()
+        df = merged
 
-        # normalize data
-        norm_df = trends_df.copy()
-        for v in vars:
-            norm_df[v] = (norm_df[v] - np.mean(norm_df[v])) / np.std(norm_df[v])
-
-        # Plot normalized data.
-        for r in regions:
-            for v in vars:
-                plt.plot(norm_df.xs(r,level=1).loc[:,v], label = v)
-            ax = plt.gca()
-            # ax.xaxis.set_major_formatter(mdates.DateFormatter('%b'))
-            plt.legend()
-            plt.savefig(f"visuals/{org_type}/{r}_norm.pdf")
-            plt.close()
-
-        return trends_df
-    
-# Calculate and viz correlation
-def corr_matrix(trends_df, file, location=None):
-    org_type = file.split('_')[2].split('.')[0]
-
-
-    # extract unique, days, and variables from the dataframe
-    regions = list(set(trends_df.index.get_level_values('location')))
-    days = list(set(trends_df.index.get_level_values('date')))
-    vars = trends_df.columns[0:]
-
-    # create a correlation matrix for each region
-    if location != None:
-        r = location
-        corr = np.zeros([len(vars),len(vars)])
-        for i,v1 in enumerate(vars):
-            for j,v2 in enumerate(vars):
-                corr[i,j] = np.corrcoef(trends_df[v1], trends_df[v2])[0,1]
-
-
-    #     # fig = plt.figure()
-    #     plt.imshow(corr, cmap = plt.get_cmap('Greens'), vmin = 0, vmax = 1)
-    #     plt.colorbar()
-    #     ax = plt.gca()
-    #     #ax.set_xticklabels(vars)
-    #     ax.set_yticks(np.arange(len(vars)))
-    #     ax.set_yticklabels(vars)
-    #     ax.set_xticks(np.arange(len(vars)))
-    #     ax.set_xticklabels(vars)
-    #     plt.xticks(rotation=90)
-    #     #ax.xaxis.set_xticks(vars)
-    #     plt.tight_layout()
-    #     plt.savefig(f"visuals/{org_type}/{r}_cov_im.pdf")
-    #     plt.close()
-
-    # else:
-    #     for r in regions:
-    #         corr = np.zeros([len(vars),len(vars)])
-    #         for i,v1 in enumerate(vars):
-    #             for j,v2 in enumerate(vars):
-    #                 corr[i,j] = np.corrcoef(trends_df[v1], trends_df[v2])[0,1]
-
-    #         # fig = plt.figure()
-    #         plt.imshow(corr, cmap = plt.get_cmap('magma'), vmin = 0, vmax = 1)
-    #         plt.colorbar()
-    #         ax = plt.gca()
-    #         #ax.set_xticklabels(vars)
-    #         ax.set_yticks(np.arange(len(vars)))
-    #         ax.set_yticklabels(vars)
-    #         ax.set_xticks(np.arange(len(vars)))
-    #         ax.set_xticklabels(vars)
-    #         plt.xticks(rotation=90)
-    #         #ax.xaxis.set_xticks(vars)
-    #         plt.tight_layout()
-    #         plt.savefig(f"visuals/{org_type}/{r}_cov_im.pdf")
-    #         plt.close()
-
-    return corr
-
-
-## Compute PCA
-def pca(datafiles, location):
-    trends_df = pd.read_csv(datafiles[0])
-    trends_df = trends_df.set_index(['date', 'location'])
-    vars = trends_df.columns[0:]
-    corr = corr_matrix(trends_df, datafiles[0], location)
-    
-    norm_df = trends_df.copy()
-    for v in vars:
-        norm_df[v] = (norm_df[v] - np.mean(norm_df[v])) / np.std(norm_df[v])
-        
-    #corr - 
-    #norm_df.T @ norm_df / norm_df.shape[0]
-    #np.linalg.svd(norm_df)[2][0,:]
-    #np.mean(norm_df)
-
-    ed = np.linalg.eigh(corr)
-
-    # ed[1] @ np.diag(ed[0]) @ ed[1].T
-
-    ## ed[0] - EIGENVALUES: how important is each combination?
-    ## ed[1] - EIGENVECTORS: what is the composition of each combination
-
-    ## Eigenvectors == Principal Components
-
-    ed[0]
-
-    # First two principal components
-    ev1 = pd.Series(ed[1][:,-1], index = vars)
-    ev2 = pd.Series(ed[1][:,-2], index = vars)
-
-    norm_df.iloc[0,:]
-
-    # low dimensional plot of each day/region
-    V = np.stack([-ev1,-ev2]).T
-    low_d_df = norm_df @ V
-
-    # # Relative importance of principal components (given by eigenvalues)
-    # fig = plt.figure()
-    # plt.scatter(np.arange(len(vars)), np.flip(ed[0]))
-    # plt.ylabel('Eigenvalue')
-    # ax = plt.gca()
-    # ax1 = ax.twinx()
-    # ax1.plot(np.cumsum(np.flip(ed[0]))/np.sum(ed[0]), linestyle = '--')
-    # ax1.set_ylim(0,1)
-    # ax1.set_ylabel('Cumulative Proportion')
-    # plt.savefig("evals.pdf")
-    # plt.close()
-
-    # ck = {'Center' : 'Greens', 'South' : 'Reds', 'North' : 'Blues', 'East' : 'Purples', 'Kyiv' : 'Oranges','West':'Greys'}
-
-    # fig = plt.figure()
-    # for r in regions:
-    #     cmap = plt.get_cmap(ck[r])
-    #     Xr = low_d_df.xs(r,level=1)
-    #     col_inds = np.flip(0.2+0.6*np.arange(Xr.shape[0]) / Xr.shape[0])
-    #     cols = cmap(col_inds)
-    #     plt.scatter(Xr.loc[:,0], Xr.loc[:,1], label = r, c = cols)
-    # plt.legend()
-    # plt.tight_layout()
-    # plt.savefig("lowd.pdf")
-    # plt.close()
-
-    ## Look at variable contribution to top vectors
-    contrib = np.square(ev1) + np.square(ev2)
-    contrib.sort_values(ascending=False)
-
-    # That was for K = 2, this is general K.
-    # top_K = 8
-    # contrib = pd.Series(np.sum(np.square(ed[1][:,-top_K:]), axis = 1), index = ev1.index)
-    # contrib.sort_values(ascending=False)
-
-    ### Combine flow with indicators to make Predictions
-    with open("output/iom_outfile.csv", 'rb') as f:
-        [dfo, dfd] = pickles.load(f)
-        # [dfo, dfd] = 
-
-    X = pd.DataFrame(np.zeros([dfo.shape[0], trends_df.shape[1]]))
-    X.columns = trends_df.columns
-
-
-    for i in range(dfo.shape[0]):
-
-        #dfrom = dfo['date_from'][i] 
-        #dto = dfo['date_to'][i] 
-
-        dfrom = dfo['date_from'][i] + pd.Timedelta(days=offset)
-        dto = dfo['date_to'][i] + pd.Timedelta(days=offset)
-
-        in_date_range = trends_df.loc[(slice(dfrom,dto)),:]
-        if in_date_range.shape[0] > 0:
-            in_region_too = in_date_range.xs(dfo['Macro-region'][i], level = 1)
-            X.iloc[i,:] = np.mean(in_region_too,axis=0)
-        else:
-            X.iloc[i,:] = np.repeat(np.nan, X.shape[1])
-
-    missing = np.any(X.isna(), axis = 1)
-    #dfo = dfo.loc[~missing,:]
-
-    X = X.loc[~missing,:]
-    y = dfo.loc[~missing,'Percent']
-
-    import statsmodels.api as sm
-
-    for v in X.columns:
-        lmfit = sm.OLS(y, sm.add_constant(X.loc[:,v])).fit()
-        lmfit.summary()
-        r2 = lmfit.rsquared
-        print(v)
-        print(r2)
-        np.square(np.corrcoef(y,X.loc[:,v]))
-
-def regression(merged_file, multiple=False):
-    with open(merged_file, "r") as f:
-        df = pd.read_csv(f)
-
+    row_list = []
     for loc in df["location"].unique():
         sub_df = df[df["location"]==loc]
-        iom_df = sub_df["date","location","arriving_IDP","leaving_IDP"]
-        indicat_df = sub_df[[col for col in df.columns if col not in ["arriving_IDP","leaving_IDP"]]]
 
-        for offset in range(-4, 4):
+        weeks = floor((sub_df["date"].unique()[-1] - sub_df["date"].unique()[0]).days / 7)
+
+        iom_df = sub_df[["date","location","arriving_IDP","leaving_IDP"]]
+        indic_df = sub_df[[col for col in df.columns if col not in ["arriving_IDP","leaving_IDP"]]].copy()
+
+        for offset in range(-week_offset, week_offset):
+            indic_df["date"] += pd.Timedelta(weeks = offset)
+            merged_df = pd.merge(iom_df, indic_df, on=["date", "location"], how="inner")
+            merged_df.dropna()
+
+            agg_dict = {}
+            for col in indic_df.columns:
+                if col not in iom_df.columns:
+                    agg_dict[col] = "sum"
+            agg_dict["date"] = agg_dict["location"] = "first"
+            agg_df = merged_df.groupby(["arriving_IDP","leaving_IDP"], as_index=False, axis=0).agg(agg_dict)
             
-        
+            y_list = [col for col in iom_df.columns if col not in indic_df.columns]
+            x_list = [col for col in indic_df.columns if col not in iom_df.columns]
 
+            for y in y_list:
+                Y = agg_df[y]
+
+                try:
+                    if multiple:
+                        X = agg_df[x_list]
+                        lmfit = sm.OLS(Y, sm.add_constant(X)).fit()
+                        r2 = lmfit.rsquared
+                        row_list.append([loc, y, x_list, len(x_list), r2, offset])
+                    else:
+                        for x in x_list:
+                            X = agg_df[x]
+                            lmfit = sm.OLS(Y, sm.add_constant(X)).fit()
+                            r2 = lmfit.rsquared
+                            row_list.append([loc, y, x, 1, r2, offset])
+                except ValueError:
+                    pass
+       
+    df_out = pd.DataFrame(row_list, columns = ["location","Y","X(s)","covariate num.","r^2","offset"])
     
-        
+    #df_out.to_csv(f"output/corr_iom_{merged_file.split('.')[0].split('_')[-1]}.csv", index=False)
+    return df_out.dropna()
 
+def allstar_model(datafiles, week_offset):
+    df = pd.DataFrame()
+    col_dict = {}
+    for key in datafiles:
+        with open(datafiles[key], "r") as f:
+            add_df = pd.read_csv(f)
+            col_dict[key] = add_df.columns[4:].tolist()
+            if df.empty:
+                df = add_df
+            else:
+                df = pd.merge(df, add_df, how="inner")
+    
+    df["date"] = pd.to_datetime(df["date"])
+    df_out = pd.DataFrame()
+    combos = list(itertools.product(*col_dict.values()))
+    for combo in combos:
+        reg_df = df[df.columns[:4].tolist()+list(combo)]
+        if df_out.empty:
+            df_out = regression(reg_df, week_offset, multiple=True)
+        else:
+            df_out = pd.concat([df_out, regression(reg_df, week_offset, multiple=True)])
+        
+    df_out.to_csv("output/full_corr.csv", index=False)
+    return df_out
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("-location", required=False)
+    # parser.add_argument("-location", required=False)
     parser.add_argument("-acled", default='output/M_iom_acled.csv')
     parser.add_argument("-label", default="output/M_iom_label.csv")
     parser.add_argument("-keyword", default="output/M_iom_gtrKey.csv")
     parser.add_argument("-loc", default="output/M_iom_gtrLoc.csv")
     args = parser.parse_args()
 
-    datafiles = [arg for arg in args.__dict__.values()][1:]
+    datafiles = args.__dict__
+    
+    allstar_model(datafiles, 4)
 
-    pca(datafiles, args.location)
-    exit()
-
-    if args.location != None:
-        for file in datafiles:
-            trends_df = time_series(file, location=args.location)
-            corr_matrix(trends_df, file, location=args.location)
-    else: 
-        for file in datafiles:
-            trends_df = time_series(file)
-            corr_matrix(trends_df, file)
-
+    # for file in datafiles:''
+    #     regression(file)
+    
 
 if __name__ == "__main__":
     main()
