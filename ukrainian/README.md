@@ -70,9 +70,9 @@
 ### 3.3 How to Run
 * `python3 bert_multi.py --learningRate 0.000008 --batches 5`
 * `python3 bert_binary.py --learningRate 0.00001 --batches 10`
-* `python3 label_tweets.py`
-* `python3 label_tweets_binary.py`
-* `python3 label_tweets_threshold.py --threshold 0.8`
+* `python3 label_tweets.py --file '../tweets_2022'`
+* `python3 label_tweets_binary.py --file '../tweets_2022'`
+* `python3 label_tweets_threshold.py --threshold 0.8 --file '../tweets_2022'`
 ## 4. Indicators
 * Folder for ACLED, Google Trends, and Emotion data
 ### 4.1 File Descriptors

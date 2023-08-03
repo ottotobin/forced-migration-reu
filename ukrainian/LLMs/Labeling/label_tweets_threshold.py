@@ -60,12 +60,13 @@ def label(data, threshold):
 
 def main():
     parser = argparse.ArgumentParser(description="Setting Threshold for Labeling")
+    parser.add_argument('--file', help="the file where unlabeled tweets are located")
     parser.add_argument('--threshold', required=True, default=0.7, help='Set threshold for Labeling others')
 
     args = parser.parse_args()
 
     threshold = float(args.threshold)
-    df = combine_cloudshare_data('tweets')
+    df = combine_cloudshare_data(args.file)
     label(df, threshold)
 
 if __name__ == '__main__':

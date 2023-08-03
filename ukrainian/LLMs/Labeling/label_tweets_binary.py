@@ -6,6 +6,7 @@ import pandas as pd
 import torch
 from transformers import BertForSequenceClassification, BertTokenizer
 from tqdm import tqdm
+import argparse
 
 import sys
 sys.path.append('../')
@@ -60,7 +61,11 @@ def label(data):
 
 
 def main():
-    df = combine_cloudshare_data('tweets_23')
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--file', help="the file where unlabeled tweets are located")
+    args = parser.parse_args()
+
+    df = combine_cloudshare_data(args.file)
     label(df)
 
 
