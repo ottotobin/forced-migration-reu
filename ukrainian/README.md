@@ -68,8 +68,8 @@
   * Batch size for BERT to use
   * Required
 ### 3.3 How to Run
-* `python3 bert_multi.py --learningRate 0.000008 --batches 5`
-* `python3 bert_binary.py --learningRate 0.00001 --batches 10`
+* `python3 bert_multi.py --epochs 10 --learningRate 0.000008 --batches 5`
+* `python3 bert_binary.py --epochs 10 --learningRate 0.00001 --batches 10  --file '../../data/ukrainian_emotion_big.tsv'`
 * `python3 label_tweets.py --file '../tweets_2022'`
 * `python3 label_tweets_binary.py --file '../tweets_2022'`
 * `python3 label_tweets_threshold.py --threshold 0.8 --file '../tweets_2022'`

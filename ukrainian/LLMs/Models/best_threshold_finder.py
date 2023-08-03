@@ -15,7 +15,7 @@ def load_data():
     Returns: pd.Dataframe of test set and tweets labeled 'other'
     '''
     #get dataframe of test labels
-    file_name = '../data/ukrainian_emotion_new_new.tsv'
+    file_name = '../data/ukrainian_emotion_big.tsv'
 
     epochs = 10
     data, X ,labels = encode_and_vectorize_multi_class(file_name, combine=True)

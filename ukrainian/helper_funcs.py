@@ -141,7 +141,7 @@ def load_combined_data():
     Returns: pd.Dataframe of test set and tweets labeled 'other'
     '''
     #get dataframe of test labels
-    file_name = '../data/ukrainian_emotion_new_new.tsv'
+    file_name = '../data/ukrainian_emotion_big.tsv'
     data, X ,labels = encode_and_vectorize_multi_class(file_name, combine=True)
     _, _, y_train, y_test = train_test_split(data['processed_tweets'], data['encoded_emotion'], test_size=0.2, stratify=data['encoded_emotion'], random_state=42)
     test_df = pd.DataFrame({'text': y_train, 'emotion': y_test})

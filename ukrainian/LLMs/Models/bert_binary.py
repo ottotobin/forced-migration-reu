@@ -138,13 +138,13 @@ def main():
     parser.add_argument('--learningRate', help="learning rate for bert to use")
     parser.add_argument('--epochs', help='Number of epochs for training', default=5)
     parser.add_argument('--batches', help="batch size", default= 20)
-    parser.add_argument('--file', help='tsv file where data is stored', default='../data/ukrainian_emotion_new_new.tsv')
+    parser.add_argument('--file', help='tsv file where data is stored')
     args = parser.parse_args()
 
     lr = float(args.learningRate)
     batch_size = int(args.batches)
     epochs = int(args.epochs)
-    encoded, X, labels = encode_and_vectorize_binary(args.file, combine=True)
+    encoded, X = encode_and_vectorize_binary(args.file, combine=True)
     print(encoded)
     for emotion in EMOTIONS2:
         model = train(encoded, lr, epochs, batch_size, emotion)

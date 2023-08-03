@@ -382,7 +382,7 @@ def bloom(data, lr, batch_size, epochs):
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--file', default='../data/ukrainian_emotion_new_new.tsv')
+    parser.add_argument('--file', default='../data/ukrainian_emotion_big.tsv')
     args = parser.parse_args()
 
     encoded, _ , _ = encode_and_vectorize_multi_class(args.file, combine=True)
