@@ -1,0 +1,83 @@
+location,Y,X(s),covariate num.,r^2,offset
+kassala,arriving_IDP,safe_places,1,0.08310211669386325,-28
+kassala,arriving_IDP,safe_places,1,0.13748776954466546,-27
+kassala,arriving_IDP,safe_places,1,1.0,-26
+kassala,arriving_IDP,safe_places,1,1.0,25
+kassala,arriving_IDP,safe_places,1,0.13748776954466546,26
+kassala,arriving_IDP,safe_places,1,0.08310211669386325,27
+khartoum,arriving_IDP,generic_terms,1,0.4552220583740063,-28
+khartoum,arriving_IDP,geography,1,0.5686254159938373,-28
+khartoum,arriving_IDP,safe_places,1,0.7609487818507776,-28
+khartoum,arriving_IDP,travel,1,0.671287761960974,-28
+khartoum,leaving_IDP,generic_terms,1,0.10920123399526027,-28
+khartoum,leaving_IDP,geography,1,0.234900200505472,-28
+khartoum,leaving_IDP,safe_places,1,0.3307365491696531,-28
+khartoum,leaving_IDP,travel,1,0.22439189350644806,-28
+khartoum,arriving_IDP,generic_terms,1,0.5402968129882774,-27
+khartoum,arriving_IDP,geography,1,0.7661456964425588,-27
+khartoum,arriving_IDP,safe_places,1,0.7043944001497116,-27
+khartoum,arriving_IDP,travel,1,0.48499662147227784,-27
+khartoum,leaving_IDP,generic_terms,1,0.3012154739973576,-27
+khartoum,leaving_IDP,geography,1,0.3831820948006446,-27
+khartoum,leaving_IDP,safe_places,1,0.43585034083538665,-27
+khartoum,leaving_IDP,travel,1,0.2883413845990652,-27
+khartoum,arriving_IDP,generic_terms,1,1.0,-26
+khartoum,arriving_IDP,geography,1,1.0,-26
+khartoum,arriving_IDP,safe_places,1,1.0,-26
+khartoum,arriving_IDP,travel,1,1.0,-26
+khartoum,leaving_IDP,generic_terms,1,1.0,-26
+khartoum,leaving_IDP,geography,1,1.0,-26
+khartoum,leaving_IDP,safe_places,1,1.0,-26
+khartoum,leaving_IDP,travel,1,1.0,-26
+khartoum,arriving_IDP,generic_terms,1,1.0,25
+khartoum,arriving_IDP,geography,1,1.0,25
+khartoum,arriving_IDP,safe_places,1,1.0,25
+khartoum,arriving_IDP,travel,1,1.0,25
+khartoum,leaving_IDP,generic_terms,1,1.0,25
+khartoum,leaving_IDP,geography,1,1.0,25
+khartoum,leaving_IDP,safe_places,1,1.0,25
+khartoum,leaving_IDP,travel,1,1.0,25
+khartoum,arriving_IDP,generic_terms,1,0.5402968129882774,26
+khartoum,arriving_IDP,geography,1,0.7661456964425588,26
+khartoum,arriving_IDP,safe_places,1,0.7043944001497116,26
+khartoum,arriving_IDP,travel,1,0.48499662147227784,26
+khartoum,leaving_IDP,generic_terms,1,0.3012154739973576,26
+khartoum,leaving_IDP,geography,1,0.3831820948006446,26
+khartoum,leaving_IDP,safe_places,1,0.43585034083538665,26
+khartoum,leaving_IDP,travel,1,0.2883413845990652,26
+khartoum,arriving_IDP,generic_terms,1,0.4552220583740063,27
+khartoum,arriving_IDP,geography,1,0.5686254159938373,27
+khartoum,arriving_IDP,safe_places,1,0.7609487818507776,27
+khartoum,arriving_IDP,travel,1,0.671287761960974,27
+khartoum,leaving_IDP,generic_terms,1,0.10920123399526027,27
+khartoum,leaving_IDP,geography,1,0.234900200505472,27
+khartoum,leaving_IDP,safe_places,1,0.3307365491696531,27
+khartoum,leaving_IDP,travel,1,0.22439189350644806,27
+northern,arriving_IDP,safe_places,1,0.2902287889513624,-28
+northern,arriving_IDP,safe_places,1,0.49543619691634555,-27
+northern,arriving_IDP,safe_places,1,1.0,-26
+northern,arriving_IDP,safe_places,1,1.0,25
+northern,arriving_IDP,safe_places,1,0.49543619691634555,26
+northern,arriving_IDP,safe_places,1,0.2902287889513624,27
+red sea,arriving_IDP,geography,1,0.3316544722109568,-28
+red sea,arriving_IDP,safe_places,1,0.3397201812025933,-28
+red sea,arriving_IDP,geography,1,0.3955495746870157,-27
+red sea,arriving_IDP,safe_places,1,0.3803469466697408,-27
+red sea,arriving_IDP,geography,1,1.0,-26
+red sea,arriving_IDP,safe_places,1,1.0,-26
+red sea,arriving_IDP,geography,1,1.0,25
+red sea,arriving_IDP,safe_places,1,1.0,25
+red sea,arriving_IDP,geography,1,0.3955495746870157,26
+red sea,arriving_IDP,safe_places,1,0.3803469466697408,26
+red sea,arriving_IDP,geography,1,0.3316544722109568,27
+red sea,arriving_IDP,safe_places,1,0.3397201812025933,27
+sennar,arriving_IDP,safe_places,1,0.29096406997107027,-28
+sennar,arriving_IDP,safe_places,1,0.28679769317695814,-27
+sennar,arriving_IDP,safe_places,1,1.0,-26
+sennar,arriving_IDP,safe_places,1,1.0,25
+sennar,arriving_IDP,safe_places,1,0.28679769317695814,26
+sennar,arriving_IDP,safe_places,1,0.29096406997107027,27
+south kordofan,arriving_IDP,safe_places,1,0.3668602292491,-28
+south kordofan,arriving_IDP,safe_places,1,0.5641699633349029,-27
+south kordofan,arriving_IDP,safe_places,1,0.5641699633349029,26
+south kordofan,arriving_IDP,safe_places,1,0.3668602292491,27
