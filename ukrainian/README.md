@@ -22,8 +22,8 @@
   * 2: Top emotion labels
   * 3: Multiple threshold values
 ### 1.3 How to Run
-* `python3 lexicon.py`
-* `python3 lexicon.py --emojis True --combine True --v 3`
+* `python3 lexicon_model.py`
+* `python3 lexicon_model.py --emojis True --combine True --v 3`
 ## 2. Emotion Detection - ML
 ### 2.1 File Descriptors
 * `ml_models.py` - script that reads in file, preprocesses data, runs various ML models on a 80/20 train/test split of data, then cross validates 5 times for accuracies

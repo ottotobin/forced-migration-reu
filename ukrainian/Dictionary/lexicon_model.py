@@ -26,6 +26,8 @@ from nltk.tokenize import RegexpTokenizer
 import argparse
 from collections import Counter
 from helper_funcs import *
+from sklearn.metrics import f1_score, multilabel_confusion_matrix
+from sklearn.preprocessing import MultiLabelBinarizer
 
 EMOTIONS = ['anger', 'fear', 'sadness', 'disgust', 'joy']
 EMOTIONS2 = ['anger', 'fear', 'sadness', 'joy']
@@ -146,21 +148,47 @@ def accuracy_thresholds(labels, predicted_labels, combined=False):
         emotion_lst = EMOTIONS
     
     total_tweets = len(predicted_labels)
-    first_col = emotion_lst + ['average_accuracy', 'coverage_pct']
+    first_col = emotion_lst + ['average_accuracy', 'coverage_pct', 'f1']
     accuracy_df = pd.DataFrame(data={'emotion': first_col})
+
+    #iterate through each threshold
     for col in predicted_labels.columns:
         count_nonempty = len([i for i in predicted_labels[col] if len(i) > 0])
         label_accuracies = []
+        #create dictionary to track fp, fn, tp
+        emo_stats = {}
+        for emotion in emotion_lst:
+            emo_stats[emotion] = {'tp': 0, 'fp': 0, 'fn': 0}
+        #iterate through emotions
         for emotion in emotion_lst:
             accuracy_count = 0
             for true_label, predicted_label in zip(labels, predicted_labels[col]):
                 if emotion == true_label and emotion in predicted_label:
                     accuracy_count +=1
+                    emo_stats[emotion]['tp'] += 1
                 if emotion not in predicted_label and emotion != true_label:
                     accuracy_count +=1
+                if emotion in predicted_label and emotion != true_label:
+                    emo_stats[emotion]['fp'] += 1
+                if emotion not in predicted_label and emotion == true_label:
+                    emo_stats[emotion]['fn'] += 1
+                                       
             label_accuracies.append(round(accuracy_count/total_tweets, 3))
         label_accuracies.append(round(np.mean(label_accuracies), 3))
         label_accuracies.append(round(count_nonempty/total_tweets,3))
+
+        total_tp, total_fp, total_fn = 0,0,0
+        for emotion in emo_stats:
+            total_tp += emo_stats[emotion]['tp']
+            total_fp += emo_stats[emotion]['fp']
+            total_fn += emo_stats[emotion]['fn']
+
+        total_tp = total_tp / 4
+        total_fp = total_fp /4
+        total_fn = total_fn / 4
+        f1 =  round(total_tp/(total_tp + 0.5*(total_fp+total_fn)), 3)
+
+        label_accuracies.append(f1)
         accuracy_df[col] = label_accuracies
     return(accuracy_df)
 
@@ -170,7 +198,7 @@ def main():
     parser.add_argument('--emojis', help="True to encode emojis, False to not encode emojis", default=False)
     parser.add_argument("--combine", help="True to combine anger and disgust", default=False)
     parser.add_argument("--v", help="1: all nonzero emotion labels, 2: top emotion label, 3: top emotion labels with thresholds", default='1')
-    parser.add_argument("--file", help='Tsv file where data is stored', default='../data/ukrainian_emotion_new.tsv')
+    parser.add_argument("--file", help='Tsv file where data is stored', default='../data/ukrainian_emotion_big.tsv')
     args = parser.parse_args()
 
     #convert to bool

@@ -1,0 +1,126 @@
+preprocess size:  6000
+emotion
+fear        1000
+anger       1000
+joy         1000
+love        1000
+surprise    1000
+sadness     1000
+Name: count, dtype: int64
+postprocess size:  4000
+emotion
+fear       1000
+anger      1000
+joy        1000
+sadness    1000
+Name: count, dtype: int64
+Logistic Regression
+for anger : 
+5 CV average accuracy:0.793
+5 CV average F1:0.408
+for fear : 
+5 CV average accuracy:0.800
+5 CV average F1:0.458
+for sadness : 
+5 CV average accuracy:0.778
+5 CV average F1:0.375
+for joy : 
+5 CV average accuracy:0.790
+5 CV average F1:0.407
+Overall accuracy0.790
+Overall f1:0.412
+
+
+Decision Tree
+for anger : 
+5 CV average accuracy:0.802
+5 CV average F1:0.546
+for fear : 
+5 CV average accuracy:0.810
+5 CV average F1:0.586
+for sadness : 
+5 CV average accuracy:0.764
+5 CV average F1:0.439
+for joy : 
+5 CV average accuracy:0.737
+5 CV average F1:0.370
+Overall accuracy0.778
+Overall f1:0.485
+
+
+KNN
+for anger : 
+5 CV average accuracy:0.708
+5 CV average F1:0.234
+for fear : 
+5 CV average accuracy:0.728
+5 CV average F1:0.198
+for sadness : 
+5 CV average accuracy:0.713
+5 CV average F1:0.245
+for joy : 
+5 CV average accuracy:0.736
+5 CV average F1:0.155
+Overall accuracy0.721
+Overall f1:0.208
+
+
+Naive Bayes
+for anger :
+[[445 166]
+ [ 83 106]]
+5 CV average accuracy:0.680
+5 CV average F1:0.447
+for fear :
+[[444 162]
+ [ 91 103]]
+5 CV average accuracy:0.669
+5 CV average F1:0.426
+for sadness :
+[[446 155]
+ [ 94 105]]
+5 CV average accuracy:0.675
+5 CV average F1:0.426
+for joy :
+[[469 141]
+ [ 88 102]]
+5 CV average accuracy:0.711
+5 CV average F1:0.487
+Overall accuracy0.684
+Overall f1:0.447
+
+
+Random Forest
+for anger : 
+5 CV average accuracy:0.810
+5 CV average F1:0.441
+for fear : 
+5 CV average accuracy:0.809
+5 CV average F1:0.466
+for sadness : 
+5 CV average accuracy:0.785
+5 CV average F1:0.298
+for joy : 
+5 CV average accuracy:0.778
+5 CV average F1:0.268
+Overall accuracy0.796
+Overall f1:0.368
+
+
+SVM
+for anger : 
+5 CV average accuracy:0.787
+5 CV average F1:0.521
+for fear : 
+5 CV average accuracy:0.804
+5 CV average F1:0.561
+for sadness : 
+5 CV average accuracy:0.765
+5 CV average F1:0.465
+for joy : 
+5 CV average accuracy:0.793
+5 CV average F1:0.519
+Overall accuracy0.787
+Overall f1:0.517
+
+

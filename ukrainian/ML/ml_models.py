@@ -43,14 +43,25 @@ def logreg_binary(encoded, X, combined=False):
     else:
         emotion_list = EMOTIONS
 
+    accuracies = 0
+    f1s = 0
     for emotion in emotion_list:
         label_col = 'emotion_' + emotion
         labels = encoded[label_col]
         X_train, X_test, Y_train, Y_test = train_test_split(X, labels, test_size=0.2)
         clf = LogisticRegression().fit(X_train,Y_train)
         print('for ' + emotion + ' : ')
-        print('5 CV average accuracy: ', np.mean(cross_val_score(clf, X, labels, cv=5)))
-        print("5 CV average F1: ", np.mean(cross_val_score(clf, X, labels, cv=5, scoring='f1')))
+
+        acc = np.mean(cross_val_score(clf, X, labels, cv=5))
+        print('5 CV average accuracy:{:.3f}'.format(acc))
+        accuracies += acc
+        
+        f1 = np.mean(cross_val_score(clf, X, labels, cv=5, scoring='f1'))
+        print("5 CV average F1:{:.3f}".format(f1))
+        f1s += f1
+    
+    print('Overall accuracy{:.3f}'.format(accuracies/len(emotion_list)))
+    print('Overall f1:{:.3f}'.format(f1s/len(emotion_list)))
 
 #Logistice Regression - multi-class
 def logreg_multiclass(encoded, X):
@@ -60,7 +71,7 @@ def logreg_multiclass(encoded, X):
     preds = clf.predict(X_test)
     print(confusion_matrix(Y_test, preds))
     print('accuracy: ', accuracy_score(Y_test, preds))
-    print('f1: ', f1_score(Y_test, preds, average='weighted'))
+    print('f1', f1_score(Y_test, preds, average='weighted'))
 
 # Notes:
 # lots of false negatives
@@ -74,14 +85,27 @@ def dectree_binary(encoded, X, combined = False):
     else:
         emotion_list = EMOTIONS
 
+    accuracies = 0
+    f1s = 0
+
     for emotion in emotion_list:
         label_col = 'emotion_' + emotion
         labels = encoded[label_col]
         X_train, X_test, Y_train, Y_test = train_test_split(X, labels, test_size=0.2)
         clf = DecisionTreeClassifier().fit(X_train,Y_train)
         print('for ' + emotion + ' : ')
-        print('5 CV average accuracy: ', np.mean(cross_val_score(clf, X, labels, cv=5)))
-        print("5 CV average F1: ", np.mean(cross_val_score(clf, X, labels, cv=5, scoring='f1')))
+        
+        acc = np.mean(cross_val_score(clf, X, labels, cv=5))
+        print('5 CV average accuracy:{:.3f}'.format(acc))
+        accuracies += acc
+        
+        f1 = np.mean(cross_val_score(clf, X, labels, cv=5, scoring='f1'))
+        print("5 CV average F1:{:.3f}".format(f1))
+        f1s += f1
+    
+    print('Overall accuracy{:.3f}'.format(accuracies/len(emotion_list)))
+    print('Overall f1:{:.3f}'.format(f1s/len(emotion_list)))
+
 
 #Decision Tree - multi-class
 def dectree_multiclass(encoded,X):
@@ -106,14 +130,27 @@ def knn_binary(encoded, X, combined=False):
     else:
         emotion_list = EMOTIONS
 
+    accuracies = 0
+    f1s = 0
+
     for emotion in emotion_list:
         label_col = 'emotion_' + emotion
         labels = encoded[label_col]
         X_train, X_test, Y_train, Y_test = train_test_split(X, labels, test_size=0.2 , random_state=5)
         clf = KNeighborsClassifier().fit(X_train,Y_train)
         print('for ' + emotion + ' : ')
-        print('5 CV average accuracy: ', np.mean(cross_val_score(clf, X, labels, cv=5)))
-        print("5 CV average F1: ", np.mean(cross_val_score(clf, X, labels, cv=5, scoring='f1')))
+        
+        acc = np.mean(cross_val_score(clf, X, labels, cv=5))
+        print('5 CV average accuracy:{:.3f}'.format(acc))
+        accuracies += acc
+        
+        f1 = np.mean(cross_val_score(clf, X, labels, cv=5, scoring='f1'))
+        print("5 CV average F1:{:.3f}".format(f1))
+        f1s += f1
+    
+    print('Overall accuracy{:.3f}'.format(accuracies/len(emotion_list)))
+    print('Overall f1:{:.3f}'.format(f1s/len(emotion_list)))
+
 
 # Notes:
 # very sparse
@@ -135,6 +172,9 @@ def bayes_binary(encoded, X, combined=False):
     else:
         emotion_list = EMOTIONS
 
+    accuracies = 0
+    f1s = 0
+
     for emotion in emotion_list:
         label_col = 'emotion_' + emotion
         labels = encoded[label_col]
@@ -143,8 +183,18 @@ def bayes_binary(encoded, X, combined=False):
         print('for ' + emotion + ' :')
         preds = clf.predict(X_test)
         print(confusion_matrix(Y_test, preds))
-        print('accuracy: ', accuracy_score(Y_test, preds))
-        print('f1: ', f1_score(Y_test, preds, average='weighted'))
+        
+        acc = np.mean(cross_val_score(clf, X.toarray(), labels, cv=5))
+        print('5 CV average accuracy:{:.3f}'.format(acc))
+        accuracies += acc
+        
+        f1 = np.mean(cross_val_score(clf, X.toarray(), labels, cv=5, scoring='f1'))
+        print("5 CV average F1:{:.3f}".format(f1))
+        f1s += f1
+    
+    print('Overall accuracy{:.3f}'.format(accuracies/len(emotion_list)))
+    print('Overall f1:{:.3f}'.format(f1s/len(emotion_list)))
+
 
 # Naive Bayes - multi-class
 def bayes_multiclass(encoded, X):
@@ -165,14 +215,27 @@ def svm_binary(encoded, X, combined=False):
     else:
         emotion_list = EMOTIONS
 
+    accuracies = 0
+    f1s = 0
+
     for emotion in emotion_list:
         label_col = 'emotion_' + emotion
         labels = encoded[label_col]
         X_train, X_test, Y_train, Y_test = train_test_split(X, labels, test_size=0.2)
         clf = SVC(kernel=kernel, C=C).fit(X_train,Y_train)
         print('for ' + emotion + ' : ')
-        print('5 CV average accuracy: ', np.mean(cross_val_score(clf, X, labels, cv=5)))
-        print("5 CV average F1: ", np.mean(cross_val_score(clf, X, labels, cv=5, scoring='f1')))
+        
+        acc = np.mean(cross_val_score(clf, X, labels, cv=5))
+        print('5 CV average accuracy:{:.3f}'.format(acc))
+        accuracies += acc
+        
+        f1 = np.mean(cross_val_score(clf, X, labels, cv=5, scoring='f1'))
+        print("5 CV average F1:{:.3f}".format(f1))
+        f1s += f1
+    
+    print('Overall accuracy{:.3f}'.format(accuracies/len(emotion_list)))
+    print('Overall f1:{:.3f}'.format(f1s/len(emotion_list)))
+
 
 # SVM - multi-class
 def svm_multiclass(encoded, X):
@@ -193,14 +256,28 @@ def random_forest_binary(encoded, X, combined=False):
     else:
         emotion_list = EMOTIONS
 
+    accuracies = 0
+    f1s = 0
+
     for emotion in emotion_list:
         label_col = 'emotion_' + emotion
         labels = encoded[label_col]
         X_train, X_test, Y_train, Y_test = train_test_split(X, labels, test_size=0.2)
         clf = RandomForestClassifier().fit(X_train,Y_train)
         print('for ' + emotion + ' : ')
-        print('5 CV average accuracy: ', np.mean(cross_val_score(clf, X, labels, cv=5)))
-        print("5 CV average F1: ", np.mean(cross_val_score(clf, X, labels, cv=5, scoring='f1')))
+        
+        acc = np.mean(cross_val_score(clf, X, labels, cv=5))
+        print('5 CV average accuracy:{:.3f}'.format(acc))
+        accuracies += acc
+        
+        f1 = np.mean(cross_val_score(clf, X, labels, cv=5, scoring='f1'))
+        print("5 CV average F1:{:.3f}".format(f1))
+        f1s += f1
+    
+    print('Overall accuracy{:.3f}'.format(accuracies/len(emotion_list)))
+    print('Overall f1:{:.3f}'.format(f1s/len(emotion_list)))
+
+        
 
 # Random Forest - multi-class
 def random_forest_multiclass(encoded, X):
@@ -298,9 +375,10 @@ def main():
     emojis = True if args.emojis == 'True' else False
     combine = True if args.combine == 'True' else False
 
-    data_file = '../data/ukrainian_emotion_new.tsv'
+
+    data_file = '../data/ukrainian_emotion_big.tsv'
     if encode:
-        data, features, labels = encode_and_vectorize_binary(data_file, encode_emojis=emojis, combine=combine)
+        data, features = encode_and_vectorize_binary(data_file, encode_emojis=emojis, combine=combine)
     else: 
         data, features, labels = encode_and_vectorize_multi_class(data_file, encode_emojis=emojis, combine=combine)
 
