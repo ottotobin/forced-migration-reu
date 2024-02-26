@@ -21,7 +21,7 @@
 - terminal command: python3 label_data -m <GLoVE, BERT, MUSE>
 
 # Running  lexiconClassifier Script
-- terminal command: python3 lexiconClassifier.py --threshold <threshold_value>
+- terminal command: python3 lex.py --model <"fit","test"> -f <filename>
 
 # Running mlClassifiers Script
 - terminal command: python3 mlClassifiers.py

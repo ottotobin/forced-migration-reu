@@ -183,7 +183,6 @@ def run_mlp(X_train, y_train, X_test, y_test, epochs, lr, batch_size=0, best_mod
     model = torch.nn.Linear(input_size, output_size)
 
     # accesssing GPU if available
-    
     if torch.cuda.is_available():
         device = get_gpu_device()
         X_train = X_train.to(device)

@@ -12,8 +12,10 @@ Necessary Packages:
 
 filename: the path to the original datafile that you are using.
 
+mode: whether you are fitting or testing
+
 USAGE:
-    python3 mlClassifier.py -filename <input_filename>
+    python3 ml.py -filename <input_filename> -m ["fit","test"]
 
 """
 
@@ -277,6 +279,7 @@ def run_model_for_vals(model, filename, emotions):
 
 def main():
     parser = argparse.ArgumentParser()
+    parser.add_argument("-m","--mode",choices = ["fit","test"], help = "Whether to test or fit")
     parser.add_argument("-f", "--filename", nargs=1, type=str, default="data/arabic_emotion_new_new.csv",
                         help="The path to your data file")
     args = parser.parse_args()
@@ -287,51 +290,41 @@ def main():
               DecisionTreeClassifier(), RandomForestClassifier(),\
               KNeighborsClassifier(), SVC()]
 
-    
-    run_model_for_vals(MultinomialNB(),filename,emotions)
-    exit()
-
-
-
-    with open("data/manual_labs.csv","r") as f:
-        df = pd.read_csv(f, delimiter="\t")
-        df = df[["date","processed_tweets","Man_anger","Man_fear","Man_sadness","Man_disgust","Man_joy","Man_Anger-Disgust"]]
-        X = vectorize(df["processed_tweets"].values.tolist())
-        print(X)
-    exit()
-
-    paramDict = {
-        "LogisticRegression":{
-            "C": [100, 10, 5, 4, 3, 2, 1.0, .5, .4, .3, .2, 0.1, 0.01],
-            "max_iter":[1000, 5000, 10000]  
-        },
-        "MultinomialNB":{
-            "alpha": [(i/20) for i in range(0, 20)]
-        },
-        "DecisionTreeClassifier":{
-            'criterion': ['gini', 'entropy'],
-            'splitter': ['best', 'random'],
-            'max_depth': [None, 10, 20, 30],
-        },
-        "RandomForestClassifier":{
-            'n_estimators': [10, 50, 100, 200],
-            'criterion': ['gini', 'entropy'],
-            'max_depth': [None, 10, 20],
-            'min_samples_split': [2, 5, 10],
-            'min_samples_leaf': [1, 2, 5, 10],
-        },
-        "KNeighborsClassifier":{
-            'n_neighbors': [i for i in range(26)],
-            'algorithm': ['auto', 'ball_tree', 'kd_tree', 'brute'],
-            'p': [1,2]
-        },
-        "SVC":{
-            'C': [100, 10, 1.0, 0.1, 0.01],
-            'kernel': ['linear', 'poly', 'rbf', 'sigmoid']
+    if args.mode == "fit":
+        run_model_for_vals(MultinomialNB(),filename,emotions)
+    else:
+        paramDict = {
+            "LogisticRegression":{
+                "C": [100, 10, 5, 4, 3, 2, 1.0, .5, .4, .3, .2, 0.1, 0.01],
+                "max_iter":[1000, 5000, 10000]  
+            },
+            "MultinomialNB":{
+                "alpha": [(i/20) for i in range(0, 20)]
+            },
+            "DecisionTreeClassifier":{
+                'criterion': ['gini', 'entropy'],
+                'splitter': ['best', 'random'],
+                'max_depth': [None, 10, 20, 30],
+            },
+            "RandomForestClassifier":{
+                'n_estimators': [10, 50, 100, 200],
+                'criterion': ['gini', 'entropy'],
+                'max_depth': [None, 10, 20],
+                'min_samples_split': [2, 5, 10],
+                'min_samples_leaf': [1, 2, 5, 10],
+            },
+            "KNeighborsClassifier":{
+                'n_neighbors': [i for i in range(26)],
+                'algorithm': ['auto', 'ball_tree', 'kd_tree', 'brute'],
+                'p': [1,2]
+            },
+            "SVC":{
+                'C': [100, 10, 1.0, 0.1, 0.01],
+                'kernel': ['linear', 'poly', 'rbf', 'sigmoid']
+            }
         }
-    }
 
-    sensitivityTesting(filename, models, paramDict, emotions)
+        sensitivityTesting(filename, models, paramDict, emotions)
 
 
 

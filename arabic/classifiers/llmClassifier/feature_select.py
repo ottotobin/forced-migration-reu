@@ -2,7 +2,7 @@
 Authors: Lina Laghzaoui, Grace Magny-Fokam, Toby Otto, Rich Pihlstrom
 
 Description:
-    This is a small program that prints out the features of tested in the parameter
+    This is a small program that prints out the features tested in the parameter
     tuning process in order of importance for each emotion in the selected model.
 
 Model: the name of the model that you want to run feature selection for

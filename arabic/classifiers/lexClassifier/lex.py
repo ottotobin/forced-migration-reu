@@ -10,12 +10,12 @@ Necessary Packages:
     You will need to install pytrends in order to use the API in this code:
         pip3 install nltk
 
-threshold: the confidence threshold you want an emotion score to meet to be counted as present.
-
 filename: the path to the original datafile that you are using.
 
+model: whether you want to test different values or fit the model.
+
 USAGE:
-    python3 lexicon.py -t <[0,1]> -f <filename> 
+    python3 lexicon.py -m [test, fit] -f <filename> 
 
 """
 import pandas as pd
@@ -228,89 +228,83 @@ def eval(tweet_df, model_labels, emoji_flag):
         for key in keys:
             if any(word in key for word in ["TP","FP","TN","FN"]):
                 retDict[emotion].pop(key)
-        
-    return pd.DataFrame.from_dict(retDict, orient='index')
+    ret_df = pd.DataFrame.from_dict(retDict, orient='index')
+    ret_df.index.name = "emotion"
+    ret_df.reset_index(inplace=True)
+    return ret_df
             
 def main():
     #Add argument option for min-threshold classification
     parser = argparse.ArgumentParser()
-    parser.add_argument("--threshold", help="threshold for emotion score", type=float, nargs="?", default=0.0)
+    parser.add_argument("--mode", "-m", help="whether to test or fit", type=str, choices = ["test","fit"])
     parser.add_argument("-f", "--filename", nargs=1, type=str, default="data/arabic_emotion_new_new.csv",
                         help="The path to your data file")
     args = parser.parse_args()
-    
+    if args.mode == "test":
+        file_name = args.filename[0]
+        outfile="outfile.csv"
+        
+        df_out = pd.DataFrame()
 
-    with open("outfile.csv","r") as f:
-        df = pd.read_csv(f)
-    with open("data/manual_labs.csv","r") as f:
-        man_df = pd.read_csv(f, delimiter="\t")[["date","tweet_id","processed_tweets"]]
-    df_out = man_df.copy()
+        grid = [(emoji_flag, top_emo_flag, threshold) \
+                for emoji_flag in [0,1] for top_emo_flag in [0,1] \
+                    for threshold in np.linspace(0, 1, num=10)]
+        
+        for emoji_flag, top_emo_flag, threshold in grid:
+            print("""
+            - emoji_flag: {},
+            - top_emo_flag: {},
+            - threshold: {}
+            """.format(emoji_flag, top_emo_flag, threshold))
 
-    for emotion in EMOTIONS:
-        sub_df = df[df["emotion"] == emotion].reset_index()
-        best_row = sub_df.loc[sub_df["Accuracy"].idxmax()]
+            tweet_df = preprocess(file_name, emoji_flag=emoji_flag)
 
-        data = man_df["processed_tweets"]
-        emo_col = []
-        for tweet in data:
-            #Use library call to get emotion classification
-            text_object = NRCLex(tweet)
-            topEmo = text_object.top_emotions
+            #replace/append output df with df of each emoji_flag value
+            if df_out.empty:
+                df_out = eval(tweet_df, emotion_classification(tweet_df["processed_tweets"], \
+                                                            threshold, top_emo_flag=top_emo_flag), emoji_flag)
+            else:
+                df_out = pd.concat([df_out, eval(tweet_df, \
+                                                emotion_classification(tweet_df["processed_tweets"], \
+                                                                        threshold, top_emo_flag=top_emo_flag), emoji_flag)])
+        
+        df_out.to_csv(outfile, index=False)
+    else:
+        with open("outfile.csv","r") as f:
+            df = pd.read_csv(f)
+        with open("data/manual_labs.csv","r") as f:
+            man_df = pd.read_csv(f, delimiter="\t")[["date","tweet_id","processed_tweets"]]
+        df_out = man_df.copy()
 
-            anger_disgust_score = 0
-            for tup in topEmo:
-                if tup[0] == "anger" or tup[0] == "disgust":
-                    anger_disgust_score += tup[1]
-            topEmo.append(("anger-disgust",anger_disgust_score))
+        for emotion in EMOTIONS:
+            sub_df = df[df["emotion"] == emotion].reset_index()
+            best_row = sub_df.loc[sub_df["Accuracy"].idxmax()]
 
-            for i, tup in enumerate(topEmo):
-                if tup[0] == emotion:
-                    if tup[1] >= best_row["threshold"]:
-                        emo_col.append(1)
-                    else:
+            data = man_df["processed_tweets"]
+            emo_col = []
+            for tweet in data:
+                #Use library call to get emotion classification
+                text_object = NRCLex(tweet)
+                topEmo = text_object.top_emotions
+
+                anger_disgust_score = 0
+                for tup in topEmo:
+                    if tup[0] == "anger" or tup[0] == "disgust":
+                        anger_disgust_score += tup[1]
+                topEmo.append(("anger-disgust",anger_disgust_score))
+
+                for i, tup in enumerate(topEmo):
+                    if tup[0] == emotion:
+                        if tup[1] >= best_row["threshold"]:
+                            emo_col.append(1)
+                        else:
+                            emo_col.append(0)
+                        break
+                    elif i == len(topEmo)-1:
                         emo_col.append(0)
-                    break
-                elif i == len(topEmo)-1:
-                    emo_col.append(0)
-            
-        df_out[emotion] = emo_col
-    df_out.to_csv("labelled_manual.csv", index=False)
-
-
-
-    exit()
-
-    threshold_vals = np.linspace(0, 1, num=11)
-    
-    file_name = args.filename[0]
-    outfile="outfile.csv"
-    
-    df_out = pd.DataFrame()
-
-    grid = [(emoji_flag, top_emo_flag, threshold) \
-            for emoji_flag in [0,1] for top_emo_flag in [0,1] \
-                for threshold in np.linspace(0, 1, num=10)]
-    
-    for emoji_flag, top_emo_flag, threshold in grid:
-        
-        print("""
-        - emoji_flag: {},
-        - top_emo_flag: {},
-        - threshold: {}
-        """.format(emoji_flag, top_emo_flag, threshold))
-
-        tweet_df = preprocess(file_name, emoji_flag=emoji_flag)
-
-        #replace/append output df with df of each emoji_flag value
-        if df_out.empty:
-            df_out = eval(tweet_df, emotion_classification(tweet_df["processed_tweets"], \
-                                                           threshold, top_emo_flag=top_emo_flag), emoji_flag)
-        else:
-            df_out = pd.concat([df_out, eval(tweet_df, \
-                                             emotion_classification(tweet_df["processed_tweets"], \
-                                                                    threshold, top_emo_flag=top_emo_flag), emoji_flag)])
-        
-    df_out.to_csv(outfile)
+                
+            df_out[emotion] = emo_col
+        df_out.to_csv("labelled_manual.csv", index=False)
 
 if __name__ == '__main__':
     main()
