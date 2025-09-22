@@ -326,14 +326,14 @@ def main():
     parser.add_argument("--output", required=True, help="output directory")
     args = parser.parse_args()
 
-    #Create consolidating json and output
+    # Create consolidating json and output
     with open("dataDict.json", "w+") as o:
         json.dump(csvToJson(args.wordsDir[0]), o, indent=2, ensure_ascii=False)
     
-    #Get list of arguments to be passed
+    # Get list of arguments to be passed
     argsList = getArgsList("dataDict.json")
 
-    #Run for each iteration
+    # Run for each iteration
     t0 = time.time()
     for i, argDict in enumerate(argsList):
         print("Country: "+ argDict["ISO"]+"; Topic: "+argDict["topic"]+\
